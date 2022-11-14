@@ -1,0 +1,44 @@
+@use '../../node_modules/@angular/material/index' as mat;
+@include mat.core();
+
+$primary-palette: (
+ 100: var(--ion-color-primary),
+ 500: var(--ion-color-primary-shade),
+ 700: var(--ion-color-primary-tint),
+      contrast: (
+      )
+);
+
+$accent-palette: (
+ 100: var(--ion-color-secondary),
+ 500: var(--ion-color-secondary-shade),
+ 700: var(--ion-color-secondary-tint),
+      contrast: (
+      )
+);
+
+$error-palette: (
+ 100: var(--ion-color-danger),
+ 500: var(--ion-color-danger-shade),
+ 700: var(--ion-color-danger-tint),
+  contrast: (
+  )
+);
+
+$bs-primary: mat.define-palette($primary-palette);
+$bs-accent: mat.define-palette($accent-palette);
+$bs-warn: mat.define-palette($error-palette);
+$bs-typography: mat.define-typography-config(
+  $font-family: 'Lato, sans-serif'
+);
+
+$bs-theme: mat.define-light-theme((
+  color: (
+    primary: $bs-primary,
+    accent: $bs-accent,
+    warn: $bs-warn
+  ),
+  typography: $bs-typography
+));
+
+@include mat.all-component-themes($bs-theme);
