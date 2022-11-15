@@ -13,6 +13,7 @@ module.exports = {
                 warning: '#ffc409',
                 danger: '#eb445a',
                 softGray: '#ECEDF3',
+                mediumGray: '#53587A',
                 barely: '#A1A5C1',
             },
             fontSize: {

@@ -1,0 +1,39 @@
+:host {
+  ion-item {
+    --background: theme('colors.softGray');
+    --border-radius: theme('borderRadius.default');
+    --border-width: 1px;
+    --border-color: transparent;
+    --padding-top: theme('padding.3');
+    --padding-bottom: theme('padding.3');
+    overflow: visible;
+
+    ion-icon {
+      font-size: 24px;
+    }
+
+    --transition: .2s;
+
+    &.item-has-focus {
+      --border-color: theme('colors.secondary');
+    }
+
+    ion-note {
+      left: 1rem;
+      top: 65px;
+    }
+
+    &.ion-invalid.ion-dirty {
+      ion-icon {
+        color: theme('colors.danger');
+      }
+
+      --border-color: theme('colors.danger');
+    }
+
+    ion-input {
+      --placeholder-color: theme('colors.barely');
+      --color: theme('colors.tertiary');
+    }
+  }
+}

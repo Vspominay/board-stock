@@ -106,7 +106,9 @@ $app-theme: mat.define-light-theme((
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  --ion-font-family: 'Lato'
+  --ion-font-family: 'Lato';
+  --ion-text-color: theme('colors.secondary');
+
 }
 
 ion-button {

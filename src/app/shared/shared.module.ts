@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ButtonComponent } from './components/button/button.component';
+import { InputComponent } from './components/input/input.component';
+import { ErrorControlPipe } from './error-control.pipe';
 
 export const translationConfig = {
   loader: {
@@ -15,15 +18,19 @@ export const translationConfig = {
 };
 
 @NgModule({
-  declarations: [
-    ButtonComponent
-  ],
+  declarations: [InputComponent, ErrorControlPipe],
   imports: [
     CommonModule,
     TranslateModule.forRoot(translationConfig),
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
-    TranslateModule
+    TranslateModule,
+    InputComponent,
+    ErrorControlPipe
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

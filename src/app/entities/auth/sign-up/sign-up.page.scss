@@ -1,0 +1,7 @@
+:host {
+  ::ng-deep {
+    b {
+      font-weight: theme('fontWeight.bold');
+    }
+  }
+}

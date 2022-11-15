@@ -1,0 +1,22 @@
+<ion-header mode="ios" class="ion-no-border bg-none">
+  <ion-toolbar class="ion-padding-top px-3">
+    <ion-buttons slot="start">
+      <ion-back-button slot="icon-only" text="" [icon]="backButtonIcon" defaultHref="/sign-in"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="text-sm" *ngIf="title">{{title}}</ion-title>
+
+    <ion-buttons *ngIf="secondAdditionalIcon" slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" [src]="secondAdditionalIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="additionalIcon" slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" [src]="additionalIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

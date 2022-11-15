@@ -1,0 +1,10 @@
+<ion-item class="relative" lines="none" mode="ios" fill="outline">
+  <ion-icon [slot]="iconPosition" [src]="icon"></ion-icon>
+  <ion-icon *ngIf="isPasswordField"
+            class="cursor-pointer"
+            (click)="onHide()"
+            [slot]="iconPosition === 'start' ? 'end' : 'start'"
+            [name]="( isHide ? 'eye-off-outline' : 'eye-outline')"></ion-icon>
+  <ng-content></ng-content>
+  <ion-note class="absolute" *ngIf="error && hasError" slot="error">{{error}}</ion-note>
+</ion-item>

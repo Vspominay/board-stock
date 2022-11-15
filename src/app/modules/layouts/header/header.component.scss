@@ -1,0 +1,24 @@
+:host {
+  ion-toolbar {
+    --background: #ffffff;
+    --color: theme('colors.tertiary');
+  }
+
+  ion-button, ion-back-button {
+    --background: theme('colors.softGray');
+    width: 50px;
+    max-width: 50px;
+    height: 50px;
+    --border-radius: 50%
+  }
+
+  ion-back-button {
+    --icon-font-size: 18px;
+  }
+
+  ion-button {
+    ion-icon {
+      font-size: 18px;
+    }
+  }
+}

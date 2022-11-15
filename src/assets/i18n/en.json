@@ -1,0 +1,26 @@
+{
+  "placeholders": {
+    "fullName": "Full name",
+    "email": "Email",
+    "password": "Password"
+  },
+  "appTitles": {
+  },
+  "buttons": {
+  },
+  "errors": {
+    "pattern": "Invalid format",
+    "required": "Field is required"
+  },
+  "welcomePage": {
+    "readyExplore": "Ready to <b>explore?<b/>",
+    "continueEmail": "Continue with Email",
+    "or": "or",
+    "dontHaveAccount": "Don’t have an account?",
+    "register": "Register"
+  },
+  "signUp": {
+    "createAccount": "Create your <b>account<b/>",
+    "fillInformation": "Fill in the required information below"
+  }
+}

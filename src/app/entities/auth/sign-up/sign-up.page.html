@@ -1,12 +1,71 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button text="" icon="assets/icons/back-arrow.svg" defaultHref="/sign-in"></ion-back-button>
-    </ion-buttons>
-    <ion-title>sign-up</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
+  <ion-grid class="py-10">
+    <ion-row class="mb-8">
+      <ion-col>
+        <ion-text class="tracking-wider">
+          <h1 class="" [innerHTML]="'signUp.createAccount' | translate"></h1>
+          <span class="text-xs text-mediumGray">{{'signUp.fillInformation' | translate}}</span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
 
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <ion-row class="mb-3">
+        <ion-col>
+          <app-input
+            [hasError]="signUpForm.get('name').invalid && signUpForm.get('name').dirty"
+            [error]="(signUpForm.get('name').errors | errorControl) | translate"
+            icon="assets/icons/profile.svg">
+            <ion-input inputmode="text"
+                       [type]="'text'"
+                       formControlName="name"
+                       [placeholder]="'placeholders.fullName' | translate"></ion-input>
+          </app-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="mb-3">
+        <ion-col>
+          <app-input
+            [hasError]="signUpForm.get('email').invalid && signUpForm.get('email').dirty"
+            [error]="(signUpForm.get('email').errors | errorControl) | translate"
+            icon="assets/icons/email.svg">
+            <ion-input inputmode="email"
+                       [type]="'email'"
+                       formControlName="email"
+                       [placeholder]="'placeholders.email' | translate"></ion-input>
+          </app-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="mb-3">
+        <ion-col>
+          <app-input
+            [hasError]="signUpForm.get('password').invalid && signUpForm.get('password').dirty"
+            [isPasswordField]="true"
+            [error]="(signUpForm.get('password').errors | errorControl) | translate"
+            (onHideEv)="isShowPassword = !$event"
+            icon="assets/icons/lock.svg">
+            <ion-input inputmode="password"
+                       [type]="isShowPassword ? 'text' : 'password'"
+                       formControlName="password"
+                       [placeholder]="'placeholders.password' | translate"></ion-input>
+          </app-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="">
+        <ion-col size="10" offset="1">
+          <ion-button [disabled]="signUpForm.invalid"
+                      [type]="'submit'"
+                      expand="block"
+                      class="text-white capitalize tracking-wider text-base">
+            {{'welcomePage.register' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>
