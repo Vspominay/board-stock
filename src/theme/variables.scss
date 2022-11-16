@@ -109,6 +109,9 @@ $app-theme: mat.define-light-theme((
   --ion-font-family: 'Lato';
   --ion-text-color: theme('colors.secondary');
 
+  .select-modal-container {
+    --border-radius: 40px 40px 0 0;
+  }
 }
 
 ion-button {

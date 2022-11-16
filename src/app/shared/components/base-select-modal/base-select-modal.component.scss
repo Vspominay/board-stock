@@ -1,0 +1,15 @@
+:host {
+  ion-content {
+    --padding-bottom: theme('padding.6');
+    --padding-end: theme('padding.6');
+    --padding-start: theme('padding.6');
+    --padding-top: theme('padding.6');
+    overflow: hidden;
+  }
+
+  ion-toolbar {
+    --padding-top: theme('padding.8');
+    --padding-bottom: theme('padding.6');
+  }
+
+}

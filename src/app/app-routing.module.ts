@@ -5,12 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('../app/entities/auth/auth.module').then(m => m.AuthPageModule)
-  }
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./entities/home/home.module').then( m => m.HomePageModule)
+  },
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

@@ -20,7 +20,7 @@ module.exports = {
                 xs: ['12px', '18px'],
                 sm: ['14px', '20px'],
                 base: ['16px', '24px'],
-                lg: ['20px', '26px'],
+                lg: ['18px', '22px'],
                 xl: ['25px', '40px'],
             },
             fontWeight: {

@@ -1,0 +1,31 @@
+<ion-header mode="md" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="text-lg text-tertiary font-bold" slot="start">
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-content></ng-content>
+</ion-content>
+
+<ion-grid *ngIf="confirmText">
+  <ion-row>
+    <ion-col class="bg-white">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="10" offset="1">
+            <ion-button
+              expand="block"
+              class="text-white capitalize tracking-wider text-base"
+            >
+              {{confirmText}}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

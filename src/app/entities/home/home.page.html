@@ -1,0 +1,42 @@
+<ion-header mode="ios" class="ion-no-border bg-none">
+  <ion-toolbar class="ion-padding-top px-3">
+    <!--    <ion-list slot="start">-->
+    <!--      <ion-item>-->
+    <!--        <ion-select interface="action-sheet" placeholder="Select fruit">-->
+    <!--          <ion-select-option value="apples">Apples</ion-select-option>-->
+    <!--          <ion-select-option value="oranges">Oranges</ion-select-option>-->
+    <!--          <ion-select-option value="bananas">Bananas</ion-select-option>-->
+    <!--        </ion-select>-->
+    <!--      </ion-item>-->
+    <!--    </ion-list>-->
+
+    <ion-buttons>
+      <ion-button (click)="selectLocation()">
+        Click for select location
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end" class="mr-2">
+      <ion-button class="toolbar-item border notification-block border-primary">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-badge class="notification-badge" color="danger">1</ion-badge>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-item slot="end"
+              class="ion-text-center toolbar-item  border border-softGray p-0.5"
+              [detail]="false"
+              lines="none">
+      <ion-avatar class="mx-auto min-h-full min-w-full">
+        <img src="../../../assets/images/user.jpg" alt="avatar">
+      </ion-avatar>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+</ion-content>

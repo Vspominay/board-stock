@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
 import { InputComponent } from './components/input/input.component';
 import { ErrorControlPipe } from './error-control.pipe';
 
@@ -18,7 +19,7 @@ export const translationConfig = {
 };
 
 @NgModule({
-  declarations: [InputComponent, ErrorControlPipe],
+  declarations: [InputComponent, ErrorControlPipe, BaseSelectModalComponent],
   imports: [
     CommonModule,
     TranslateModule.forRoot(translationConfig),
@@ -29,7 +30,8 @@ export const translationConfig = {
   exports: [
     TranslateModule,
     InputComponent,
-    ErrorControlPipe
+    ErrorControlPipe,
+    BaseSelectModalComponent
   ]
 })
 export class SharedModule {

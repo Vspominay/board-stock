@@ -17,7 +17,9 @@
     "continueEmail": "Continue with Email",
     "or": "or",
     "dontHaveAccount": "Don’t have an account?",
-    "register": "Register"
+    "register": "Register",
+    "selectLocation": "Select Location",
+    "chooseLocation": "Choose Location"
   },
   "signUp": {
     "createAccount": "Create your <b>account<b/>",
