@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
+import { InfoItemComponent } from './components/info-item/info-item.component';
 import { InputComponent } from './components/input/input.component';
 import { ErrorControlPipe } from './error-control.pipe';
 
@@ -19,7 +20,12 @@ export const translationConfig = {
 };
 
 @NgModule({
-  declarations: [InputComponent, ErrorControlPipe, BaseSelectModalComponent],
+  declarations: [
+    InputComponent,
+    ErrorControlPipe,
+    BaseSelectModalComponent,
+    InfoItemComponent
+  ],
   imports: [
     CommonModule,
     TranslateModule.forRoot(translationConfig),
@@ -31,7 +37,8 @@ export const translationConfig = {
     TranslateModule,
     InputComponent,
     ErrorControlPipe,
-    BaseSelectModalComponent
+    BaseSelectModalComponent,
+    InfoItemComponent
   ]
 })
 export class SharedModule {

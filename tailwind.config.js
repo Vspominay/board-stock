@@ -29,7 +29,8 @@ module.exports = {
                 regular: 300
             },
             borderRadius: {
-                default: '10px'
+                default: '10px',
+                largeRadius: '25px',
             }
         },
     },
