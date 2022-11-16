@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AVAILABLE_LOCATIONS } from './components/modal-select-location/data/available-locations.data';
 import { ModalSelectLocationComponent } from './components/modal-select-location/modal-select-location.component';
 
 @Component({
@@ -9,9 +10,16 @@ import { ModalSelectLocationComponent } from './components/modal-select-location
 })
 export class HomePage implements OnInit {
 
+  public currentLocation!: { label: string, value: string };
+
   constructor(private _modalCtrl: ModalController) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+    //TODO will be deleted after api integration
+    this.currentLocation = {
+      label: AVAILABLE_LOCATIONS.labels[0],
+      value: AVAILABLE_LOCATIONS.values[0]
+    };
   }
 
   public selectLocation() {
@@ -19,11 +27,21 @@ export class HomePage implements OnInit {
       component: ModalSelectLocationComponent,
       breakpoints: [0.55],
       initialBreakpoint: 0.55,
+      componentProps: {
+        locations: AVAILABLE_LOCATIONS,
+        currentLocation: this.currentLocation.value
+      },
       cssClass: ['select-modal-container'],
       mode: 'md'
     })
         .then(modalEl => {
           modalEl.present();
+          return modalEl.onDidDismiss();
+        })
+        .then(res => {
+          if (res.role === 'confirm') {
+            this.currentLocation = { ...res.data };
+          }
         });
   }
 }

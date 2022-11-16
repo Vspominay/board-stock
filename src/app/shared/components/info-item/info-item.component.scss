@@ -1,4 +1,7 @@
 :host {
+  display: block;
+  width: 100%;
+
   ion-item {
     --padding-start: 15px;
     --padding-end: 15px;
@@ -21,7 +24,7 @@
     }
 
     &.disabled {
-      opacity: .5;
+      opacity: .7;
       pointer-events: none;
     }
   }

@@ -1,10 +1,10 @@
 :host {
   ion-toolbar {
-    --background: #ffffff;
+    --background: transparent;
     --color: theme('colors.tertiary');
-  }
-
-  ion-button {
+    --padding-bottom: 24px;
+    --padding-top: 24px;
+    height: 100px;
   }
 
   ion-item.toolbar-item {
@@ -12,10 +12,37 @@
     --padding-end: 0;
   }
 
-
   img {
     height: 100%;
     object-fit: cover;
+  }
+
+  .decoration-shape {
+    width: 362px;
+    height: 362px;
+    border-radius: 50%;
+    position: absolute;
+    left: -120px;
+    top: -120px;
+    opacity: .2;
+    background: theme('colors.secondary');
+  }
+
+  .location-chip {
+    padding: 25px 18px;
+    --background: theme('colors.white');
+    max-width: 163px;
+
+    ion-icon {
+      font-size: 24px;
+      color: theme('colors.secondary');
+    }
+
+    ion-label {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 
   .toolbar-item {

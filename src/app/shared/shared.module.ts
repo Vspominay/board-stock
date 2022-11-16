@@ -9,6 +9,7 @@ import { BaseSelectModalComponent } from './components/base-select-modal/base-se
 import { InfoItemComponent } from './components/info-item/info-item.component';
 import { InputComponent } from './components/input/input.component';
 import { ErrorControlPipe } from './error-control.pipe';
+import { RadioButtonsComponent } from './components/radio-buttons/radio-buttons.component';
 
 export const translationConfig = {
   loader: {
@@ -24,7 +25,8 @@ export const translationConfig = {
     InputComponent,
     ErrorControlPipe,
     BaseSelectModalComponent,
-    InfoItemComponent
+    InfoItemComponent,
+    RadioButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ export const translationConfig = {
     InputComponent,
     ErrorControlPipe,
     BaseSelectModalComponent,
-    InfoItemComponent
+    InfoItemComponent,
+    RadioButtonsComponent
   ]
 })
 export class SharedModule {

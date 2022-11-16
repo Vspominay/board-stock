@@ -1,0 +1,15 @@
+:host {
+  ion-radio {
+    margin: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+  }
+}

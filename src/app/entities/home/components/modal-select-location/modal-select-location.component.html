@@ -1,9 +1,14 @@
 <app-base-select-modal
   [title]="'welcomePage.selectLocation' | translate"
   [confirmText]="'welcomePage.chooseLocation' | translate"
+  (onConfirm)="onConfirm()"
 >
-  <app-info-item
-    [label]="'Petompon, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232'"
-    [avatar]="'assets/icons/location.svg'"
-  ></app-info-item>
+  <app-radio-buttons
+    [labels]="locations.labels"
+    [values]="locations.values"
+    [formControl]="locationsFormControl"
+    [avatars]="locations.avatars"
+    [disabledIndexes]="locations.disabledIndexes"
+  ></app-radio-buttons>
+
 </app-base-select-modal>

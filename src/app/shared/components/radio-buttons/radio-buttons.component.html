@@ -1,0 +1,16 @@
+<ion-radio-group [(ngModel)]="selectedValue">
+  <ion-item [lines]="'none'"
+            (click)="onChange({label: labels[i], value: values[i]})"
+            [detail]="false"
+            class="mb-3"
+            *ngFor="let value of values; let i = index">
+    <app-info-item
+      [isActive]="value === selectedValue"
+      [label]="labels[i]"
+      [disabled]="isDisabled(disabledIndexes, i)"
+      [isIcon]="avatars && avatars[i].isIcon"
+      [avatar]="avatars && avatars[i].avatar"
+    ></app-info-item>
+    <ion-radio [disabled]="isDisabled(disabledIndexes, i)" [value]="value"></ion-radio>
+  </ion-item>
+</ion-radio-group>

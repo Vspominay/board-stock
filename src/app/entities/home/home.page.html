@@ -1,20 +1,11 @@
 <ion-header mode="ios" class="ion-no-border bg-none">
+  <div class="decoration-shape"></div>
   <ion-toolbar class="ion-padding-top px-3">
-    <!--    <ion-list slot="start">-->
-    <!--      <ion-item>-->
-    <!--        <ion-select interface="action-sheet" placeholder="Select fruit">-->
-    <!--          <ion-select-option value="apples">Apples</ion-select-option>-->
-    <!--          <ion-select-option value="oranges">Oranges</ion-select-option>-->
-    <!--          <ion-select-option value="bananas">Bananas</ion-select-option>-->
-    <!--        </ion-select>-->
-    <!--      </ion-item>-->
-    <!--    </ion-list>-->
-
-    <ion-buttons>
-      <ion-button (click)="selectLocation()">
-        Click for select location
-      </ion-button>
-    </ion-buttons>
+    <ion-chip class="location-chip ion-color-tertiary" (click)="selectLocation()">
+      <ion-icon color="secondary" src="assets/icons/location.svg"></ion-icon>
+      <ion-label>{{currentLocation.label}}</ion-label>
+      <ion-icon color="secondary" name="chevron-down-outline"></ion-icon>
+    </ion-chip>
 
 
     <ion-buttons slot="end" class="mr-2">
@@ -37,6 +28,6 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
 </ion-content>
