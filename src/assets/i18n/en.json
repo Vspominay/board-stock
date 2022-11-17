@@ -7,6 +7,7 @@
   "appTitles": {
   },
   "buttons": {
+    "explore": "explore"
   },
   "errors": {
     "pattern": "Invalid format",
@@ -17,12 +18,17 @@
     "continueEmail": "Continue with Email",
     "or": "or",
     "dontHaveAccount": "Don’t have an account?",
-    "register": "Register",
-    "selectLocation": "Select Location",
-    "chooseLocation": "Choose Location"
+    "register": "Register"
   },
   "signUp": {
     "createAccount": "Create your <b>account<b/>",
     "fillInformation": "Fill in the required information below"
+  },
+  "homePage": {
+    "selectLocation": "Select Location",
+    "chooseLocation": "Choose Location",
+    "searchPlaceholder": "Search House, Apartment, etc",
+    "welcomeText": "Hey, <span class='decorated-name'>{{name}}</span>! Let's start exploring",
+    "topBannerAgents": "Top Banner Agents"
   }
 }

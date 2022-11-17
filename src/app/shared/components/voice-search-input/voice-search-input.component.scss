@@ -1,0 +1,23 @@
+:host {
+
+  .search {
+    height: 70px;
+    padding: 0;
+    --background: theme('colors.softGray');
+    --icon-color: theme('colors.tertiary');
+
+    ::ng-deep {
+      .searchbar-input-container {
+        height: 100%;
+
+        input {
+          padding: 0 50px;
+        }
+
+        ion-icon {
+          left: 20px;
+        }
+      }
+    }
+  }
+}

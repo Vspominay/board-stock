@@ -1,7 +1,7 @@
 <ion-header mode="ios" class="ion-no-border bg-none">
-  <div class="decoration-shape"></div>
+
   <ion-toolbar class="ion-padding-top px-3">
-    <ion-chip class="location-chip ion-color-tertiary" (click)="selectLocation()">
+    <ion-chip class="location-chip" (click)="selectLocation()">
       <ion-icon color="secondary" src="assets/icons/location.svg"></ion-icon>
       <ion-label>{{currentLocation.label}}</ion-label>
       <ion-icon color="secondary" name="chevron-down-outline"></ion-icon>
@@ -27,7 +27,32 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="content" [fullscreen]="true">
+  <div class="decoration-shape"></div>
 
-<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="mb-2.5 flex ion-justify-content-center">
+      <ion-col size="11">
+        <ion-text class="tracking-wider">
+          <h1 [innerHTML]="'homePage.welcomeText' | translate : {name: userName}"></h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
 
+    <ion-row class="flex ion-justify-content-center mb-5">
+      <ion-col size="11">
+        <app-voice-search-input [placeholder]="'homePage.searchPlaceholder' | translate"></app-voice-search-input>
+      </ion-col>
+    </ion-row>
+
+    <app-selection-items [exploreLink]="'/agents'"
+                         [title]="'homePage.topBannerAgents' | translate"
+                         [exploreText]="'buttons.explore' | translate">
+      <ion-row class="flex-nowrap overflow-x-auto">
+        <ion-col *ngFor="let agent of billboardOwners">
+          <app-billboard-owner [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
+        </ion-col>
+      </ion-row>
+    </app-selection-items>
+  </ion-grid>
 </ion-content>

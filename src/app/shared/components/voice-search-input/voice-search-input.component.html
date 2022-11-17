@@ -1,0 +1,10 @@
+<ion-searchbar
+  mode="ios"
+  inputmode="search"
+  [placeholder]="placeholder"
+  class="search"
+  showClearButton="never"
+  [spellcheck]="true"
+  type="search"
+  [debounce]="300" (ionFocus)="onTouched()" (ionChange)="value = $event">
+</ion-searchbar>

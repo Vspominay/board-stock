@@ -1,0 +1,11 @@
+<ion-item mode="ios" [detail]="false" lines="none" class="text-tertiary mb-2">
+  <ion-label slot="start">
+    <h2>{{title}}</h2>
+  </ion-label>
+  <ion-text class="text-sm cursor-pointer"
+            slot="end"
+            *ngIf="exploreText && exploreLink"
+            [routerLink]="exploreLink">{{exploreText}}</ion-text>
+</ion-item>
+
+<ng-content></ng-content>

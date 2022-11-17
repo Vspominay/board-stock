@@ -1,4 +1,11 @@
 :host {
+  ::ng-deep {
+    .decorated-name {
+      font-weight: theme('fontWeight.bold');
+      color: theme('colors.secondary');
+    }
+  }
+
   ion-toolbar {
     --background: transparent;
     --color: theme('colors.tertiary');
@@ -17,6 +24,10 @@
     object-fit: cover;
   }
 
+  h1 {
+    color: theme('colors.tertiary');
+  }
+
   .decoration-shape {
     width: 362px;
     height: 362px;
@@ -25,16 +36,21 @@
     left: -120px;
     top: -120px;
     opacity: .2;
+    z-index: -1;
     background: theme('colors.secondary');
   }
 
   .location-chip {
     padding: 25px 18px;
     --background: theme('colors.white');
+    --color: theme('colors.tertiary');
     max-width: 163px;
 
     ion-icon {
       font-size: 24px;
+      max-width: 15px;
+      min-width: 15px;
+      height: 15px;
       color: theme('colors.secondary');
     }
 

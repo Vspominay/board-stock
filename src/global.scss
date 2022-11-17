@@ -34,9 +34,20 @@ body {
   color: theme('colors.secondary');
 }
 
+h1, h2 {
+  margin: 0;
+}
+
 h1 {
   font-size: theme('fontSize.xl[0]');
   line-height: theme('fontSize.xl[1]');
   color: theme('colors.secondary');
-  margin: 0;
+}
+
+.sc-ion-label-ios-s h2, .sc-ion-label-md-s h2, h2 {
+  font-size: theme('fontSize.lg[0]');
+  line-height: theme('fontSize.lg[1]');
+  font-weight: theme('fontWeight.bold');
+  color: theme('colors.tertiary');
+  letter-spacing: 0.03px;
 }
