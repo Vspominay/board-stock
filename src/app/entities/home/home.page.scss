@@ -97,4 +97,17 @@
       position: absolute;
     }
   }
+
+  .horizontal-scroll {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  app-selection-items {
+    margin-bottom: theme('margin.9');
+  }
 }

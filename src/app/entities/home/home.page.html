@@ -48,9 +48,26 @@
     <app-selection-items [exploreLink]="'/agents'"
                          [title]="'homePage.topBannerAgents' | translate"
                          [exploreText]="'buttons.explore' | translate">
-      <ion-row class="flex-nowrap overflow-x-auto">
+      <ion-row class="horizontal-scroll flex-nowrap overflow-x-auto">
         <ion-col *ngFor="let agent of billboardOwners">
           <app-billboard-owner [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
+        </ion-col>
+      </ion-row>
+    </app-selection-items>
+
+
+    <app-selection-items [exploreLink]="'/billboards'"
+                         [title]="'homePage.nearbyBillboards' | translate"
+                         [exploreText]="'buttons.explore' | translate">
+      <ion-row>
+        <ion-col size="6" *ngFor="let billboard of billboards">
+          <app-board-card
+            [title]="billboard.title"
+            [price]="billboard.price"
+            [img]="billboard.img"
+            [isFavorite]="billboard.isFavorite"
+            [location]="billboard.location"
+            [rate]="billboard.rate"></app-board-card>
         </ion-col>
       </ion-row>
     </app-selection-items>

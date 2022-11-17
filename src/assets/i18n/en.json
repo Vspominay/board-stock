@@ -9,6 +9,9 @@
   "buttons": {
     "explore": "explore"
   },
+  "suffixes": {
+    "month": "month"
+  },
   "errors": {
     "pattern": "Invalid format",
     "required": "Field is required"
@@ -29,6 +32,7 @@
     "chooseLocation": "Choose Location",
     "searchPlaceholder": "Search House, Apartment, etc",
     "welcomeText": "Hey, <span class='decorated-name'>{{name}}</span>! Let's start exploring",
-    "topBannerAgents": "Top Banner Agents"
+    "topBannerAgents": "Top Banner Agents",
+    "nearbyBillboards": "Explore Nearby Billboards"
   }
 }

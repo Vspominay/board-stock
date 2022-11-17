@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { TABS } from '../../constants/tabs.constant';
 
-import { AVAILABLE_LOCATIONS } from './components/modal-select-location/data/available-locations.data';
-import { BILLBOARD_OWNERS } from './components/modal-select-location/data/billboard-owers.data';
+import { AVAILABLE_LOCATIONS } from './data/available-locations.data';
+import { BILLBOARD_OWNERS } from './data/billboard-owers.data';
 import { ModalSelectLocationComponent } from './components/modal-select-location/modal-select-location.component';
+import { BILLBOARDS } from './data/billboards.data';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +13,13 @@ import { ModalSelectLocationComponent } from './components/modal-select-location
 })
 export class HomePage implements OnInit {
 
+  //TODO delete it after api integration
   public currentLocation!: { label: string, value: string };
   public userName: string = 'John';
   public billboardOwners = [...BILLBOARD_OWNERS];
-  public tabs = [...TABS];
+  public billboards = [...BILLBOARDS];
 
-  constructor(private _modalCtrl: ModalController) { }
+  constructor(private _modalCtrl: ModalController, private _changeDetectorRef: ChangeDetectorRef) { }
 
   public ngOnInit() {
     //TODO will be deleted after api integration
@@ -47,6 +48,7 @@ export class HomePage implements OnInit {
         .then(res => {
           if (res.role === 'confirm') {
             this.currentLocation = { ...res.data };
+            this._changeDetectorRef.detectChanges();
           }
         });
   }

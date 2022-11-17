@@ -1,0 +1,37 @@
+<ion-card mode="ios">
+  <div class="img-block relative mb-2.5">
+    <ion-img [src]="img" [alt]="title"></ion-img>
+    <ion-item
+      [class.favorite]="isFavorite"
+      lines="none"
+      [detail]="false"
+      class="like cursor-pointer absolute w-fit top-2 right-2 rounded-full"
+    >
+      <ion-icon [src]="isFavorite ? 'assets/icons/heart-fill.svg' : 'assets/icons/heart.svg'"></ion-icon>
+    </ion-item>
+
+    <ion-item lines="none"
+              [detail]="false"
+              class="price absolute w-fit right-2 bottom-2 tracking-wider rounded-lg ">
+      <ion-text>
+        {{price | currency}}
+        <span>/{{'suffixes.month' | translate}}</span>
+      </ion-text>
+    </ion-item>
+  </div>
+
+  <ion-card-header>
+    <ion-card-title class="text-tertiary text-sm font-bold">{{title}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="flex items-center">
+    <ion-item [detail]="false" lines="none" class="rate-item">
+      <ion-icon class="text-warning rate-icon" src="assets/icons/rate.svg"></ion-icon>
+      <ion-label class="font-bold">{{rate}}</ion-label>
+    </ion-item>
+    <ion-item [detail]="false" lines="none" class="location-item">
+      <ion-icon src="assets/icons/location.svg"></ion-icon>
+      <ion-label>{{location}}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
