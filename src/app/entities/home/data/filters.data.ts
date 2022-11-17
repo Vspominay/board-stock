@@ -1,0 +1,1 @@
+export const FILTERS: string[] = ['All', 'Digital', 'Near the road', 'Premium', 'Discount'];

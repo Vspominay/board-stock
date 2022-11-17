@@ -9,6 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
 import { BillboardOwnerComponent } from './components/billboard-owner/billboard-owner.component';
 import { BoardCardComponent } from './components/board-card/board-card.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { InfoItemComponent } from './components/info-item/info-item.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectionItemsComponent } from './components/selection-items/selection-items.component';
@@ -35,7 +36,8 @@ export const translationConfig = {
     VoiceSearchInputComponent,
     BillboardOwnerComponent,
     SelectionItemsComponent,
-    BoardCardComponent
+    BoardCardComponent,
+    CheckboxComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,8 @@ export const translationConfig = {
     VoiceSearchInputComponent,
     BillboardOwnerComponent,
     SelectionItemsComponent,
-    BoardCardComponent
+    BoardCardComponent,
+    CheckboxComponent
   ]
 })
 export class SharedModule {

@@ -7,7 +7,8 @@
   "appTitles": {
   },
   "buttons": {
-    "explore": "explore"
+    "explore": "explore",
+    "viewAll": "view all"
   },
   "suffixes": {
     "month": "month"
@@ -30,9 +31,10 @@
   "homePage": {
     "selectLocation": "Select Location",
     "chooseLocation": "Choose Location",
-    "searchPlaceholder": "Search House, Apartment, etc",
+    "searchPlaceholder": "Search Billboards, Addresses, etc",
     "welcomeText": "Hey, <span class='decorated-name'>{{name}}</span>! Let's start exploring",
     "topBannerAgents": "Top Banner Agents",
-    "nearbyBillboards": "Explore Nearby Billboards"
+    "nearbyBillboards": "Explore Nearby Billboards",
+    "featuredBillboards": "Featured Billboards"
   }
 }

@@ -1,0 +1,22 @@
+:host {
+  ion-item {
+    width: fit-content;
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --padding-start: theme('padding.6');
+    --padding-end: theme('padding.6');
+    --border-radius: theme('borderRadius.largeRadius');
+  }
+
+  ion-checkbox {
+    margin: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  .unselected {
+    --background: theme('colors.softGray');
+    --color: theme('colors.tertiary');
+  }
+}

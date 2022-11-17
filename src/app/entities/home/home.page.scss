@@ -99,6 +99,8 @@
   }
 
   .horizontal-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {

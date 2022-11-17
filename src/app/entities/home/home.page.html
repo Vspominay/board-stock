@@ -45,10 +45,34 @@
       </ion-col>
     </ion-row>
 
+    <ion-row class="horizontal-scroll mb-5">
+      <ion-col *ngFor="let filter of filters; let i = index">
+        <app-checkbox [title]="filter" [value]="i === 0"></app-checkbox>
+      </ion-col>
+    </ion-row>
+
+    <app-selection-items [exploreLink]="'/featured-billboards'"
+                         [title]="'homePage.featuredBillboards' | translate"
+                         [exploreText]="'buttons.viewAll' | translate">
+      <ion-row class="horizontal-scroll">
+        <ion-col *ngFor="let billboard of featuredBillboards; let i = index">
+          <app-board-card
+            [id]="i"
+            [title]="billboard.title"
+            [price]="billboard.price"
+            [img]="billboard.img"
+            [isFavorite]="billboard.isFavorite"
+            [location]="billboard.location"
+            view="horizontal"
+            [rate]="billboard.rate"></app-board-card>
+        </ion-col>
+      </ion-row>
+    </app-selection-items>
+
     <app-selection-items [exploreLink]="'/agents'"
                          [title]="'homePage.topBannerAgents' | translate"
                          [exploreText]="'buttons.explore' | translate">
-      <ion-row class="horizontal-scroll flex-nowrap overflow-x-auto">
+      <ion-row class="horizontal-scroll">
         <ion-col *ngFor="let agent of billboardOwners;let i = index">
           <app-billboard-owner [id]="i" [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
         </ion-col>
