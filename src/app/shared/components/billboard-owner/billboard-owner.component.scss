@@ -2,6 +2,7 @@
   ion-item {
     width: fit-content;
     --padding-start: 5px;
+    --border-radius: theme('borderRadius.default');
 
     ion-avatar {
       width: 70px;

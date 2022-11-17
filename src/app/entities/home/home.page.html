@@ -9,7 +9,7 @@
 
 
     <ion-buttons slot="end" class="mr-2">
-      <ion-button class="toolbar-item border notification-block border-primary">
+      <ion-button class="toolbar-item border bg-white notification-block border-primary">
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
         <ion-badge class="notification-badge" color="danger">1</ion-badge>
       </ion-button>
@@ -49,8 +49,8 @@
                          [title]="'homePage.topBannerAgents' | translate"
                          [exploreText]="'buttons.explore' | translate">
       <ion-row class="horizontal-scroll flex-nowrap overflow-x-auto">
-        <ion-col *ngFor="let agent of billboardOwners">
-          <app-billboard-owner [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
+        <ion-col *ngFor="let agent of billboardOwners;let i = index">
+          <app-billboard-owner [id]="i" [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
         </ion-col>
       </ion-row>
     </app-selection-items>
@@ -60,8 +60,9 @@
                          [title]="'homePage.nearbyBillboards' | translate"
                          [exploreText]="'buttons.explore' | translate">
       <ion-row>
-        <ion-col size="6" *ngFor="let billboard of billboards">
+        <ion-col size="6" *ngFor="let billboard of billboards; let i = index">
           <app-board-card
+            [id]="i"
             [title]="billboard.title"
             [price]="billboard.price"
             [img]="billboard.img"
