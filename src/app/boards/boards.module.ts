@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { LayoutsModule } from '../modules/layouts/layouts.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { BoardsPageRoutingModule } from './boards-routing.module';
 
 import { BoardsPage } from './boards.page';
@@ -13,8 +16,11 @@ import { BoardsPage } from './boards.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    BoardsPageRoutingModule
+    BoardsPageRoutingModule,
+    LayoutsModule,
+    SharedModule
   ],
   declarations: [BoardsPage]
 })
-export class BoardsPageModule {}
+export class BoardsPageModule {
+}

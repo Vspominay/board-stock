@@ -1,0 +1,20 @@
+:host {
+
+  ::ng-deep .found-title span {
+    font-weight: theme('fontWeight.bold');
+  }
+
+  ion-label {
+    overflow: visible;
+    text-overflow: initial;
+
+    .found-title {
+      font-weight: theme('fontWeight.normal');
+    }
+  }
+
+  cdk-virtual-scroll-viewport {
+    height: 100%;
+    width: 100%;
+  }
+}

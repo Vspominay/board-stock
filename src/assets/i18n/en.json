@@ -36,5 +36,10 @@
     "topBannerAgents": "Top Banner Agents",
     "nearbyBillboards": "Explore Nearby Billboards",
     "featuredBillboards": "Featured Billboards"
+  },
+  "searchBillboards": {
+    "title": "Search results",
+    "searchPlaceholder": "Search billboard by name",
+    "foundBillboards": "Found <span class='decorated-name'>{{count}}</span> billboards"
   }
 }

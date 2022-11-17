@@ -1,9 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>boards</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header defaultHref="/home"
+            [title]="'searchBillboards.title' | translate"
+            additionalIcon="assets/icons/setting.svg"></app-header>
 
 <ion-content>
 
+  <ion-row class="flex h-full ion-justify-content-center mb-5">
+    <ion-col size="11">
+      <app-voice-search-input class="mb-5 block"
+                              [placeholder]="'searchBillboards.searchPlaceholder' | translate"></app-voice-search-input>
+
+
+      <ion-item [detail]="false" class="mb-5" lines="none">
+        <ion-label class="overflow-visible mr-0" slot="start">
+          <h2
+            class="found-title inline-block"
+            [innerHTML]="'searchBillboards.foundBillboards' | translate : {count: billboards.length}"></h2>
+        </ion-label>
+        <app-layout-switch [isHorizontal]="listView === 'horizontal'"
+                           (onSwitchLayout)="switchLayout($event)"
+                           slot="end"></app-layout-switch>
+      </ion-item>
+
+      <ion-list>
+        <ion-row>
+          <ion-col [size]="listView === 'horizontal' ? 12 : 6" *ngFor="let billboard of billboards; let i = index">
+            <app-board-card
+              [rate]="billboard.rate"
+              [location]="billboard.location"
+              [isFavorite]="i === 2 || i === 0"
+              [img]="billboard.img"
+              [price]="billboard.price"
+              [title]="billboard.title"
+              [type]="billboard.type"
+              [id]="i"
+              [view]="listView"
+            ></app-board-card>
+          </ion-col>
+        </ion-row>
+
+      </ion-list>
+
+    </ion-col>
+  </ion-row>
 </ion-content>

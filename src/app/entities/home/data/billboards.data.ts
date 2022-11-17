@@ -9,7 +9,8 @@ export const BILLBOARDS: IBillboard[] = [
     isFavorite: true,
     location: 'Jakarta, Indonesia',
     price: 220,
-    title: 'Wings Tower'
+    title: 'Wings Tower',
+    type: 'Digital'
   },
   {
     img: `${imagesPath}spoti.jpg`,
@@ -17,6 +18,7 @@ export const BILLBOARDS: IBillboard[] = [
     isFavorite: false,
     location: 'Lviv, Ukraine',
     price: 271,
-    title: 'Mill Sper House'
+    title: 'Mill Sper House',
+    type: 'Premium'
   }
 ]

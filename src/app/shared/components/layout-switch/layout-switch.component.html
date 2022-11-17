@@ -1,0 +1,12 @@
+<ion-chip (click)="changeLayout()" class="flex justify-between">
+  <div class="switcher-item" [class.active]="!isHorizontal">
+    <ion-icon
+      [src]="isHorizontal ? 'assets/icons/vertical.svg' : 'assets/icons/vertical-active.svg'"
+    ></ion-icon>
+  </div>
+  <div class="switcher-item" [class.active]="isHorizontal">
+    <ion-icon
+      [src]="isHorizontal ? 'assets/icons/horizontal-active.svg' : 'assets/icons/horizontal.svg'"
+    ></ion-icon>
+  </div>
+</ion-chip>

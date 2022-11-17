@@ -1,7 +1,7 @@
 <ion-header mode="ios" class="ion-no-border bg-none">
-  <ion-toolbar class="ion-padding-top px-3">
+  <ion-toolbar class="ion-padding-top ion-padding-bottom px-3">
     <ion-buttons slot="start">
-      <ion-back-button slot="icon-only" text="" [icon]="backButtonIcon" defaultHref="/sign-in"></ion-back-button>
+      <ion-back-button slot="icon-only" text="" [icon]="backButtonIcon" [defaultHref]="defaultHref"></ion-back-button>
     </ion-buttons>
 
     <ion-title class="text-sm" *ngIf="title">{{title}}</ion-title>

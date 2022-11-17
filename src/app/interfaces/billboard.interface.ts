@@ -4,5 +4,6 @@ export interface IBillboard {
   isFavorite?: boolean,
   price: number,
   location: string,
-  rate?: number
+  rate?: number,
+  type: string
 }

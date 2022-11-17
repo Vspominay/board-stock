@@ -5,6 +5,7 @@
     padding: 0;
     --background: theme('colors.softGray');
     --icon-color: theme('colors.tertiary');
+    --border-radius: theme('borderRadius.largeRadius');
 
     ::ng-deep {
       .searchbar-input-container {

@@ -11,4 +11,5 @@ export class HeaderComponent {
   @Input() backButtonIcon: string = 'assets/icons/back-arrow.svg';
   @Input() additionalIcon?: string;
   @Input() secondAdditionalIcon?: string;
+  @Input() defaultHref?: string;
 }
