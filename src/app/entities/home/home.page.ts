@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { TABS } from '../../constants/tabs.constant';
 
 import { AVAILABLE_LOCATIONS } from './components/modal-select-location/data/available-locations.data';
 import { BILLBOARD_OWNERS } from './components/modal-select-location/data/billboard-owers.data';
@@ -15,6 +16,7 @@ export class HomePage implements OnInit {
   public currentLocation!: { label: string, value: string };
   public userName: string = 'John';
   public billboardOwners = [...BILLBOARD_OWNERS];
+  public tabs = [...TABS];
 
   constructor(private _modalCtrl: ModalController) { }
 

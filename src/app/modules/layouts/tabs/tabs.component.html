@@ -1,0 +1,7 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button *ngFor="let tab of tabs" [tab]="tab.route">
+      <ion-icon [src]="tab.isActive && tab.activeIcon ? tab.activeIcon :tab.icon"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

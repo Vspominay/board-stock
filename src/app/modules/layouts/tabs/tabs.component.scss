@@ -1,0 +1,16 @@
+:host {
+  ion-tab-bar {
+    --background: theme('colors.white');
+    height: 72px;
+  }
+
+  ion-tab-button {
+    --color: theme('colors.tertiary');
+    --color-selected: theme('colors.tertiary');
+    --color-focused: theme('colors.secondary');
+
+    ion-icon {
+      font-size: 28px;
+    }
+  }
+}

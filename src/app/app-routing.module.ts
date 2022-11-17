@@ -10,6 +10,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./entities/home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'boards',
+    loadChildren: () => import('./boards/boards.module').then( m => m.BoardsPageModule)
+  },
+  {
+    path: 'favorite',
+    loadChildren: () => import('./favorite/favorite.module').then( m => m.FavoritePageModule)
+  },
 ];
 
 @NgModule({
