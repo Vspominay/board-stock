@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LayoutsModule } from '../modules/layouts/layouts.module';
-import { SharedModule } from '../shared/shared.module';
+import { LayoutsModule } from '../../modules/layouts/layouts.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { BoardsPageRoutingModule } from './boards-routing.module';
 

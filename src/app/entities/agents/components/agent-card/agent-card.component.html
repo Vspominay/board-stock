@@ -1,0 +1,25 @@
+<ion-card routerDirection="forward" [routerLink]="['agents', id]">
+  <app-badge class="mb-2" [text]="'#' + topRate"></app-badge>
+
+  <div class="flex flex-col items-center">
+    <div class="img-block rounded-full overflow-hidden mb-2">
+      <ion-avatar class="mb-1.5">
+        <img [src]="img" [alt]="name + 'photo'">
+      </ion-avatar>
+    </div>
+
+    <ion-label class="font-bold">{{name}}</ion-label>
+
+    <div class="details flex items-center">
+      <ion-item [detail]="false" lines="none" class="">
+        <ion-icon class="text-warning" src="assets/icons/rate.svg"></ion-icon>
+        <ion-label class="font-bold">{{rate}}</ion-label>
+      </ion-item>
+      <ion-item [detail]="false" lines="none" class="">
+        <ion-icon class="text-tertiary" src="assets/icons/billboard.svg"></ion-icon>
+        <ion-label><span class="font-bold">{{totalBillboards}}</span> {{'suffixes.sold' | translate}}</ion-label>
+      </ion-item>
+    </div>
+
+  </div>
+</ion-card>

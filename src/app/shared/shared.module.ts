@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BadgeComponent } from './components/badge/badge.component';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
 import { BillboardOwnerComponent } from './components/billboard-owner/billboard-owner.component';
 import { BoardCardComponent } from './components/board-card/board-card.component';
@@ -39,7 +40,8 @@ export const translationConfig = {
     SelectionItemsComponent,
     BoardCardComponent,
     CheckboxComponent,
-    LayoutSwitchComponent
+    LayoutSwitchComponent,
+    BadgeComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ export const translationConfig = {
     SelectionItemsComponent,
     BoardCardComponent,
     CheckboxComponent,
-    LayoutSwitchComponent
+    LayoutSwitchComponent,
+    BadgeComponent
   ]
 })
 export class SharedModule {

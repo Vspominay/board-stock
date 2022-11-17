@@ -11,7 +11,8 @@
     "viewAll": "view all"
   },
   "suffixes": {
-    "month": "month"
+    "month": "month",
+    "sold": "sold"
   },
   "errors": {
     "pattern": "Invalid format",
@@ -41,5 +42,9 @@
     "title": "Search results",
     "searchPlaceholder": "Search billboard by name",
     "foundBillboards": "Found <span class='decorated-name'>{{count}}</span> billboards"
+  },
+  "agents": {
+    "title": "Top Billboards Agents",
+    "subTitle": "Find the best recommendations place to your ads"
   }
 }

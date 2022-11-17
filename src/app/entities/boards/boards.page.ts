@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BILLBOARDS } from '../entities/home/data/billboards.data';
-import { FILTERS } from '../entities/home/data/filters.data';
-import { IBillboard } from '../interfaces/billboard.interface';
+import { BILLBOARDS } from '../home/data/billboards.data';
+import { FILTERS } from '../home/data/filters.data';
+import { IBillboard } from '../../interfaces/billboard.interface';
 
 @Component({
   selector: 'app-boards',

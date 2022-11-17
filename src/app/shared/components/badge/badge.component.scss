@@ -1,0 +1,10 @@
+:host {
+  ion-badge {
+    --color: theme('colors.white');
+    border-radius: theme('borderRadius.default');
+    --padding-top: theme('padding.3');;
+    --padding-bottom: theme('padding.3');;
+    --padding-start: theme('padding.4');
+    --padding-end: theme('padding.4');
+  }
+}
