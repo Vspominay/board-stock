@@ -1,0 +1,33 @@
+:host {
+
+  ion-item-sliding {
+    .card-item {
+      --background: transparent;
+      width: fit-content;
+    }
+
+    ion-item-option {
+      position: relative;
+      border-top-right-radius: theme('borderRadius.largeRadius');
+      border-bottom-right-radius: theme('borderRadius.largeRadius');
+
+      &:before {
+        content: '';
+        width: 25px;
+        background: theme('colors.danger');
+        position: absolute;
+        left: -20px;
+        top: 0;
+        bottom: 0;
+        display: block;
+      }
+    }
+  }
+
+  .card-item {
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+  }
+}

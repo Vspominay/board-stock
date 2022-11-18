@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { LayoutsModule } from '../../modules/layouts/layouts.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { FavoritePageRoutingModule } from './favorite-routing.module';
 
@@ -13,8 +15,11 @@ import { FavoritePage } from './favorite.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritePageRoutingModule
+    FavoritePageRoutingModule,
+    LayoutsModule,
+    SharedModule
   ],
   declarations: [FavoritePage]
 })
-export class FavoritePageModule {}
+export class FavoritePageModule {
+}

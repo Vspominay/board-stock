@@ -81,6 +81,12 @@
       --min-height: 24px;
       overflow: visible;
 
+      ion-label.location {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75px;
+      }
+
       ion-icon {
         margin-right: theme('margin.1');
         width: 15px;
