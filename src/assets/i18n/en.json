@@ -59,5 +59,8 @@
   },
   "favorite": {
     "title": "My favorite"
+  },
+  "notifications": {
+    "title": "Notifications"
   }
 }

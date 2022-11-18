@@ -9,7 +9,8 @@
 
 
     <ion-buttons slot="end" class="mr-2">
-      <ion-button class="toolbar-item border bg-white notification-block border-primary">
+      <ion-button [routerLink]="['/notifications']"
+                  class="toolbar-item border bg-white notification-block border-primary">
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
         <ion-badge class="notification-badge" color="danger">1</ion-badge>
       </ion-button>

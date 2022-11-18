@@ -1,0 +1,21 @@
+<ion-item
+  [detail]="false"
+  lines="none"
+>
+  <div class="flex">
+    <ion-avatar class="rounded-full mr-2.5">
+      <img [src]="image" alt="notification image">
+    </ion-avatar>
+    <div class="flex flex-col text-tertiary">
+      <ion-label class="text-xs font-bold mb-1">
+        {{title}}
+      </ion-label>
+      <ion-text class="text-secondary mb-1.5 small-text">
+        {{content}}
+      </ion-text>
+      <ion-text class="text-barely extra-small-text">
+        {{date}}
+      </ion-text>
+    </div>
+  </div>
+</ion-item>

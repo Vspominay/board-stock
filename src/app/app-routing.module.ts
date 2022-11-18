@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'agents',
     loadChildren: () => import('./entities/agents/agents.module').then(m => m.AgentsPageModule)
   },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./entities/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
 ];
 
 @NgModule({
