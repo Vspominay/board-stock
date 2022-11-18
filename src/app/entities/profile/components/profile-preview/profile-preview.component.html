@@ -1,0 +1,27 @@
+<ion-item class="w-fit" [detail]="false" lines="none">
+  <div class="flex flex-col items-center">
+    <div class="img-block mb-2.5 relative">
+      <ion-avatar>
+        <img [src]="image" alt="Profile photo">
+      </ion-avatar>
+      <ion-badge
+        [color]="badge.isIcon ? 'secondary' : 'primary'"
+        [ngClass]="{
+          'rounded-full': badge.isIcon,
+          'cursor-pointer': badge.isIcon
+        }"
+        class="flex items-center justify-center profile-badge absolute -bottom-0.5 -right-0.5">
+        <ng-container *ngIf="badge.isIcon; else badgeTextEl">
+          <ion-icon [src]="badge.content"></ion-icon>
+        </ng-container>
+
+        <ng-template #badgeTextEl>
+          {{badge.content}}
+        </ng-template>
+      </ion-badge>
+    </div>
+
+    <ion-label class="font-bold text-sm mb-1">{{fullName}}</ion-label>
+    <ion-text class="text-xs">{{subText}}</ion-text>
+  </div>
+</ion-item>

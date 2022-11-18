@@ -1,0 +1,29 @@
+:host {
+  ion-item {
+    color: theme('colors.tertiary');
+  }
+
+  .img-block {
+    width: 100px;
+    height: 100px;
+
+    ion-avatar {
+      border-radius: 50%;
+      overflow: hidden;
+
+      &, & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .profile-badge {
+      min-width: 30px;
+      width: 30px;
+      height: 30px;
+      --color: theme('colors.white');
+      font-size: theme('fontSize.lg');
+    }
+  }
+}

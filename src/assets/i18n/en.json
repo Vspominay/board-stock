@@ -46,5 +46,11 @@
   "agents": {
     "title": "Top Billboards Agents",
     "subTitle": "Find the best recommendations place to your ads"
+  },
+  "profile": {
+    "title": "Profile",
+    "activeBillboards": "Active",
+    "archived": "Archived",
+    "rentedOut": "Rented out"
   }
 }

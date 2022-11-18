@@ -1,0 +1,21 @@
+:host {
+
+  ion-segment {
+    --background: theme('colors.softGray');
+    padding: 6px 12px;
+    border-radius: theme('borderRadius.largeRadius');
+  }
+
+  ion-segment-button {
+    padding: 0 3px;
+    min-width: auto;
+
+    ion-icon {
+      font-size: 10px;
+    }
+
+    &.ios::part(indicator-background) {
+      border-radius: theme('borderRadius.largeRadius');
+    }
+  }
+}

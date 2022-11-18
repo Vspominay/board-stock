@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LayoutSwitchComponent } from './layout-switch.component';
+import { StatisticsFieldComponent } from './statistics-field.component';
 
-describe('LayoutSwitchComponent', () => {
-  let component: LayoutSwitchComponent;
-  let fixture: ComponentFixture<LayoutSwitchComponent>;
+describe('StatisticsFieldComponent', () => {
+  let component: StatisticsFieldComponent;
+  let fixture: ComponentFixture<StatisticsFieldComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutSwitchComponent ],
+      declarations: [ StatisticsFieldComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LayoutSwitchComponent);
+    fixture = TestBed.createComponent(StatisticsFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

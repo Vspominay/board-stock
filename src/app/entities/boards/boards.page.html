@@ -16,9 +16,10 @@
             class="found-title inline-block"
             [innerHTML]="'searchBillboards.foundBillboards' | translate : {count: billboards.length}"></h2>
         </ion-label>
-        <app-layout-switch [isHorizontal]="listView === 'horizontal'"
-                           (onSwitchLayout)="switchLayout($event)"
-                           slot="end"></app-layout-switch>
+        <app-segment-switch [value]="'vertical'"
+                            [segments]="layoutSegments"
+                            (onSwitchSegment)="listView = $event"
+                            slot="end"></app-segment-switch>
       </ion-item>
 
       <ion-list>

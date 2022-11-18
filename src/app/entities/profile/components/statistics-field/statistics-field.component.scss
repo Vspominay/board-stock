@@ -1,0 +1,13 @@
+:host {
+  ion-item {
+    --border-radius: theme('borderRadius.largeRadius');
+    --border-style: solid;
+    --border-width: 1px;
+    --inner-padding-start: theme('padding.4');
+    --inner-padding-end: theme('padding.4');
+    --inner-padding-top: theme('padding.4');
+    --inner-padding-bottom: theme('padding.4');
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+}

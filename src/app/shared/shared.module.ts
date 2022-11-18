@@ -13,7 +13,7 @@ import { BoardCardComponent } from './components/board-card/board-card.component
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { InfoItemComponent } from './components/info-item/info-item.component';
 import { InputComponent } from './components/input/input.component';
-import { LayoutSwitchComponent } from './components/layout-switch/layout-switch.component';
+import { SegmentSwitchComponent } from './components/layout-switch/segment-switch.component';
 import { SelectionItemsComponent } from './components/selection-items/selection-items.component';
 import { VoiceSearchInputComponent } from './components/voice-search-input/voice-search-input.component';
 import { ErrorControlPipe } from './error-control.pipe';
@@ -40,7 +40,7 @@ export const translationConfig = {
     SelectionItemsComponent,
     BoardCardComponent,
     CheckboxComponent,
-    LayoutSwitchComponent,
+    SegmentSwitchComponent,
     BadgeComponent
   ],
   imports: [
@@ -63,7 +63,7 @@ export const translationConfig = {
     SelectionItemsComponent,
     BoardCardComponent,
     CheckboxComponent,
-    LayoutSwitchComponent,
+    SegmentSwitchComponent,
     BadgeComponent
   ]
 })

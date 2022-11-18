@@ -1,9 +1,80 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'profile.title' | translate" [additionalIcon]="'assets/icons/setting-v2.svg'"></app-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row class="flex justify-center">
+      <ion-col size="11">
 
+        <app-profile-preview
+          [fullName]="user.name + ' ' + user.surname"
+          [image]="user.img"
+          [badge]="{
+            isIcon: true,
+            content: 'assets/icons/edit.svg'
+          }"
+          class="mx-auto block w-fit mb-3.5"
+          [subText]="user.email"
+        ></app-profile-preview>
+
+        <ion-row class="mb-4">
+          <ion-col size="4">
+            <app-statistics-field
+              [title]="user.activeBillboards + ''"
+              [subTitle]="'profile.activeBillboards' | translate"
+            ></app-statistics-field>
+          </ion-col>
+          <ion-col size="4">
+            <app-statistics-field
+              [title]="user.rentOutBillboards + ''"
+              [subTitle]="'profile.rentedOut' | translate"
+            ></app-statistics-field>
+          </ion-col>
+          <ion-col size="4">
+            <app-statistics-field
+              [title]="user.archivedBillboards + ''"
+              [subTitle]="'profile.archived' | translate"
+            ></app-statistics-field>
+          </ion-col>
+        </ion-row>
+
+        <app-segment-switch
+          class="mb-4 block"
+          [segments]="segments"
+          (onSwitchSegment)="defineTitle($any($event))"
+          [value]="segments[0].value"
+        ></app-segment-switch>
+
+        <ion-item [detail]="false" class="mb-5 segment-title" lines="none">
+          <ion-label class="overflow-visible mr-0" slot="start">
+            <h2 class="found-title inline-block">
+              {{segmentsValue.count + ' '}} {{segmentsValue.title | translate | lowercase}}
+            </h2>
+          </ion-label>
+          <app-segment-switch [value]="layoutSegments[0].value"
+                              [segments]="layoutSegments"
+                              (onSwitchSegment)="listView = $event"
+                              slot="end"></app-segment-switch>
+        </ion-item>
+
+        <ion-list>
+          <ion-row>
+            <ion-col [size]="listView === 'horizontal' ? 12 : 6" *ngFor="let billboard of billboards; let i = index">
+              <app-board-card
+                [rate]="billboard.rate"
+                [location]="billboard.location"
+                [isFavorite]="i === 2 || i === 0"
+                [img]="billboard.img"
+                [price]="billboard.price"
+                [title]="billboard.title"
+                [type]="billboard.type"
+                [id]="i"
+                [view]="listView"
+              ></app-board-card>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

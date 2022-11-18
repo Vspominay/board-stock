@@ -1,0 +1,7 @@
+<ion-segment mode="ios" [(ngModel)]="value" (ionChange)="changeLayout($event.target.value)">
+  <ion-segment-button [value]="segment.value" *ngFor="let segment of segments">
+    <ion-icon *ngIf="segment.icon"
+              [src]="segment.value === value ? segment.activeIcon : segment.icon"></ion-icon>
+    <ion-label *ngIf="segment.text">{{segment.text | translate}}</ion-label>
+  </ion-segment-button>
+</ion-segment>
