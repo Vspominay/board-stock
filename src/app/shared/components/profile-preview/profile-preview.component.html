@@ -5,6 +5,8 @@
         <img [src]="image" alt="Profile photo">
       </ion-avatar>
       <ion-badge
+        *ngIf="badge"
+        (click)="onClickBadge.emit()"
         [color]="badge.isIcon ? 'secondary' : 'primary'"
         [ngClass]="{
           'rounded-full': badge.isIcon,
@@ -21,7 +23,7 @@
       </ion-badge>
     </div>
 
-    <ion-label class="font-bold text-sm mb-1">{{fullName}}</ion-label>
-    <ion-text class="text-xs">{{subText}}</ion-text>
+    <ion-label *ngIf="fullName" class="font-bold text-sm mb-1">{{fullName}}</ion-label>
+    <ion-text *ngIf="subText" class="text-xs">{{subText}}</ion-text>
   </div>
 </ion-item>

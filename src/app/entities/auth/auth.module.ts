@@ -8,10 +8,9 @@ import { SharedModule } from '../../shared/shared.module';
 import { AuthPageRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
-import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 
 @NgModule({
-  declarations: [AuthPage, AuthButtonComponent],
+  declarations: [AuthPage],
   imports: [
     CommonModule,
     FormsModule,

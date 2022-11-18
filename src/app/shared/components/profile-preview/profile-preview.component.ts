@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-profile-preview',
@@ -15,6 +15,7 @@ export class ProfilePreviewComponent {
     isIcon: boolean,
     content: string
   }
+  @Output() onClickBadge: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 }

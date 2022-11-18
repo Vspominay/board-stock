@@ -5,5 +5,6 @@ export interface IUserProfile extends IBaseUser {
   surname: string,
   activeBillboards: number,
   archivedBillboards: number,
-  rentOutBillboards: number
+  rentOutBillboards: number,
+  phone: string
 }

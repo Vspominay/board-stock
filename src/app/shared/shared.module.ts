@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
 import { BillboardOwnerComponent } from './components/billboard-owner/billboard-owner.component';
@@ -14,6 +15,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { InfoItemComponent } from './components/info-item/info-item.component';
 import { InputComponent } from './components/input/input.component';
 import { SegmentSwitchComponent } from './components/layout-switch/segment-switch.component';
+import { ProfilePreviewComponent } from './components/profile-preview/profile-preview.component';
 import { SelectionItemsComponent } from './components/selection-items/selection-items.component';
 import { VoiceSearchInputComponent } from './components/voice-search-input/voice-search-input.component';
 import { ErrorControlPipe } from './error-control.pipe';
@@ -41,7 +43,9 @@ export const translationConfig = {
     BoardCardComponent,
     CheckboxComponent,
     SegmentSwitchComponent,
-    BadgeComponent
+    BadgeComponent,
+    ProfilePreviewComponent,
+    AuthButtonComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +68,9 @@ export const translationConfig = {
     BoardCardComponent,
     CheckboxComponent,
     SegmentSwitchComponent,
-    BadgeComponent
+    BadgeComponent,
+    ProfilePreviewComponent,
+    AuthButtonComponent
   ]
 })
 export class SharedModule {

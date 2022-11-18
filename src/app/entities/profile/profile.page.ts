@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { IBillboard } from '../../interfaces/billboard.interface';
 
 import { ISegmentItem } from '../../shared/components/layout-switch/interfaces/segmant-item';
@@ -25,7 +26,7 @@ export class ProfilePage implements OnInit {
     count: number
   };
 
-  constructor() { }
+  constructor(private _navController: NavController) { }
 
   public ngOnInit() {
     this.user = { ...USER };
@@ -50,5 +51,9 @@ export class ProfilePage implements OnInit {
       'rentedOut': this.user.rentOutBillboards,
       'archived': this.user.archivedBillboards
     }[segment];
+  }
+
+  public openEditProfile() {
+    this._navController.navigateForward('profile/edit');
   }
 }

@@ -8,5 +8,6 @@ export const USER: IUserProfile = {
   email: 'mathew@email.com',
   activeBillboards: 2,
   archivedBillboards: 10,
-  rentOutBillboards: 0
+  rentOutBillboards: 0,
+  phone: '+38045641545'
 }

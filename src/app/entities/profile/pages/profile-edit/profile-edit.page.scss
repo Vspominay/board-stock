@@ -1,0 +1,15 @@
+:host {
+  .edit-form {
+    ion-col + ion-col {
+      margin-top: 10px;
+    }
+  }
+
+  ion-toolbar {
+    --background: theme('colors.white');
+
+    ion-button {
+      --color: theme('colors.white');
+    }
+  }
+}

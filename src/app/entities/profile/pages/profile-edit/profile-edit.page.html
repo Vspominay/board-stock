@@ -1,0 +1,78 @@
+<app-header
+  [title]="'profile.editTitle' | translate"
+  defaultHref="/profile"
+></app-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="flex h-full justify-center">
+      <ion-col size="11">
+        <app-profile-preview
+          [image]="user.img"
+          class="mx-auto block w-fit mb-3.5"
+        ></app-profile-preview>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="editProfileForm" class="edit-form">
+          <ion-row>
+            <ion-col size="12">
+              <app-input
+                [hasError]="editProfileForm.get('name').invalid && editProfileForm.get('name').dirty"
+                [error]="(editProfileForm.get('name').errors | errorControl) | translate"
+                icon="assets/icons/profile.svg">
+                <ion-input inputmode="text"
+                           [type]="'text'"
+                           formControlName="name"
+                           [placeholder]="'placeholders.fullName' | translate"></ion-input>
+              </app-input>
+            </ion-col>
+            <ion-col size="12">
+              <app-input
+                [hasError]="editProfileForm.get('phone').invalid && editProfileForm.get('phone').dirty"
+                [error]="(editProfileForm.get('phone').errors | errorControl) | translate"
+                icon="assets/icons/phone.svg">
+                <ion-input inputmode="tel"
+                           type="tel"
+                           formControlName="phone"
+                           [placeholder]="'placeholders.phone' | translate"></ion-input>
+              </app-input>
+            </ion-col>
+            <ion-col size="12">
+              <app-input
+                [hasError]="editProfileForm.get('email').invalid && editProfileForm.get('email').dirty"
+                [error]="(editProfileForm.get('email').errors | errorControl) | translate"
+                icon="assets/icons/email.svg">
+                <ion-input inputmode="email"
+                           [type]="'email'"
+                           formControlName="email"
+                           [placeholder]="'placeholders.email' | translate"></ion-input>
+              </app-input>
+            </ion-col>
+            <ion-col size="6">
+              <app-auth-button icon="assets/icons/google.svg"></app-auth-button>
+            </ion-col>
+            <ion-col size="6">
+              <app-auth-button icon="assets/icons/facebook.svg"></app-auth-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border bg-none">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-button [disabled]="editProfileForm.invalid"
+                      [type]="'submit'"
+                      expand="block"
+                      class="text-white capitalize tracking-wider text-base">
+            {{'buttons.save' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
