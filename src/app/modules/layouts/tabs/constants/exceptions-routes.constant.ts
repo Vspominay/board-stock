@@ -1,0 +1,1 @@
+export const EXCEPTION_ROUTES: string[] = ['sign-in', 'sign-up', 'profile/edit'];

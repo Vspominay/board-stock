@@ -5,8 +5,10 @@
     }
   }
 
-  ion-toolbar {
+
+  ion-footer ion-toolbar {
     --background: theme('colors.white');
+    --padding-bottom: theme('padding.4');
 
     ion-button {
       --color: theme('colors.white');
