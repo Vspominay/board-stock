@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: BoardsPage
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./pages/create-billboard/create-billboard.module').then(m => m.CreateBillboardPageModule)
   }
 ];
 
@@ -14,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BoardsPageRoutingModule {}
+export class BoardsPageRoutingModule {
+}

@@ -1,0 +1,25 @@
+<div class="">
+
+  <app-info-item
+    class="mb-4"
+    [label]="locationString"
+    [isIcon]="true"
+    avatar="/assets/icons/location.svg"
+  >
+  </app-info-item>
+  <div class="map-wrapper rounded-largeRadius overflow-hidden">
+    <div
+      class="leaflet-map"
+      leaflet style="height: 355px;"
+      [leafletOptions]="options"
+      (leafletMapReady)="onMapReady($event)"
+      (leafletDoubleClick)="generateMarker($any($event).latlng)"
+    >
+    </div>
+    <div class="bg-white bg-opacity-50 select-map-text py-2 text-center">
+      <ion-label class="bg-transparent bg-white bg-opacity-50 text-sm ">
+        {{"createBillboard.selectLocation" | translate}}
+      </ion-label>
+    </div>
+  </div>
+</div>

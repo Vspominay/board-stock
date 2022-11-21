@@ -1,0 +1,56 @@
+<div class="h-full pb-5">
+  <form class="flex flex-col h-full" (ngSubmit)="onSubmit()" [formGroup]="createBillboardForm">
+    <div class="flex-grow h-full">
+      <app-input
+        [hasError]="createBillboardForm.get('title').invalid && createBillboardForm.get('title').dirty"
+        [error]="(createBillboardForm.get('title').errors | errorControl) | translate : {length: 3}"
+        icon="assets/icons/home.svg">
+        <ion-input inputmode="text"
+                   type="text"
+                   formControlName="title"
+                   [placeholder]="'placeholders.billboardTitle' | translate"></ion-input>
+      </app-input>
+
+      <app-input
+        [hasError]="createBillboardForm.get('description').invalid && createBillboardForm.get('description').dirty"
+        [error]="(createBillboardForm.get('description').errors | errorControl) | translate : {length: 20}"
+        icon="assets/icons/document.svg"
+        class="mb-5"
+      >
+        <ion-textarea [autoGrow]="true" inputmode="text"
+                      [rows]="1"
+                      [minlength]="20"
+                      type="text"
+                      formControlName="description"
+                      [placeholder]="'placeholders.description' | translate"></ion-textarea>
+      </app-input>
+
+
+      <ion-label class="overflow-visible mb-2.5 block" slot="start">
+        <h2
+          class="found-title inline-block"
+          [innerHTML]="'createBillboard.category' | translate"></h2>
+      </ion-label>
+
+      <ion-row formArrayName="types" class="mb-3.5">
+        <ion-col *ngFor="let type of billboardTypes; let i = index">
+          <app-checkbox
+            [title]="type"
+            [formControlName]="i"
+          ></app-checkbox>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-button [disabled]="createBillboardForm.invalid"
+                    [type]="'submit'"
+                    expand="block"
+                    class="text-white capitalize tracking-wider text-base">
+          {{'buttons.next' | translate}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</div>

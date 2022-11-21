@@ -3,14 +3,17 @@
     "fullName": "Full name",
     "email": "Email",
     "password": "Password",
-    "phone": "Phone number"
+    "phone": "Phone number",
+    "billboardTitle": "Billboard Title",
+    "description": "Description"
   },
   "appTitles": {
   },
   "buttons": {
     "explore": "explore",
     "viewAll": "view all",
-    "save": "Save"
+    "save": "Save",
+    "next": "Next"
   },
   "suffixes": {
     "month": "month",
@@ -19,7 +22,8 @@
   },
   "errors": {
     "pattern": "Invalid format",
-    "required": "Field is required"
+    "required": "Field is required",
+    "minlength": "Minimum allowed length {{length}} characters"
   },
   "welcomePage": {
     "readyExplore": "Ready to <b>explore?<b/>",
@@ -62,5 +66,13 @@
   },
   "notifications": {
     "title": "Notifications"
+  },
+  "createBillboard": {
+    "title": "Add Listing",
+    "greetings": "Hi <span class='decorated-name'>{{name}}</span>, Fill detail of your billboard",
+    "category": "Categories of billboards",
+    "whereIsLocation": "Where is the location?",
+    "selectLocation": "Select location by double-clicking on the map",
+    "canDragMessage": "You can drag current marker or choose another by double-clicking"
   }
 }

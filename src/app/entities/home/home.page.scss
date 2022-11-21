@@ -1,11 +1,4 @@
 :host {
-  ::ng-deep {
-    .decorated-name {
-      font-weight: theme('fontWeight.bold');
-      color: theme('colors.secondary');
-    }
-  }
-
   ion-toolbar {
     --background: transparent;
     --color: theme('colors.tertiary');

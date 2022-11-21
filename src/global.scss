@@ -19,6 +19,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+@import "~leaflet/dist/leaflet.css";
+
 @import './styles/default.theme';
 
 html,
@@ -41,7 +43,7 @@ h1, h2 {
 h1 {
   font-size: theme('fontSize.xl[0]');
   line-height: theme('fontSize.xl[1]');
-  color: theme('colors.secondary');
+  color: theme('colors.tertiary');
 }
 
 .sc-ion-label-ios-s h2, .sc-ion-label-md-s h2, h2 {
@@ -50,4 +52,9 @@ h1 {
   font-weight: theme('fontWeight.bold');
   color: theme('colors.tertiary');
   letter-spacing: 0.03px;
+}
+
+.decorated-name {
+  font-weight: theme('fontWeight.bold');
+  color: theme('colors.secondary');
 }

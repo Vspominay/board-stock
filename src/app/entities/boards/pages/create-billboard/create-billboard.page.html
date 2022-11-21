@@ -1,0 +1,19 @@
+<app-header
+  [title]="'createBillboard.title' | translate"
+  defaultHref="/home"
+></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="justify-center flex">
+      <ion-col size="11">
+        <ion-text class="mb-8 block">
+          <h1 [innerHTML]="'createBillboard.greetings' | translate : {name: 'Josh'}"></h1>
+        </ion-text>
+        <router-outlet></router-outlet>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+

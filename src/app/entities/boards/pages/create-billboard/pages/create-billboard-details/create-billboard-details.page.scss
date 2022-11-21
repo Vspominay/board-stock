@@ -1,0 +1,10 @@
+:host {
+  app-input + app-input {
+    display: block;
+    margin-top: theme('margin.5');
+  }
+
+  app-checkbox::ng-deep ion-item {
+    font-size: theme('fontSize.xs');
+  }
+}
