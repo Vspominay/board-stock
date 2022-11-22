@@ -25,6 +25,10 @@ const routes: Routes = [
         path: 'photos',
         loadChildren: () => import('./pages/create-billboard-photos/create-billboard-photos.module').then(m => m.CreateBillboardPhotosPageModule)
       },
+      {
+        path: 'finish',
+        loadChildren: () => import('./pages/create-billboard-finish/create-billboard-finish.module').then(m => m.CreateBillboardFinishPageModule)
+      },
     ]
   },
 ];

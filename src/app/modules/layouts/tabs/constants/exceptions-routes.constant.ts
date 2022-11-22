@@ -1,1 +1,1 @@
-export const EXCEPTION_ROUTES: string[] = ['', 'sign-in', 'sign-up', 'profile/edit', 'boards/create/details', 'boards/create/location', 'boards/create/photos'];
+export const EXCEPTION_ROUTES: string[] = ['', 'sign-in', 'sign-up', 'profile/edit', 'boards/create/details', 'boards/create/location', 'boards/create/photos', 'boards/create/finish'];

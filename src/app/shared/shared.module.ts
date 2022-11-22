@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
@@ -20,6 +21,7 @@ import { SelectionItemsComponent } from './components/selection-items/selection-
 import { VoiceSearchInputComponent } from './components/voice-search-input/voice-search-input.component';
 import { ErrorControlPipe } from './error-control.pipe';
 import { RadioButtonsComponent } from './components/radio-buttons/radio-buttons.component';
+
 
 export const translationConfig = {
   loader: {

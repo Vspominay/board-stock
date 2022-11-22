@@ -1,0 +1,78 @@
+<form class="h-5/6 flex flex-col pb-5" [formGroup]="createBillboardForm" (ngSubmit)="onSubmit()">
+  <div class="mb-7">
+    <ion-label class="overflow-visible mb-2.5 block" slot="start">
+      <h2
+        class="found-title inline-block"
+        [innerHTML]="'createBillboard.rentPrice' | translate"></h2>
+    </ion-label>
+    <app-input
+      class="mb-5 block"
+      [hasError]="createBillboardForm.get('price').invalid && createBillboardForm.get('price').dirty"
+      [error]="(createBillboardForm.get('price').errors | errorControl) | translate"
+      icon="assets/icons/dollar.svg"
+    >
+      <ion-input inputmode="text"
+                 [type]="'text'"
+                 formControlName="price"
+                 [placeholder]="'createBillboard.setRentPrice' | translate : {type: (rentPeriodPerMonth ? 'suffixes.month' : 'suffixes.year') | translate}"></ion-input>
+    </app-input>
+
+    <div class="flex">
+      <app-checkbox
+        class="mr-2.5"
+        [value]="rentPeriodPerMonth"
+        (click)="rentPeriodPerMonth = true"
+        [isDisableCheck]="true"
+        [title]="'createBillboard.monthly' | translate"
+      ></app-checkbox>
+      <app-checkbox
+        [value]="!rentPeriodPerMonth"
+        (click)="rentPeriodPerMonth = false"
+        [isDisableCheck]="true"
+        [title]="'createBillboard.yearly' | translate"
+      ></app-checkbox>
+    </div>
+  </div>
+
+  <div class="mb-4 flex-grow">
+    <ion-label class="overflow-visible mb-2.5 block" slot="start">
+      <h2
+        class="found-title inline-block"
+        [innerHTML]="'appTitles.contactInformation' | translate"></h2>
+    </ion-label>
+    <app-input
+      class="mb-5 block"
+      [hasError]="createBillboardForm.get('contactPhone').invalid && createBillboardForm.get('contactPhone').dirty"
+      [error]="(createBillboardForm.get('contactPhone').errors | errorControl) | translate"
+      icon="assets/icons/phone.svg"
+    >
+      <ion-input inputmode="tel"
+                 [type]="'tel'"
+                 formControlName="contactPhone"
+                 [placeholder]="'createBillboard.phoneNumber' | translate"></ion-input>
+    </app-input>
+
+    <app-input
+      class="mb-5 block"
+      [hasError]="createBillboardForm.get('contactEmail').invalid && createBillboardForm.get('contactEmail').dirty"
+      [error]="(createBillboardForm.get('contactEmail').errors | errorControl) | translate"
+      icon="assets/icons/email.svg"
+    >
+      <ion-input inputmode="tel"
+                 [type]="'tel'"
+                 formControlName="contactEmail"
+                 [placeholder]="'createBillboard.email' | translate"></ion-input>
+    </app-input>
+  </div>
+
+  <ion-row>
+    <ion-col size="10" offset="1">
+      <ion-button [disabled]="createBillboardForm.invalid"
+                  [type]="'submit'"
+                  expand="block"
+                  class="text-white capitalize tracking-wider text-base">
+        {{'buttons.finish' | translate}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</form>

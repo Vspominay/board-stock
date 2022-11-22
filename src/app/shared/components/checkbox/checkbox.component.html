@@ -1,4 +1,8 @@
 <ion-item [detail]="false" lines="none" [class.unselected]="!value" [color]="value ? 'secondary' : ''">
-  <ion-checkbox [disabled]="disabled" (ionChange)="onChange($event)" [(ngModel)]="value" slot="start"></ion-checkbox>
+  <ion-checkbox [disabled]="disabled"
+                (click)="$event.preventDefault()"
+                (ionChange)="handleChangeValue($event)"
+                [checked]="value"
+                slot="start"></ion-checkbox>
   <ion-label>{{title}}</ion-label>
 </ion-item>

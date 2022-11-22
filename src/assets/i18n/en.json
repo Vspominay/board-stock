@@ -8,15 +8,18 @@
     "description": "Description"
   },
   "appTitles": {
+    "contactInformation": "Contact information"
   },
   "buttons": {
     "explore": "explore",
     "viewAll": "view all",
     "save": "Save",
-    "next": "Next"
+    "next": "Next",
+    "finish": "Finish"
   },
   "suffixes": {
     "month": "month",
+    "year": "year",
     "sold": "sold",
     "billboards": "billboard(s)"
   },
@@ -73,7 +76,14 @@
     "category": "Categories of billboards",
     "whereIsLocation": "Where is the <span class='decorated-name'> location? </span>",
     "photo": "Add <span class='decorated-name'>photos</span> to your listing",
+    "almostFinish": "<span class='decorated-name'> Almost finish </span>, complete the listing",
     "selectLocation": "Select location by double-clicking on the map",
-    "canDragMessage": "You can drag current marker or choose another by double-clicking"
+    "canDragMessage": "You can drag current marker or choose another by double-clicking",
+    "rentPrice": "Rent price",
+    "setRentPrice": "Set {{type}} rent price",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "phoneNumber": "Contact phone number",
+    "email": "Contact email"
   }
 }
