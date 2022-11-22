@@ -1,25 +1,28 @@
-<div class="">
+<div class="h-full flex flex-col">
 
   <app-info-item
+    *ngIf="createBillboardForm.controls['location'].value"
     class="mb-4"
-    [label]="locationString"
+    [label]="createBillboardForm.controls['location'].value"
     [isIcon]="true"
     avatar="/assets/icons/location.svg"
   >
   </app-info-item>
-  <div class="map-wrapper rounded-largeRadius overflow-hidden">
-    <div
-      class="leaflet-map"
-      leaflet style="height: 355px;"
-      [leafletOptions]="options"
-      (leafletMapReady)="onMapReady($event)"
-      (leafletDoubleClick)="generateMarker($any($event).latlng)"
-    >
-    </div>
-    <div class="bg-white bg-opacity-50 select-map-text py-2 text-center">
-      <ion-label class="bg-transparent bg-white bg-opacity-50 text-sm ">
-        {{"createBillboard.selectLocation" | translate}}
-      </ion-label>
-    </div>
-  </div>
+
+  <app-map
+    class="mb-6"
+    [description]="'createBillboard.selectLocation' | translate"
+    (onSelectLocation)="setLocation($event)"
+  ></app-map>
+
+  <ion-row>
+    <ion-col size="10" offset="1">
+      <ion-button [disabled]="createBillboardForm.invalid"
+                  [type]="'submit'"
+                  expand="block"
+                  class="text-white capitalize tracking-wider text-base">
+        {{'buttons.next' | translate}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </div>

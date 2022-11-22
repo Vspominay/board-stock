@@ -6,6 +6,7 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { IonicModule } from '@ionic/angular';
+import { MapModule } from '../../../../../../modules/map/map.module';
 import { SharedModule } from '../../../../../../shared/shared.module';
 
 import { CreateBillboardLocationPageRoutingModule } from './create-billboard-location-routing.module';
@@ -21,6 +22,7 @@ import { CreateBillboardLocationPage } from './create-billboard-location.page';
     LeafletMarkerClusterModule,
     LeafletModule,
     SharedModule,
+    MapModule,
   ],
   providers: [
     NativeGeocoder

@@ -1,0 +1,16 @@
+<div class="map-wrapper rounded-largeRadius overflow-hidden">
+  <div
+    class="leaflet-map"
+    leaflet style="height: 355px;"
+    [leafletOptions]="options"
+    (leafletMapReady)="onMapReady($event)"
+    (dragend)="dragMarker($event)"
+    (leafletDoubleClick)="generateMarker($any($event).latlng)"
+  >
+  </div>
+  <div *ngIf="description" class="bg-white bg-opacity-50 select-map-text py-2 text-center">
+    <ion-label class="bg-transparent bg-white bg-opacity-50 text-sm ">
+      {{description}}
+    </ion-label>
+  </div>
+</div>
