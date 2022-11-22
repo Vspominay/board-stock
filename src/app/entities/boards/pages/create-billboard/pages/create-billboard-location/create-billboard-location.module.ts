@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
@@ -23,6 +23,7 @@ import { CreateBillboardLocationPage } from './create-billboard-location.page';
     LeafletModule,
     SharedModule,
     MapModule,
+    ReactiveFormsModule,
   ],
   providers: [
     NativeGeocoder

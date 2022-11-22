@@ -20,7 +20,11 @@ const routes: Routes = [
       {
         path: 'location',
         loadChildren: () => import('./pages/create-billboard-location/create-billboard-location.module').then(m => m.CreateBillboardLocationPageModule)
-      }
+      },
+      {
+        path: 'photos',
+        loadChildren: () => import('./pages/create-billboard-photos/create-billboard-photos.module').then(m => m.CreateBillboardPhotosPageModule)
+      },
     ]
   },
 ];

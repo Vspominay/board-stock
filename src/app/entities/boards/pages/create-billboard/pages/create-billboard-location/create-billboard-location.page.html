@@ -1,4 +1,4 @@
-<div class="h-full flex flex-col">
+<form [formGroup]="createBillboardForm" (ngSubmit)="onSubmit()" class="h-full flex flex-col">
 
   <app-info-item
     *ngIf="createBillboardForm.controls['location'].value"
@@ -25,4 +25,4 @@
       </ion-button>
     </ion-col>
   </ion-row>
-</div>
+</form>

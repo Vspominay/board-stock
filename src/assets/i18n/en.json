@@ -71,7 +71,8 @@
     "title": "Add Listing",
     "greetings": "Hi <span class='decorated-name'>{{name}}</span>, Fill detail of your billboard",
     "category": "Categories of billboards",
-    "whereIsLocation": "Where is the location?",
+    "whereIsLocation": "Where is the <span class='decorated-name'> location? </span>",
+    "photo": "Add <span class='decorated-name'>photos</span> to your listing",
     "selectLocation": "Select location by double-clicking on the map",
     "canDragMessage": "You can drag current marker or choose another by double-clicking"
   }

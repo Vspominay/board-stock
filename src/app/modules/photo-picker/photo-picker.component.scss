@@ -1,0 +1,17 @@
+:host {
+  ion-item {
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    --inner-padding-top: 0;
+    --inner-padding-bottom: 0;
+    --background: theme('colors.softGray');
+    --min-height: theme('height.20');
+  }
+
+  ion-label {
+    margin: 0;
+    font-size: 36px;
+  }
+}
