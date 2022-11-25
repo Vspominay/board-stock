@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+
 import { EMAIL_VALIDATOR } from '../../../constants/email-pattern.constan';
 import { NAME_PATTERN } from '../../../constants/name-pattern.constant';
 import { PASSWORD_VALIDATOR } from '../../../constants/password.constant';
+import { AppState } from '../../../reducers';
+import { SignUp } from '../state/auth.actions';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +19,11 @@ export class SignUpPage implements OnInit {
   public signUpForm!: FormGroup;
   public isShowPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder, private navController: NavController) { }
+  constructor(
+    private _fb: FormBuilder,
+    private _navController: NavController,
+    private store: Store<AppState>
+  ) { }
 
   public ngOnInit() {
     this._initForm();
@@ -23,8 +31,7 @@ export class SignUpPage implements OnInit {
 
   public onSubmit(): void {
     if (this.signUpForm.valid) {
-      this.navController.navigateForward('/home');
-      //TODO: add logic here after back end will be ready
+      this.store.dispatch(SignUp(this.signUpForm.value));
     }
   }
 

@@ -4,7 +4,8 @@ const imagesPath = 'assets/images/welcome-page/'
 
 export const BILLBOARDS: IBillboard[] = [
   {
-    img: `${imagesPath}lego.jpg`,
+    id: '1',
+    mainImage: `${imagesPath}lego.jpg`,
     rate: 3.5,
     isFavorite: true,
     location: 'Jakarta, Indonesia',
@@ -13,7 +14,8 @@ export const BILLBOARDS: IBillboard[] = [
     type: 'Digital'
   },
   {
-    img: `${imagesPath}spoti.jpg`,
+    id: '2',
+    mainImage: `${imagesPath}spoti.jpg`,
     rate: 5,
     isFavorite: false,
     location: 'Lviv, Ukraine',

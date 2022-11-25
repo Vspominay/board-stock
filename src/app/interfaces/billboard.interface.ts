@@ -1,5 +1,6 @@
 export interface IBillboard {
-  img: string,
+  id: string,
+  mainImage: string,
   title: string,
   isFavorite?: boolean,
   price: number,

@@ -15,7 +15,7 @@
           <h2
             routerLink="/boards/create/location"
             class="found-title inline-block"
-            [innerHTML]="'searchBillboards.foundBillboards' | translate : {count: billboards.length}"></h2>
+            [innerHTML]="'searchBillboards.foundBillboards' | translate : {count: (billboards$ | async).length}"></h2>
         </ion-label>
         <app-segment-switch [value]="'vertical'"
                             [segments]="layoutSegments"
@@ -25,12 +25,13 @@
 
       <ion-list>
         <ion-row>
-          <ion-col [size]="listView === 'horizontal' ? 12 : 6" *ngFor="let billboard of billboards; let i = index">
+          <ion-col [size]="listView === 'horizontal' ? 12 : 6"
+                   *ngFor="let billboard of billboards$ | async; let i = index">
             <app-board-card
               [rate]="billboard.rate"
               [location]="billboard.location"
               [isFavorite]="i === 2 || i === 0"
-              [img]="billboard.img"
+              [img]="billboard.mainImage"
               [price]="billboard.price"
               [title]="billboard.title"
               [type]="billboard.type"

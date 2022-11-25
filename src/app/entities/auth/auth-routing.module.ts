@@ -7,15 +7,19 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'sign-in'
+    redirectTo: 'auth'
   },
   {
-    path: 'sign-in',
-    component: AuthPage
+    path: 'auth',
+    component: AuthPage,
   },
   {
     path: 'sign-up',
     loadChildren: () => import('./sign-up/sign-up.module').then(m => m.SignUpPageModule)
+  },
+  {
+    path: 'sign-in',
+    loadChildren: () => import('./components/sign-in/sign-in.module').then(m => m.SignInPageModule)
   }
 ];
 

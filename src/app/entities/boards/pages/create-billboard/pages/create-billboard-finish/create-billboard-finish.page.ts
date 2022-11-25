@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
 
 import { EMAIL_VALIDATOR } from '../../../../../../constants/email-pattern.constan';
 import { PHONE_VALIDATOR } from '../../../../../../constants/phone-pattern.constan';
+import { AppState } from '../../../../../../reducers';
+import { setBillboardFinishInformation } from '../../state/create-billboard.actions';
 import { BaseCreateBillboardDirective } from '../base-create-billboard.directive';
 
 @Component({
@@ -14,8 +19,13 @@ export class CreateBillboardFinishPage extends BaseCreateBillboardDirective {
 
   public rentPeriodPerMonth: boolean = true;
 
-  constructor(private _fb: FormBuilder) {
-    super();
+  constructor(
+    private _fb: FormBuilder,
+    private _navController: NavController,
+    private _store: Store<AppState>,
+    private _route: ActivatedRoute
+  ) {
+    super(_navController, _store, _route);
   }
 
   public ngOnInit() {
@@ -24,7 +34,9 @@ export class CreateBillboardFinishPage extends BaseCreateBillboardDirective {
 
   public onSubmit() {
     super.onSubmit();
-    console.log(this.rentPeriodPerMonth);
+
+    this._store.dispatch(setBillboardFinishInformation(this.createBillboardForm.value));
+    this.nextStep();
   }
 
   protected initForm(): void {

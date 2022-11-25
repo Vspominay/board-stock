@@ -18,7 +18,7 @@
 
     <ion-row class="mb-8">
       <ion-col size="10" offset="1">
-        <ion-button expand="block" class="text-white capitalize tracking-wider text-base">
+        <ion-button expand="block" (click)="routeToSignIn()" class="text-white capitalize tracking-wider text-base">
           <ion-icon slot="start" src="assets/icons/email.svg"></ion-icon>
           {{'welcomePage.continueEmail' | translate}}
         </ion-button>

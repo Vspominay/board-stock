@@ -36,8 +36,12 @@
     "register": "Register"
   },
   "signUp": {
-    "createAccount": "Create your <b>account<b/>",
+    "createAccount": "Create your <span class='decorated-name'>account<span />",
     "fillInformation": "Fill in the required information below"
+  },
+  "signIn": {
+    "signIn": "Sign In",
+    "title": "Let’s  <span class='decorated-name'>Sign In</span>"
   },
   "homePage": {
     "selectLocation": "Select Location",

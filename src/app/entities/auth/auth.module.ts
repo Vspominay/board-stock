@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../../shared/shared.module';
-
 import { AuthPageRoutingModule } from './auth-routing.module';
-
 import { AuthPage } from './auth.page';
 
 @NgModule({

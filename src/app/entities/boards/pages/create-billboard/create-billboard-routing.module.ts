@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ROUTES } from './constants/routes.constant';
 
 import { CreateBillboardPage } from './create-billboard.page';
 
@@ -14,19 +15,19 @@ const routes: Routes = [
         redirectTo: 'details',
       },
       {
-        path: 'details',
+        path: ROUTES[0],
         loadChildren: () => import('./pages/create-billboard-details/create-billboard-details.module').then(m => m.CreateBillboardDetailsPageModule)
       },
       {
-        path: 'location',
+        path: ROUTES[1],
         loadChildren: () => import('./pages/create-billboard-location/create-billboard-location.module').then(m => m.CreateBillboardLocationPageModule)
       },
       {
-        path: 'photos',
+        path: ROUTES[2],
         loadChildren: () => import('./pages/create-billboard-photos/create-billboard-photos.module').then(m => m.CreateBillboardPhotosPageModule)
       },
       {
-        path: 'finish',
+        path: ROUTES[3],
         loadChildren: () => import('./pages/create-billboard-finish/create-billboard-finish.module').then(m => m.CreateBillboardFinishPageModule)
       },
     ]

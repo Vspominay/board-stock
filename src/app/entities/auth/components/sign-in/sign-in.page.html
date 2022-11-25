@@ -1,0 +1,51 @@
+<app-header defaultHref="/auth"></app-header>
+
+<ion-content>
+  <ion-grid class="py-10">
+    <ion-row class="mb- flex ion-justify-content-center">
+      <ion-col size="11">
+        <ion-text class="tracking-wider mb-8 block">
+          <h1 class="" [innerHTML]="'signIn.title' | translate"></h1>
+          <span class="text-xs text-mediumGray">{{'signUp.fillInformation' | translate}}</span>
+        </ion-text>
+
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+          <app-input
+            class="mb-4"
+            [hasError]="signInForm.get('email').invalid && signInForm.get('email').dirty"
+            [error]="(signInForm.get('email').errors | errorControl) | translate"
+            icon="assets/icons/email.svg">
+            <ion-input inputmode="email"
+                       [type]="'email'"
+                       formControlName="email"
+                       [placeholder]="'placeholders.email' | translate"></ion-input>
+          </app-input>
+
+          <app-input
+            [hasError]="signInForm.get('password').invalid && signInForm.get('password').dirty"
+            class="mb-4"
+            [isPasswordField]="true"
+            [error]="(signInForm.get('password').errors | errorControl) | translate"
+            (onHideEv)="isShowPassword = !$event"
+            icon="assets/icons/lock.svg">
+            <ion-input inputmode="password"
+                       [type]="isShowPassword ? 'text' : 'password'"
+                       formControlName="password"
+                       [placeholder]="'placeholders.password' | translate"></ion-input>
+          </app-input>
+
+          <ion-row class="">
+            <ion-col size="10" offset="1">
+              <ion-button [disabled]="signInForm.invalid"
+                          [type]="'submit'"
+                          expand="block"
+                          class="text-white capitalize tracking-wider text-base">
+                {{'signIn.signIn' | translate}}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
