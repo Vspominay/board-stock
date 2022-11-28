@@ -9,3 +9,8 @@ export const selectAllBillboards = createSelector(
   selectBillboardsState,
   fromBillboards.selectAll
 );
+
+export const selectBillboard = (id: string) => createSelector(
+  selectAllBillboards,
+  (billboards) => billboards.find(billboard => billboard.id === id)
+)

@@ -1,5 +1,5 @@
 <ion-header mode="ios" class="ion-no-border bg-none">
-  <ion-toolbar class="ion-padding-top ion-padding-bottom px-3">
+  <ion-toolbar [class.transparent-header]="isTransparent" class="ion-padding-top ion-padding-bottom px-3">
     <ion-buttons slot="start">
       <ion-back-button slot="icon-only" text="" [icon]="backButtonIcon" [defaultHref]="defaultHref"></ion-back-button>
     </ion-buttons>

@@ -6,6 +6,7 @@ import { CreateBillboardsActions } from './create-billboard.actions-types';
 
 export interface ICreateBillboard {
   title: string,
+  type: string[],
   address: {
     location: string,
     coords: ICoordinates
@@ -13,6 +14,7 @@ export interface ICreateBillboard {
   price: number,
   description: string,
   mainImage: string,
+  images: string[],
   contactData: {
     phone?: string,
     email?: string
@@ -31,6 +33,8 @@ export interface CreateBillboardState {
 const CREATE_BILLBOARD_INITIAL: CreateBillboardState = {
   billboard: {
     title: '',
+    type: [],
+    images: [],
     address: {
       location: '',
       coords: {
@@ -53,13 +57,14 @@ const CREATE_BILLBOARD_INITIAL: CreateBillboardState = {
 
 export const createBillboardReducer = createReducer(
   CREATE_BILLBOARD_INITIAL,
-  on(CreateBillboardsActions.setBillboardDetails, (state, { title, description, types }) => {
+  on(CreateBillboardsActions.setBillboardDetails, (state, { title, description, billboardType: type }) => {
     return {
       ...state,
       billboard: {
         ...state.billboard,
         title,
-        description
+        description,
+        type
       }
     };
   }),
@@ -80,7 +85,8 @@ export const createBillboardReducer = createReducer(
       ...state,
       billboard: {
         ...state.billboard,
-        mainImage: photos[0]
+        mainImage: photos[0],
+        images: photos.slice(1)
       }
     }
   }),

@@ -36,7 +36,7 @@ export class CreateBillboardPhotosPage extends BaseCreateBillboardDirective {
   public onSubmit() {
     super.onSubmit();
 
-    this._store.dispatch(setBillboardPhoto({ photos: ['https://images.pexels.com/photos/1031700/pexels-photo-1031700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'] }));
+    this._store.dispatch(setBillboardPhoto({ photos: ['https://images.pexels.com/photos/1031700/pexels-photo-1031700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'https://images.pexels.com/photos/1031700/pexels-photo-1031700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'] }));
     this.nextStep();
   }
 

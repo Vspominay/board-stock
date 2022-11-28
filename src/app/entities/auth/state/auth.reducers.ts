@@ -3,12 +3,14 @@ import { AuthActions } from './auth.actions-types';
 
 export interface AuthState {
   email: string,
-  token: string
+  token: string,
+  name: string
 }
 
 const AUTH_INITIAL: AuthState = {
   email: '',
-  token: ''
+  token: '',
+  name: ''
 }
 
 export const authReducer = createReducer(
@@ -17,7 +19,15 @@ export const authReducer = createReducer(
     return {
       ...state,
       token: action.token,
-      email: action.email
+      email: action.email,
+      name: action.name
+    }
+  }),
+  on(AuthActions.Logout, (state) => {
+    return {
+      token: '',
+      email: '',
+      name: ''
     }
   })
 )

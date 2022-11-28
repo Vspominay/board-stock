@@ -29,4 +29,11 @@ export class BoardsService {
                .pipe(pluck('data'));
   }
 
+  public getBillboardInformation(id: string): Observable<IBillboard> {
+    return this.http.get<{ status: string, data: { billboard: IBillboard } }>(`${this.api}billboards/${id}`)
+               .pipe(
+                 pluck('data'),
+                 pluck('billboard'),
+               );
+  }
 }

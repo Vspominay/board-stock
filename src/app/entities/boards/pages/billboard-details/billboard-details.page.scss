@@ -1,0 +1,49 @@
+:host {
+  ion-content {
+    --padding-start: theme('padding.3');
+    --padding-end: theme('padding.3');
+    --padding-top: theme('padding.3');
+    --padding-bottom: theme('padding.3');
+  }
+
+  .img-block {
+    height: 450px;
+
+    ion-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .line {
+    height: 1.3px;
+    background: theme('colors.softGray');
+  }
+
+  .owner-block {
+    --background: theme('colors.softGray');
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --inner-padding-top: 0;
+    --inner-padding-bottom: 0;
+    --padding-start: theme('padding.6');
+    --padding-end: theme('padding.6');
+    --padding-top: theme('padding.3');
+    --padding-bottom: theme('padding.3');
+    --border-radius: theme('borderRadius.default');
+    width: 100%;
+    margin: 0 auto;
+
+    ion-avatar {
+      width: 38px;
+      height: 38px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

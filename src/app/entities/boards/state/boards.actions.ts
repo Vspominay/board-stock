@@ -10,3 +10,13 @@ export const AllBillboardsFetched = createAction(
   '[Boards] All billboards fetched',
   props<{ billboards: IBillboard[] }>()
 );
+
+export const GetBillboardInformation = createAction(
+  '[Boards] Get billboard information',
+  props<{ id: string }>()
+);
+
+export const BillboardInformationFetched = createAction(
+  '[Boards] Billboard information fetched',
+  props<{ billboard: IBillboard }>()
+);

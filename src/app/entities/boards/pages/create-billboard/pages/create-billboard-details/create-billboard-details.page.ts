@@ -43,7 +43,7 @@ export class CreateBillboardDetailsPage extends BaseCreateBillboardDirective {
     this._store.dispatch(setBillboardDetails({
       title,
       description,
-      types: this.billboardTypes.filter((type, index) => types[index])
+      billboardType: this.billboardTypes.filter((type, index) => types[index])
     }));
     this.nextStep();
   }

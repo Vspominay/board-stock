@@ -21,7 +21,8 @@
     "month": "month",
     "year": "year",
     "sold": "sold",
-    "billboards": "billboard(s)"
+    "billboards": "billboard(s)",
+    "perMonth": "per month"
   },
   "errors": {
     "pattern": "Invalid format",
@@ -69,7 +70,9 @@
     "editTitle": "Edit Profile"
   },
   "favorite": {
-    "title": "My favorite"
+    "title": "My favorite",
+    "pageIsEmpty": "Your favorite page is <span class='decorated-name'> empty </span> ",
+    "clickAbove": "Click add button above to start exploring and choose your favorite estates. "
   },
   "notifications": {
     "title": "Notifications"
@@ -89,5 +92,8 @@
     "yearly": "Yearly",
     "phoneNumber": "Contact phone number",
     "email": "Contact email"
+  },
+  "billboardInformation": {
+    "location": "Location"
   }
 }

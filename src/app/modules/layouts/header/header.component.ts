@@ -12,4 +12,5 @@ export class HeaderComponent {
   @Input() additionalIcon?: string;
   @Input() secondAdditionalIcon?: string;
   @Input() defaultHref?: string;
+  @Input() isTransparent: boolean = false;
 }

@@ -19,6 +19,7 @@ export class FavoritePage implements OnInit {
 
   public ngOnInit() {
     this.favoriteBillboards = BILLBOARDS.filter(billboard => billboard.isFavorite);
+    this.favoriteBillboards.length = 0;
     this.listView = this.layoutSegments[0].value as 'horizontal' | 'vertical';
   }
 

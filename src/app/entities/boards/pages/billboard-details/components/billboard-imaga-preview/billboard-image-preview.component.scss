@@ -1,0 +1,28 @@
+:host {
+  ion-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+    --border-radius: theme('borderRadius.largeRadius');
+    --background: theme('colors.softGray');
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --inner-padding-top: 0;
+    --inner-padding-bottom: 0;
+    --padding-end: theme('padding.1');
+    --padding-start: theme('padding.1');
+    --padding-top: theme('padding.1');
+    --padding-bottom: theme('padding.1');
+
+    ion-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: theme('borderRadius.largeRadius');
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
+import { EBillboardType } from '../../../../../enums/billboard-type.enum';
 import { ICoordinates } from '../../../../../interfaces/coordinates.interface';
 
 export const setBillboardDetails = createAction(
@@ -7,7 +8,7 @@ export const setBillboardDetails = createAction(
   props<{
     title: string,
     description: string,
-    types: string[]
+    billboardType: EBillboardType[]
   }>()
 );
 

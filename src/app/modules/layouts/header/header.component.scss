@@ -2,6 +2,10 @@
   ion-toolbar {
     --background: #ffffff;
     --color: theme('colors.tertiary');
+
+    &.transparent-header {
+      --background: transparent;
+    }
   }
 
   ion-button, ion-back-button {

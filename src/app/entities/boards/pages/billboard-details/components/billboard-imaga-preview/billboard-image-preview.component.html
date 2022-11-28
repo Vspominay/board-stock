@@ -1,0 +1,7 @@
+<ion-item [detail]="false" class="relative" lines="none">
+  <ion-img [src]="image"></ion-img>
+  <span *ngIf="moreImageCount"
+        class="rounded-largeRadius bg-black bg-opacity-50 absolute left-0 top-0 bottom-0 right-0"></span>
+  <ion-text class="text-white absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2"
+            *ngIf="moreImageCount">{{'+' + moreImageCount}}</ion-text>
+</ion-item>

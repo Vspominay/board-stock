@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./pages/create-billboard/create-billboard.module').then(m => m.CreateBillboardPageModule)
+  },
+  {
+    path: ':id',
+    loadChildren: () => import('./pages/billboard-details/billboard-details.module').then(m => m.BillboardDetailsPageModule)
   }
 ];
 

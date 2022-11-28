@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../../reducers';
+import { Login } from '../../state/auth.actions';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +14,10 @@ export class SignInPage implements OnInit {
   public signInForm!: FormGroup;
   public isShowPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(
+    private _fb: FormBuilder,
+    private _store: Store<AppState>
+  ) { }
 
   public ngOnInit() {
     this._initForm();
@@ -19,7 +25,7 @@ export class SignInPage implements OnInit {
 
   public onSubmit(): void {
     if (this.signInForm.valid) {
-
+      this._store.dispatch(Login(this.signInForm.value));
     }
   }
 

@@ -16,7 +16,10 @@ export const initialBillboardsState = adapter.getInitialState();
 export const billboardsReducer = createReducer(
   initialBillboardsState,
   on(BillboardsActions.AllBillboardsFetched, (state, action) => {
-    return adapter.addMany(action.billboards, state)
+    return adapter.addMany(action.billboards, state);
+  }),
+  on(BillboardsActions.BillboardInformationFetched, (state, action) => {
+    return adapter.addOne(action.billboard, state);
   })
 );
 

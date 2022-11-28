@@ -6,14 +6,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthEffects } from './entities/auth/state/auth.effects';
 import { LayoutsModule } from './modules/layouts/layouts.module';
 import { reducers } from './reducers';
 import { SharedModule } from './shared/shared.module';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 
@@ -28,7 +29,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     LayoutsModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [

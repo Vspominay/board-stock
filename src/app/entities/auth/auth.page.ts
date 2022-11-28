@@ -12,7 +12,9 @@ export class AuthPage {
 
   public readonly previewImages: string[] = PREVIEW_IMAGES;
 
-  constructor(private _navController: NavController) { }
+  constructor(
+    private _navController: NavController,
+  ) { }
 
   public routeToSignIn(): void {
     this._navController.navigateForward('/sign-in');

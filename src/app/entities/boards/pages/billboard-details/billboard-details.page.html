@@ -1,0 +1,73 @@
+<app-header
+  class="fixed top-0 z-10 left-0 right-0"
+  defaultHref="/boards"
+  [isTransparent]="true"
+  secondAdditionalIcon="assets/icons/heart.svg"
+></app-header>
+
+<ion-content class="" *ngIf="(billboard$ | async )as billboard" [fullscreen]="true">
+  <div class="mb-4 img-block relative rounded-largeRadius overflow-hidden">
+    <ion-img [src]="billboard.mainImage"></ion-img>
+    <div class="flex absolute left-4 right-4 bottom-4">
+      <div class="flex flex-grow">
+        <div class="flex flex-col mr-1.5">
+          <app-details-info class="mb-1.5 block"
+                            *ngFor="let type of billboard.type"
+                            [content]="type"></app-details-info>
+        </div>
+        <div class="flex items-end">
+          <app-details-info class="mb-1.5 block"
+                            [isBoldText]="true"
+                            [content]="'⭐' + '  ' + billboard.rate"></app-details-info>
+        </div>
+      </div>
+      <div class="flex flex-col justify-end" *ngIf="billboard.images.length">
+        <app-billboard-image-preview class="mb-1.5"
+                                     *ngFor="let image of billboard.images"
+                                     [image]="image"
+        ></app-billboard-image-preview>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-between mb-6">
+    <div class="flex flex-col ">
+      <h1 class="font-bold">{{billboard.title}}</h1>
+      <div class="text-mediumGray flex items-center text-xs" *ngIf="billboard.address.location">
+        <ion-icon src="assets/icons/location.svg"></ion-icon>
+        <span>{{billboard.address.location}}</span>
+      </div>
+    </div>
+    <div class="flex flex-col items-end">
+      <h1 class="font-bold">{{billboard.price | currency}}</h1>
+      <span class="text-xs text-mediumGray" *ngIf="billboard.price">{{"suffixes.perMonth" | translate}}</span>
+    </div>
+  </div>
+
+  <div class="line mb-6"></div>
+
+  <ion-item [detail]="false" lines="none" class="owner-block flex items-center mb-6">
+    <ion-avatar slot="start" class="mr-8 mt-0 mb-0">
+      <img src="/assets/images/user.jpg" alt="">
+    </ion-avatar>
+    <div class="flex flex-col">
+      <ion-label class="text-tertiary text-sm mb-0.5 font-bold">Anderson</ion-label>
+      <ion-text class="text-mediumGray text-xs">somemail@gmail.com</ion-text>
+    </div>
+  </ion-item>
+
+  <div class="">
+    <ion-title class="mb-5">{{'billboardInformation.location' | translate}}</ion-title>
+    <app-info-item
+      class="mb-4"
+      [isIcon]="true"
+      avatar="/assets/icons/location.svg"
+      [label]="billboard.address.location"
+    ></app-info-item>
+
+    <app-map
+      [description]="billboard.address.coords.lat + ' ' + billboard.address.coords.lng"
+    ></app-map>
+  </div>
+
+</ion-content>

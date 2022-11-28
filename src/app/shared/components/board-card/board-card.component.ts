@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BoardCardComponent {
 
-  @Input() id!: number;
+  @Input() id!: string;
   @Input() img!: string;
   @Input() title!: string;
   @Input() isFavorite: boolean = false;

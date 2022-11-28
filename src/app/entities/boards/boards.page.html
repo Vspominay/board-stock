@@ -29,13 +29,13 @@
                    *ngFor="let billboard of billboards$ | async; let i = index">
             <app-board-card
               [rate]="billboard.rate"
-              [location]="billboard.location"
+              [location]="billboard.address.location"
               [isFavorite]="i === 2 || i === 0"
               [img]="billboard.mainImage"
               [price]="billboard.price"
               [title]="billboard.title"
-              [type]="billboard.type"
-              [id]="i"
+              [type]="billboard.type && billboard.type[0]"
+              [id]="billboard.id"
               [view]="listView"
             ></app-board-card>
           </ion-col>

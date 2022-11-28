@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './entities/auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,27 +9,33 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./entities/home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./entities/home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./entities/profile/profile.module').then(m => m.ProfilePageModule)
+    loadChildren: () => import('./entities/profile/profile.module').then(m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'boards',
-    loadChildren: () => import('./entities/boards/boards.module').then(m => m.BoardsPageModule)
+    loadChildren: () => import('./entities/boards/boards.module').then(m => m.BoardsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'favorite',
-    loadChildren: () => import('./entities/favorite/favorite.module').then(m => m.FavoritePageModule)
+    loadChildren: () => import('./entities/favorite/favorite.module').then(m => m.FavoritePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'agents',
-    loadChildren: () => import('./entities/agents/agents.module').then(m => m.AgentsPageModule)
+    loadChildren: () => import('./entities/agents/agents.module').then(m => m.AgentsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'notifications',
-    loadChildren: () => import('./entities/notifications/notifications.module').then( m => m.NotificationsPageModule)
+    loadChildren: () => import('./entities/notifications/notifications.module').then(m => m.NotificationsPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 

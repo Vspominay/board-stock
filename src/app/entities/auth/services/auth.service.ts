@@ -13,13 +13,13 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(email: string, password: string) {
-    return this.http.post<{ email: string, name: string, token: string }>(`${this.api}login`, {
+    return this.http.post<{ email: string, name: string, token: string }>(`${this.api}users/login`, {
       email, password
     });
   }
 
   public signUp(email: string, name: string, password: string) {
-    return this.http.post<{ email: string, name: string, token: string }>(`${this.api}sign-up`, {
+    return this.http.post<{ email: string, name: string, token: string }>(`${this.api}users/signup`, {
       email, name, password
     });
   }

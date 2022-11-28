@@ -8,6 +8,7 @@
   <ion-grid>
     <ion-row class="flex justify-center">
       <ion-col size="11">
+
         <ion-item [detail]="false" class="mb-5" lines="none">
           <ion-label class="overflow-visible mr-0" slot="start">
             <h2
@@ -22,7 +23,7 @@
                               slot="end"></app-segment-switch>
         </ion-item>
 
-        <ion-list>
+        <ion-list *ngIf="favoriteBillboards.length; else emptyData">
           <ion-row>
             <ion-col [size]="listView === 'horizontal' ? 12 : 6"
                      *ngFor="let billboard of favoriteBillboards; let i = index">
@@ -58,6 +59,20 @@
           </ion-row>
 
         </ion-list>
+
+        <ng-template #emptyData>
+          <div class="">
+            <ion-button [shape]="'circle'" class="add-btn mb-6">+</ion-button>
+            <ion-text class="mb-6 text-tertiary">
+              <h1 class="" [innerHtml]="'favorite.pageIsEmpty' | translate"></h1>
+            </ion-text>
+
+            <ion-text class="ion-text-center text-lg text-mediumGray">
+              <span>{{'favorite.clickAbove' | translate}}</span>
+            </ion-text>
+            <ion-text></ion-text>
+          </div>
+        </ng-template>
       </ion-col>
     </ion-row>
   </ion-grid>

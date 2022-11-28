@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { concatMap, map } from 'rxjs/operators';
 
 import { BoardsService } from '../service/boards.service';
-import { AllBillboardsFetched } from './boards.actions';
+import { AllBillboardsFetched, BillboardInformationFetched } from './boards.actions';
 import { BillboardsActions } from './boards.actions-types';
 
 @Injectable()
@@ -18,5 +18,17 @@ export class BoardsEffects {
                 concatMap(() => this._billboardsService.getBillboards()),
                 map(billboards => AllBillboardsFetched({ billboards })))
   );
+
+  billboardInformation$ = createEffect(
+    () => this._actions$
+              .pipe(
+                ofType(BillboardsActions.GetBillboardInformation),
+                concatMap((action) => this._billboardsService.getBillboardInformation(action.id)),
+                map(billboard => {
+                  console.log(billboard)
+                  return BillboardInformationFetched({ billboard });
+                })
+              )
+  )
 
 }

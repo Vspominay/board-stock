@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { IBillboard } from '../../interfaces/billboard.interface';
+import { Store } from '@ngrx/store';
 
+import { IBillboard } from '../../interfaces/billboard.interface';
+import { AppState } from '../../reducers';
 import { AVAILABLE_LOCATIONS } from './data/available-locations.data';
 import { BILLBOARD_OWNERS } from './data/billboard-owers.data';
 import { ModalSelectLocationComponent } from './components/modal-select-location/modal-select-location.component';
@@ -23,7 +25,11 @@ export class HomePage implements OnInit {
   public featuredBillboards!: IBillboard[];
   public filters: string[] = [...FILTERS];
 
-  constructor(private _modalCtrl: ModalController, private _changeDetectorRef: ChangeDetectorRef) { }
+  constructor(
+    private _modalCtrl: ModalController,
+    private _changeDetectorRef: ChangeDetectorRef,
+    private _store: Store<AppState>
+  ) { }
 
   public ngOnInit() {
     //TODO will be deleted after api integration
