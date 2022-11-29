@@ -8,7 +8,8 @@
     "description": "Description"
   },
   "appTitles": {
-    "contactInformation": "Contact information"
+    "contactInformation": "Contact information",
+    "billboardStock": "Billboard Stock"
   },
   "buttons": {
     "explore": "explore",
@@ -97,5 +98,19 @@
     "location": "Location",
     "views": "Total views",
     "averageViews": "Average view per month"
+  },
+  "onboard": {
+    "findPlace": {
+      "title": "Find best place to share your <span class='decorated-name'>advertisement</span>",
+      "subtitle": "Millions of popular places for your ideas and actions"
+    },
+    "fastSell": {
+      "title": "Fast rent out your billboards in just <span class='decorated-name'>one click </span>",
+      "subtitle": "Active consumers who are ready to rent your billboards"
+    },
+    "perfectPlace": {
+      "title": "Find <span class='decorated-name'>perfect choice</span> for your future ideas ",
+      "subtitle": "Save and follow creative ideas to rent the best"
+    }
   }
 }

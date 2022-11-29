@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,4 +13,6 @@ export class HeaderComponent {
   @Input() secondAdditionalIcon?: string;
   @Input() defaultHref?: string;
   @Input() isTransparent: boolean = false;
+
+  @Output() onAdditionalClick: EventEmitter<void> = new EventEmitter<void>();
 }

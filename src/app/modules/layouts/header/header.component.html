@@ -12,7 +12,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-buttons *ngIf="additionalIcon" slot="end">
+    <ion-buttons (click)="onAdditionalClick.emit()" *ngIf="additionalIcon" slot="end">
       <ion-button>
         <ion-icon slot="icon-only" [src]="additionalIcon"></ion-icon>
       </ion-button>

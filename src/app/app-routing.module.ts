@@ -37,6 +37,10 @@ const routes: Routes = [
     loadChildren: () => import('./entities/notifications/notifications.module').then(m => m.NotificationsPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'onboarding',
+    loadChildren: () => import('./entities/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <ion-slides
+      #slidesEl
+      pager="false"
+      class="h-full"
+  >
+    <ion-slide
+      class="h-full"
+    >
+      <ion-img class="welcome-img h-full w-full object-cover absolute left-0 top-0 right-0 bottom-0"
+               src="assets/images/welcome-page/onboard-step-0.jpg"></ion-img>
+      <ion-label class="project-name z-10 text-white font-bold">
+        {{'appTitles.billboardStock' | translate}}
+      </ion-label>
+      <ion-button
+        (click)="slidesEl.slideNext()"
+        [expand]="true"
+        class=" absolute right-0 py-4 bottom-16 left-1/2 -translate-x-1/2 text-white capitalize tracking-wider text-lg">
+        {{'buttons.next' | translate}}
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide class="pt-6" *ngFor="let slide of slides; let i = index">
+      <div class="flex flex-col h-full">
+        <div class="px-4 w-4/6 text-start flex-grow">
+          <h1 class="mb-3 text-xl" [innerHtml]="slide.title | translate"></h1>
+          <p class="text-lg">{{slide.subtitle | translate}}</p>
+        </div>
+        <div class="relative img-block h-4/6 rounded-t-largeRadius overflow-hidden">
+          <ion-img class="h-full w-full object-cover" [src]="slide.img"></ion-img>
+          <ion-button
+            (click)="i === slides.length - 1 ? 0 : slidesEl.slideNext()"
+            [routerLink]="i === slides.length - 1 ? '/auth' : '/onboarding'"
+            [expand]="true"
+            class=" absolute right-0 py-4 bottom-16 left-1/2 -translate-x-1/2 text-white capitalize tracking-wider text-lg">
+            {{'buttons.next' | translate}}
+          </ion-button>
+        </div>
+      </div>
+
+    </ion-slide>
+  </ion-slides>
+</ion-content>
