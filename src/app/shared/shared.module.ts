@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BaseSelectModalComponent } from './components/base-select-modal/base-select-modal.component';
+import { BillboardImagePreviewComponent } from './components/billboard-imaga-preview/billboard-image-preview.component';
 import { BillboardOwnerComponent } from './components/billboard-owner/billboard-owner.component';
 import { BoardCardComponent } from './components/board-card/board-card.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
@@ -47,7 +48,8 @@ export const translationConfig = {
     SegmentSwitchComponent,
     BadgeComponent,
     ProfilePreviewComponent,
-    AuthButtonComponent
+    AuthButtonComponent,
+    BillboardImagePreviewComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ export const translationConfig = {
     SegmentSwitchComponent,
     BadgeComponent,
     ProfilePreviewComponent,
-    AuthButtonComponent
+    AuthButtonComponent,
+    BillboardImagePreviewComponent
   ]
 })
 export class SharedModule {

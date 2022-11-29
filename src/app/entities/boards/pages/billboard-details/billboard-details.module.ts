@@ -10,7 +10,6 @@ import { MapModule } from '../../../../modules/map/map.module';
 import { SharedModule } from '../../../../shared/shared.module';
 import { BillboardDetailsPageRoutingModule } from './billboard-details-routing.module';
 import { BillboardDetailsPage } from './billboard-details.page';
-import { BillboardImagePreviewComponent } from './components/billboard-imaga-preview/billboard-image-preview.component';
 import { DetailsInfoComponent } from './components/details-info/details-info.component';
 
 @NgModule({
@@ -26,7 +25,8 @@ import { DetailsInfoComponent } from './components/details-info/details-info.com
   providers: [
     NativeGeocoder
   ],
-  declarations: [BillboardDetailsPage, DetailsInfoComponent, BillboardImagePreviewComponent]
+  exports: [],
+  declarations: [BillboardDetailsPage, DetailsInfoComponent]
 })
 export class BillboardDetailsPageModule {
 }

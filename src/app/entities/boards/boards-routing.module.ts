@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BoardsPage } from './boards.page';
+import { BillboardDetailsResolver } from './pages/billboard-details/services/billboard-details.resolver';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    loadChildren: () => import('./pages/billboard-details/billboard-details.module').then(m => m.BillboardDetailsPageModule)
+    loadChildren: () => import('./pages/billboard-details/billboard-details.module').then(m => m.BillboardDetailsPageModule),
+    resolve: { details: BillboardDetailsResolver }
   }
 ];
 

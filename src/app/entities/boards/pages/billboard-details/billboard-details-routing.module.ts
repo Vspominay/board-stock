@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BillboardDetailsPage } from './billboard-details.page';
-import { BillboardDetailsResolver } from './services/billboard-details.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: BillboardDetailsPage,
-    resolve: { details: BillboardDetailsResolver }
+    component: BillboardDetailsPage
+  },
+  {
+    path: 'gallery',
+    loadChildren: () => import('./pages/billboard-gallery/billboard-gallery.module').then(m => m.BillboardGalleryPageModule)
   }
 ];
 

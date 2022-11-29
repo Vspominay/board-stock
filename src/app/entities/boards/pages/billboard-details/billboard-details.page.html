@@ -22,9 +22,11 @@
         </div>
       </div>
       <div class="flex flex-col justify-end" *ngIf="billboard.images.length">
-        <app-billboard-image-preview class="mb-1.5"
-                                     *ngFor="let image of billboard.images"
-                                     [image]="image"
+        <app-billboard-image-preview
+          routerLink="./gallery"
+          class="mb-1.5"
+          *ngFor="let image of billboard.images"
+          [image]="image"
         ></app-billboard-image-preview>
       </div>
     </div>

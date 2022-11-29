@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <ion-slides
+      #slidesEl
+      pager="false">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-img [src]="slide"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="absolute right-4 bottom-2 flex flex-col " *ngIf="slides && slides.length > 1">
+    <app-billboard-image-preview
+      (click)="slidesEl.slideTo(i + 1)"
+      class="mb-1.5"
+      *ngFor="let image of slides.slice(1); let i = index"
+      [image]="image"
+    ></app-billboard-image-preview>
+  </div>
+
+  <div class="controller next-btn" (click)="slidesEl.slideNext()">
+    <ion-icon src="assets/icons/move_next.svg"></ion-icon>
+  </div>
+  <div class="controller prev-btn" (click)="slidesEl.slidePrev()">
+    <ion-icon src="assets/icons/move_prev.svg"></ion-icon>
+  </div>
+</ion-content>

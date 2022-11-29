@@ -44,7 +44,8 @@ export class TabsComponent implements OnInit, OnDestroy {
   }
 
   private _defineShowSettings(url: string): void {
-    this.isShowTabs = !EXCEPTION_ROUTES.includes(url.slice(1));
+    console.log(EXCEPTION_ROUTES.find(route => new RegExp(route).test(url)))
+    this.isShowTabs = !EXCEPTION_ROUTES.find(route => new RegExp(route).test(url));
   }
 
   public ngOnDestroy() {
