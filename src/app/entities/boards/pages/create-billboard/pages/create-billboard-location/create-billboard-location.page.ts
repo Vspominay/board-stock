@@ -25,7 +25,10 @@ export class CreateBillboardLocationPage extends BaseCreateBillboardDirective {
   }
 
   public setLocation(locationData: { location: string, coords: ICoordinates }): void {
-    this.createBillboardForm.setValue(locationData);
+    this.createBillboardForm.setValue({
+      location: locationData.location,
+      coordinates: locationData.coords
+    });
   }
 
   public onSubmit() {
@@ -38,7 +41,7 @@ export class CreateBillboardLocationPage extends BaseCreateBillboardDirective {
   protected initForm(): void {
     this.createBillboardForm = this._fb.group({
       location: this._fb.control<string>('', [Validators.required]),
-      coords: this._fb.control<ICoordinates | null>(null, [Validators.required])
+      coordinates: this._fb.control<ICoordinates | null>(null, [Validators.required])
     });
   }
 }

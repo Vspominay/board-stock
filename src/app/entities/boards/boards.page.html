@@ -13,7 +13,6 @@
       <ion-item [detail]="false" class="mb-5" lines="none">
         <ion-label class="overflow-visible mr-0" slot="start">
           <h2
-            routerLink="/boards/create/location"
             class="found-title inline-block"
             [innerHTML]="'searchBillboards.foundBillboards' | translate : {count: (billboards$ | async).length}"></h2>
         </ion-label>

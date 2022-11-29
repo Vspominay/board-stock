@@ -5,7 +5,7 @@
   secondAdditionalIcon="assets/icons/heart.svg"
 ></app-header>
 
-<ion-content class="" *ngIf="(billboard$ | async )as billboard" [fullscreen]="true">
+<ion-content class="" *ngIf="(billboard$ | async ) as billboard" [fullscreen]="true">
   <div class="mb-4 img-block relative rounded-largeRadius overflow-hidden">
     <ion-img [src]="billboard.mainImage"></ion-img>
     <div class="flex absolute left-4 right-4 bottom-4">
@@ -34,7 +34,7 @@
     <div class="flex flex-col ">
       <h1 class="font-bold">{{billboard.title}}</h1>
       <div class="text-mediumGray flex items-center text-xs" *ngIf="billboard.address.location">
-        <ion-icon src="assets/icons/location.svg"></ion-icon>
+        <ion-icon class="mr-0.5" src="assets/icons/location.svg"></ion-icon>
         <span>{{billboard.address.location}}</span>
       </div>
     </div>
@@ -44,9 +44,23 @@
     </div>
   </div>
 
+
+  <div *ngIf="billboard.views && billboard.averageMonthViews" class="flex mb-6">
+    <div class="view-stat-block w-1/2 flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/eye-v2.svg"></ion-icon>
+      <ion-label>{{billboard.views}}</ion-label>
+      <ion-text>{{'billboardInformation.views' | translate}}</ion-text>
+    </div>
+    <div class="view-stat-block w-1/2 flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/eye-v2.svg"></ion-icon>
+      <ion-label>{{billboard.averageMonthViews}}</ion-label>
+      <ion-text>{{'billboardInformation.averageViews' | translate}}</ion-text>
+    </div>
+  </div>
+
   <div class="line mb-6"></div>
 
-  <ion-item [detail]="false" lines="none" class="owner-block flex items-center mb-6">
+  <ion-item [detail]="false" lines="none" button="default" class="owner-block mb-6">
     <ion-avatar slot="start" class="mr-8 mt-0 mb-0">
       <img src="/assets/images/user.jpg" alt="">
     </ion-avatar>
@@ -66,7 +80,12 @@
     ></app-info-item>
 
     <app-map
-      [description]="billboard.address.coords.lat + ' ' + billboard.address.coords.lng"
+      [description]="billboard.address.location"
+      [coordinates]="[{
+        lat: billboard.address.coordinates[0],
+        lng: billboard.address.coordinates[1]
+      }]"
+      [isInteractive]="false"
     ></app-map>
   </div>
 

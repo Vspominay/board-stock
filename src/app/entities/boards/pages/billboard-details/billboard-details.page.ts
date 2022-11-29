@@ -16,7 +16,9 @@ export class BillboardDetailsPage implements OnInit {
 
   public billboard$!: Observable<IBillboard>;
 
-  constructor(private _store: Store<AppState>, private _route: ActivatedRoute) { }
+  constructor(
+    private _store: Store<AppState>,
+    private _route: ActivatedRoute) { }
 
   public ngOnInit() {
     this.billboard$ = this._store.pipe(

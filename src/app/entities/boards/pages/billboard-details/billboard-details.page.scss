@@ -16,6 +16,23 @@
     }
   }
 
+  .view-stat-block {
+    ion-icon {
+      font-size: 60px;
+      color: theme('colors.secondary');
+    }
+
+    ion-label {
+      font-size: theme('fontSize.xl');
+      font-weight: theme('fontWeight.bold');
+    }
+
+    ion-text {
+      font-size: theme('fontSize.sm');
+      color: theme('colors.barely');
+    }
+  }
+
   .line {
     height: 1.3px;
     background: theme('colors.softGray');
@@ -33,7 +50,6 @@
     --padding-bottom: theme('padding.3');
     --border-radius: theme('borderRadius.default');
     width: 100%;
-    margin: 0 auto;
 
     ion-avatar {
       width: 38px;

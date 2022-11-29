@@ -5,8 +5,8 @@
 ></app-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row class="flex justify-center">
+  <ion-grid class="h-full">
+    <ion-row class="h-full flex justify-center">
       <ion-col size="11">
 
         <ion-item [detail]="false" class="mb-5" lines="none">
@@ -61,9 +61,9 @@
         </ion-list>
 
         <ng-template #emptyData>
-          <div class="">
-            <ion-button [shape]="'circle'" class="add-btn mb-6">+</ion-button>
-            <ion-text class="mb-6 text-tertiary">
+          <div class="h-5/6 flex items-center justify-center flex-col">
+            <ion-button (click)="openSearchTab()" class="add-btn">+</ion-button>
+            <ion-text class="mb-5 text-tertiary">
               <h1 class="" [innerHtml]="'favorite.pageIsEmpty' | translate"></h1>
             </ion-text>
 

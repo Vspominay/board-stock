@@ -94,6 +94,8 @@
     "email": "Contact email"
   },
   "billboardInformation": {
-    "location": "Location"
+    "location": "Location",
+    "views": "Total views",
+    "averageViews": "Average view per month"
   }
 }

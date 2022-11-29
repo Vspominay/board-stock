@@ -5,7 +5,7 @@
     [leafletOptions]="options"
     (leafletMapReady)="onMapReady($event)"
     (dragend)="dragMarker($event)"
-    (leafletDoubleClick)="generateMarker($any($event).latlng)"
+    (leafletDoubleClick)="isInteractive ? generateMarker($any($event).latlng) : 0"
   >
   </div>
   <div *ngIf="description" class="bg-white bg-opacity-50 select-map-text py-2 text-center">

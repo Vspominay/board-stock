@@ -1,7 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { KYIV_COORDINATES } from '../../../../../constants/default-coordinates.constants';
-import { ICoordinates } from '../../../../../interfaces/coordinates.interface';
 import { CreateBillboardsActions } from './create-billboard.actions-types';
 
 export interface ICreateBillboard {
@@ -9,7 +7,7 @@ export interface ICreateBillboard {
   type: string[],
   address: {
     location: string,
-    coords: ICoordinates
+    coordinates: number[]
   },
   price: number,
   description: string,
@@ -37,10 +35,7 @@ const CREATE_BILLBOARD_INITIAL: CreateBillboardState = {
     images: [],
     address: {
       location: '',
-      coords: {
-        lat: KYIV_COORDINATES.lat,
-        lng: KYIV_COORDINATES.lng
-      }
+      coordinates: []
     },
     price: 29.99,
     mainImage: '',
@@ -68,14 +63,14 @@ export const createBillboardReducer = createReducer(
       }
     };
   }),
-  on(CreateBillboardsActions.setBillboardLocation, (state, { location, coords }) => {
+  on(CreateBillboardsActions.setBillboardLocation, (state, { location, coordinates }) => {
     return {
       ...state,
       billboard: {
         ...state.billboard,
         address: {
           location,
-          coords
+          coordinates: [coordinates.lat, coordinates.lng]
         }
       }
     }

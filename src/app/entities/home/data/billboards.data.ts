@@ -12,10 +12,7 @@ export const BILLBOARDS: IBillboard[] = [
     images: [],
     address: {
       location: 'Jakarta, Indonesia',
-      coords: {
-        lng: 50,
-        lat: 39
-      }
+      coordinates: [59, 63]
     },
     price: 220,
     title: 'Wings Tower',
@@ -29,10 +26,7 @@ export const BILLBOARDS: IBillboard[] = [
     images: [],
     address: {
       location: 'Lviv, Ukraine',
-      coords: {
-        lng: 50,
-        lat: 39
-      }
+      coordinates: [39, 45]
     },
     price: 271,
     title: 'Mill Sper House',

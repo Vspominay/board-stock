@@ -35,7 +35,11 @@ export class CreateBillboardFinishPage extends BaseCreateBillboardDirective {
   public onSubmit() {
     super.onSubmit();
 
-    this._store.dispatch(setBillboardFinishInformation(this.createBillboardForm.value));
+    const { contactEmail, contactPhone, price: formPrice } = this.createBillboardForm.value;
+    const price = this.rentPeriodPerMonth ? formPrice : formPrice / 12;
+    this._store.dispatch(setBillboardFinishInformation({
+      contactEmail, contactPhone, price
+    }));
     this.nextStep();
   }
 

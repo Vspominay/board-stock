@@ -16,6 +16,7 @@ import { LayoutsModule } from './modules/layouts/layouts.module';
 import { reducers } from './reducers';
 import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
+import { InterceptorModule } from './interceptors/interceptor.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutsModule,
+    InterceptorModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })

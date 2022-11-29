@@ -1,14 +1,15 @@
 import { EBillboardType } from '../enums/billboard-type.enum';
-import { ICoordinates } from './coordinates.interface';
 
 export interface IBillboard {
   id: string,
   mainImage: string,
   title: string,
+  averageMonthViews?: number,
+  views?: number,
   isFavorite?: boolean,
   price: number,
   address: {
-    coords: ICoordinates,
+    coordinates: number[],
     location: string
   },
   rate?: number,

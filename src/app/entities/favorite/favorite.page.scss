@@ -32,6 +32,18 @@
   }
 
   .add-btn {
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    margin: 0 0 theme('margin.6') 0;
+    max-width: 70px;
+    min-width: 70px;
+    height: 70px;
+    --border-radius: 50%;
+    --background: radial-gradient(116.28% 116.28% at 0% -16.28%, #234F68 4.69%, #8BC83F 98.31%);
+    --box-shadow: 0 0 68px 10px rgba(139, 200, 63, 0.8);
     color: theme('colors.white');
+    font-size: 32px;
   }
 }

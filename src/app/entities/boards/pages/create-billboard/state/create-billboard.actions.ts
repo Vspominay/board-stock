@@ -16,7 +16,7 @@ export const setBillboardLocation = createAction(
   '[Create billboard] Set billboard location',
   props<{
     location: string,
-    coords: ICoordinates
+    coordinates: ICoordinates
   }>()
 );
 

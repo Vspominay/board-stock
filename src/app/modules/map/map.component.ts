@@ -16,6 +16,7 @@ export class MapComponent implements OnInit {
   @Input() coordinates?: ICoordinates[];
   @Input() isClickable: boolean = false;
   @Input() description?: string;
+  @Input() isInteractive: boolean = true;
 
   @Output() onSelectLocation: EventEmitter<{
     coords: ICoordinates,
@@ -35,7 +36,7 @@ export class MapComponent implements OnInit {
   private _map!: Map;
 
   public options = {
-    zoom: 5,
+    zoom: 10,
     maxZoom: 18,
     center: latLng([KYIV_COORDINATES.lat, KYIV_COORDINATES.lng]),
 
@@ -50,8 +51,16 @@ export class MapComponent implements OnInit {
     setTimeout(() => {
       this._map = map;
       this._map.invalidateSize();
-      this._getCurrentPosition();
+      if (this.isInteractive) {
+        this._getCurrentPosition();
+      }
       this._map.attributionControl.remove();
+
+      if (this.coordinates.length && !this.isInteractive) {
+        for (const coordinate of this.coordinates) {
+          this.generateMarker({ lat: coordinate.lat, lng: coordinate.lng });
+        }
+      }
     }, 1000);
   }
 
@@ -85,7 +94,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  public generateMarker(coords: { lat: number, lng: number }): void {
+  public generateMarker(coords: { lat: number, lng: number }, isInteractive: boolean = true): void {
     const locationIcon = icon({
       iconSize: [25, 41],
       iconAnchor: [10, 41],
@@ -93,7 +102,7 @@ export class MapComponent implements OnInit {
       iconUrl: "../../../../../../../assets/images/pin-location.png"
     });
 
-    const newMarker = marker([coords.lat, coords.lng], { icon: locationIcon, draggable: true })
+    const newMarker = marker([coords.lat, coords.lng], { icon: locationIcon, draggable: this.isInteractive })
       .on('dragend', (event) => {
         this._emitCoords(event.target.getLatLng().lat, event.target.getLatLng().lng);
       });
