@@ -1,19 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { NOTIFICATIONS } from './data/notitifications.data';
+import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { AppState } from '../../reducers';
 import { INotification } from './interfaces/notification.interface';
+import { DeleteNotification } from './state/notifications.actions';
+import { selectAllNotifications } from './state/notifications.selectors';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.page.html',
   styleUrls: ['./notifications.page.scss'],
 })
-export class NotificationsPage implements OnInit {
+export class NotificationsPage {
 
-  public readonly notifications: INotification[] = [...NOTIFICATIONS];
+  public readonly notifications$: Observable<INotification[]> = this._store.select(selectAllNotifications);
 
-  constructor() { }
+  constructor(
+    private _store: Store<AppState>,
+    private _alertController: AlertController
+  ) { }
 
-  ngOnInit() {
+  public async deleteNotification(id: string) {
+    const alert = await this._alertController.create({
+      header: 'Alert!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            console.log('confirm')
+            this._store.dispatch(DeleteNotification({ id }));
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
-
 }

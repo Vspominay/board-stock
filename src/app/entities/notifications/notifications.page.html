@@ -1,29 +1,30 @@
 <app-header
   [title]="'notifications.title' | translate"
   defaultHref="/home"
-  additionalIcon="assets/icons/trash.svg"
 ></app-header>
 
 <ion-content>
   <ion-grid>
     <ion-row class="flex justify-center">
-      <ion-col *ngFor="let notification of notifications" size="11">
-        <ion-item-sliding>
+      <ion-col *ngFor="let notification of notifications$ | async" size="11">
+        <ion-item-sliding
+        >
           <ion-item
             [detail]="false"
             lines="none"
-            class="notification-item"
+            class="notification-item w-full"
           >
             <app-notification
+              class="w-full"
               [title]="notification.title"
               [image]="notification.image"
-              [content]="notification.message"
+              [content]="notification.content"
               [date]="notification.date"
             ></app-notification>
           </ion-item>
 
-          <ion-item-options side="end">
-            <ion-item-option mode="md" [expandable]="true" color="danger">
+          <ion-item-options (ionSwipe)="deleteNotification(notification.id)" side="end">
+            <ion-item-option (click)="deleteNotification(notification.id)" mode="md" [expandable]="true" color="danger">
               <ion-icon slot="icon-only" src="assets/icons/trash.svg"></ion-icon>
             </ion-item-option>
           </ion-item-options>

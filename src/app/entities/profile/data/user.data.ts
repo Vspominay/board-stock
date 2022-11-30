@@ -9,5 +9,6 @@ export const USER: IUserProfile = {
   activeBillboards: 2,
   archivedBillboards: 10,
   rentOutBillboards: 0,
-  phone: '+38045641545'
+  phone: '+38045641545',
+  notifications: []
 }

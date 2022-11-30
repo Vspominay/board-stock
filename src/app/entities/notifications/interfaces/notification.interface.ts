@@ -1,6 +1,6 @@
 export interface INotification {
-  id: number,
-  message: string,
+  id: string,
+  content: string,
   title: string,
   image: string,
   date: string

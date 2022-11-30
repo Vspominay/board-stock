@@ -28,5 +28,9 @@
         object-fit: cover;
       }
     }
+
+    ion-label {
+      overflow: visible;
+    }
   }
 }
