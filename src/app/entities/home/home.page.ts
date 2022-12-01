@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { IBillboard } from '../../interfaces/billboard.interface';
 import { AppState } from '../../reducers';
@@ -9,6 +11,7 @@ import { BILLBOARD_OWNERS } from './data/billboard-owers.data';
 import { ModalSelectLocationComponent } from './components/modal-select-location/modal-select-location.component';
 import { BILLBOARDS } from './data/billboards.data';
 import { FILTERS } from './data/filters.data';
+import { selectAgents, selectFeaturedBillboards, selectUser } from './state/home.selectors';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +19,13 @@ import { FILTERS } from './data/filters.data';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  public readonly viewModel$ = combineLatest([
+    this._store.select(selectUser),
+    this._store.select(selectAgents),
+    this._store.select(selectFeaturedBillboards)
+  ])
+    .pipe(map(([user, agents, featuredBillboards]) => ({ user, agents, featuredBillboards })));
 
   //TODO delete it after api integration
   public currentLocation!: { label: string, value: string };

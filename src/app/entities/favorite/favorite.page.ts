@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
 import { LAYOUT_SEGMENT } from '../../constants/layout-segments.constant';
-import { IBillboard } from '../../interfaces/billboard.interface';
+import { IBillboardStatus } from '../../interfaces/billboard-status.interface';
 import { ISegmentItem } from '../../shared/components/layout-switch/interfaces/segmant-item';
-import { BILLBOARDS } from '../home/data/billboards.data';
+import { selectFavoriteBillboards } from '../boards/state/boards.selectors';
 
 @Component({
   selector: 'app-favorite',
@@ -14,13 +17,13 @@ export class FavoritePage implements OnInit {
 
   public listView!: 'horizontal' | 'vertical';
   public readonly layoutSegments: ISegmentItem[] = [...LAYOUT_SEGMENT];
-  public favoriteBillboards!: IBillboard[];
+  public favoriteBillboards$: Observable<IBillboardStatus[]> = this._store.select(selectFavoriteBillboards);
 
-  constructor(private _navController: NavController) { }
+  constructor(
+    private _store: Store,
+    private _navController: NavController) { }
 
   public ngOnInit() {
-    this.favoriteBillboards = BILLBOARDS.filter(billboard => billboard.isFavorite);
-    this.favoriteBillboards.length = 0;
     this.listView = this.layoutSegments[0].value as 'horizontal' | 'vertical';
   }
 

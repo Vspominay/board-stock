@@ -34,3 +34,11 @@ export const BillboardInformationUpdated = createAction(
 export const MarkASFetched = createAction(
   '[Boards] Mark as fetched'
 );
+
+export const FetchFavoriteBillboards = createAction(
+  '[Boards] Fetch favorites billboards'
+);
+
+export const FetchedFavoriteBillboards = createAction(
+  '[Boards] Fetched favorite billboards'
+);

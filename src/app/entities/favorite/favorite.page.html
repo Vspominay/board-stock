@@ -13,7 +13,7 @@
           <ion-label class="overflow-visible mr-0" slot="start">
             <h2
               class="found-title inline-block">
-              {{favoriteBillboards.length + ' '}}
+              {{(favoriteBillboards$ | async).length + ' '}}
               {{'suffixes.billboards' | translate}}
             </h2>
           </ion-label>
@@ -23,43 +23,44 @@
                               slot="end"></app-segment-switch>
         </ion-item>
 
-        <ion-list *ngIf="favoriteBillboards.length; else emptyData">
-          <ion-row>
-            <ion-col [size]="listView === 'horizontal' ? 12 : 6"
-                     *ngFor="let billboard of favoriteBillboards; let i = index">
+        <ng-container *ngIf="(favoriteBillboards$ | async) as favoriteBillboards">
+          <ion-list *ngIf="favoriteBillboards.length; else emptyData">
+            <ion-row>
+              <ion-col [size]="listView === 'horizontal' ? 12 : 6"
+                       *ngFor="let billboard of favoriteBillboards; let i = index">
 
-              <ng-container *ngIf="listView === 'vertical'; else slidingTemplate">
-                <ng-container
-                  [ngTemplateOutlet]="cardTemplate"
-                  [ngTemplateOutletContext]="{billboard:billboard, index: i}">
+                <ng-container *ngIf="listView === 'vertical'; else slidingTemplate">
+                  <ng-container
+                    [ngTemplateOutlet]="cardTemplate"
+                    [ngTemplateOutletContext]="{isFavorite: billboard.isFavorite ,billboard:billboard.billboard, index: i}">
+                  </ng-container>
                 </ng-container>
-              </ng-container>
 
-              <ng-template #slidingTemplate>
-                <ion-item-sliding>
-                  <ion-item
-                    [detail]="false"
-                    lines="none"
-                    class="card-item"
-                  >
-                    <ng-container
-                      [ngTemplateOutlet]="cardTemplate"
-                      [ngTemplateOutletContext]="{billboard:billboard, index: i}">
-                    </ng-container>
-                  </ion-item>
+                <ng-template #slidingTemplate>
+                  <ion-item-sliding>
+                    <ion-item
+                      [detail]="false"
+                      lines="none"
+                      class="card-item"
+                    >
+                      <ng-container
+                        [ngTemplateOutlet]="cardTemplate"
+                        [ngTemplateOutletContext]="{isFavorite: billboard.isFavorite ,billboard: billboard.billboard, index: i}">
+                      </ng-container>
+                    </ion-item>
 
-                  <ion-item-options side="end">
-                    <ion-item-option mode="md" [expandable]="true" color="danger">
-                      <ion-icon slot="icon-only" src="assets/icons/trash.svg"></ion-icon>
-                    </ion-item-option>
-                  </ion-item-options>
-                </ion-item-sliding>
-              </ng-template>
-            </ion-col>
-          </ion-row>
+                    <ion-item-options side="end">
+                      <ion-item-option mode="md" [expandable]="true" color="danger">
+                        <ion-icon slot="icon-only" src="assets/icons/trash.svg"></ion-icon>
+                      </ion-item-option>
+                    </ion-item-options>
+                  </ion-item-sliding>
+                </ng-template>
+              </ion-col>
+            </ion-row>
 
-        </ion-list>
-
+          </ion-list>
+        </ng-container>
         <ng-template #emptyData>
           <div class="h-5/6 flex items-center justify-center flex-col">
             <ion-button (click)="openSearchTab()" class="add-btn">+</ion-button>
@@ -79,16 +80,16 @@
 </ion-content>
 
 
-<ng-template #cardTemplate let-billboard='billboard' let-i='index'>
+<ng-template #cardTemplate let-isFavorite='isFavorite' let-billboard='billboard' let-i='index'>
   <app-board-card
     [rate]="billboard.rate"
-    [location]="billboard.location"
-    [isFavorite]="i === 2 || i === 0"
-    [img]="billboard.img"
+    [location]="billboard.address.location"
+    [isFavorite]="isFavorite"
+    [img]="billboard.mainImage"
     [price]="billboard.price"
     [title]="billboard.title"
     [type]="billboard.type"
-    [id]="i"
+    [id]="billboard.id"
     [view]="listView"
   ></app-board-card>
 </ng-template>

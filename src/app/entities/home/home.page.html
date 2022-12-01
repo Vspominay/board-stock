@@ -12,7 +12,9 @@
       <ion-button [routerLink]="['/notifications']"
                   class="toolbar-item border bg-white notification-block border-primary">
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
-        <ion-badge class="notification-badge" color="danger">1</ion-badge>
+        <ion-badge *ngIf="(viewModel$ | async).user.notificationCount as notificationCount"
+                   class="notification-badge"
+                   color="danger">{{notificationCount}}</ion-badge>
       </ion-button>
     </ion-buttons>
 
@@ -20,9 +22,10 @@
     <ion-item slot="end"
               class="ion-text-center toolbar-item  border border-softGray p-0.5"
               [detail]="false"
+              routerLink="/profile"
               lines="none">
       <ion-avatar class="mx-auto min-h-full min-w-full">
-        <img src="../../../assets/images/user.jpg" alt="avatar">
+        <img [src]="(viewModel$ | async).user.photo" alt="avatar">
       </ion-avatar>
     </ion-item>
   </ion-toolbar>
@@ -35,7 +38,7 @@
     <ion-row class="mb-2.5 flex ion-justify-content-center">
       <ion-col size="11">
         <ion-text class="tracking-wider">
-          <h1 [innerHTML]="'homePage.welcomeText' | translate : {name: userName}"></h1>
+          <h1 [innerHTML]="'homePage.welcomeText' | translate : {name: (viewModel$ | async).user.name}"></h1>
         </ion-text>
       </ion-col>
     </ion-row>
@@ -52,50 +55,57 @@
       </ion-col>
     </ion-row>
 
-    <app-selection-items [exploreLink]="'/featured-billboards'"
-                         [title]="'homePage.featuredBillboards' | translate"
-                         [exploreText]="'buttons.viewAll' | translate">
-      <ion-row class="horizontal-scroll">
-        <ion-col *ngFor="let billboard of featuredBillboards; let i = index">
-          <app-board-card
-            [id]="i"
-            [title]="billboard.title"
-            [price]="billboard.price"
-            [img]="billboard.img"
-            [isFavorite]="billboard.isFavorite"
-            [location]="billboard.location"
-            view="horizontal"
-            [rate]="billboard.rate"></app-board-card>
-        </ion-col>
-      </ion-row>
-    </app-selection-items>
+    <ng-container *ngIf="(viewModel$ | async).featuredBillboards as featuredBillboards">
+      <app-selection-items
+        *ngIf="featuredBillboards.length"
+        [exploreLink]="'/featured-billboards'"
+        [title]="'homePage.featuredBillboards' | translate"
+        [exploreText]="'buttons.viewAll' | translate">
+        <ion-row class="horizontal-scroll">
+          <ion-col *ngFor="let billboardStatus of featuredBillboards; let i = index">
+            <app-board-card
+              [id]="billboardStatus['_id']"
+              [title]="billboardStatus.billboard.title"
+              [price]="billboardStatus.billboard.price"
+              [img]="billboardStatus.billboard.mainImage"
+              [isFavorite]="billboardStatus.isFavorite"
+              [location]="billboardStatus.billboard.address.location"
+              view="horizontal"
+              [rate]="billboardStatus.billboard.rate"></app-board-card>
+          </ion-col>
+        </ion-row>
+      </app-selection-items>
+    </ng-container>
 
-    <app-selection-items [exploreLink]="'/agents'"
-                         [title]="'homePage.topBannerAgents' | translate"
-                         [exploreText]="'buttons.explore' | translate">
-      <ion-row class="horizontal-scroll">
-        <ion-col *ngFor="let agent of billboardOwners;let i = index">
-          <app-billboard-owner [id]="i" [avatar]="agent.avatar" [name]="agent.name"></app-billboard-owner>
-        </ion-col>
-      </ion-row>
-    </app-selection-items>
+    <ng-container *ngIf="(viewModel$ | async).agents as agents">
+      <app-selection-items
+        *ngIf="agents.length"
+        [exploreLink]="'/agents'"
+        [title]="'homePage.topBannerAgents' | translate"
+        [exploreText]="'buttons.explore' | translate">
+        <ion-row class="horizontal-scroll">
+          <ion-col *ngFor="let agent of agents;let i = index">
+            <app-billboard-owner [id]="agent.id" [avatar]="agent.photo" [name]="agent.name"></app-billboard-owner>
+          </ion-col>
+        </ion-row>
+      </app-selection-items>
+    </ng-container>
 
-
-    <app-selection-items [exploreLink]="'/billboards'"
-                         [title]="'homePage.nearbyBillboards' | translate"
-                         [exploreText]="'buttons.explore' | translate">
-      <ion-row>
-        <ion-col size="6" *ngFor="let billboard of billboards; let i = index">
-          <app-board-card
-            [id]="i"
-            [title]="billboard.title"
-            [price]="billboard.price"
-            [img]="billboard.img"
-            [isFavorite]="billboard.isFavorite"
-            [location]="billboard.location"
-            [rate]="billboard.rate"></app-board-card>
-        </ion-col>
-      </ion-row>
-    </app-selection-items>
+    <!--    <app-selection-items [exploreLink]="'/billboards'"-->
+    <!--                         [title]="'homePage.nearbyBillboards' | translate"-->
+    <!--                         [exploreText]="'buttons.explore' | translate">-->
+    <!--      <ion-row>-->
+    <!--        <ion-col size="6" *ngFor="let billboard of billboards; let i = index">-->
+    <!--          <app-board-card-->
+    <!--            [id]="i"-->
+    <!--            [title]="billboard.title"-->
+    <!--            [price]="billboard.price"-->
+    <!--            [img]="billboard.img"-->
+    <!--            [isFavorite]="billboard.isFavorite"-->
+    <!--            [location]="billboard.location"-->
+    <!--            [rate]="billboard.rate"></app-board-card>-->
+    <!--        </ion-col>-->
+    <!--      </ion-row>-->
+    <!--    </app-selection-items>-->
   </ion-grid>
 </ion-content>

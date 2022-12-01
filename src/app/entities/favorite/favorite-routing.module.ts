@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FavoritePage } from './favorite.page';
+import { FavoriteResolver } from './services/favorite.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: FavoritePage
+    component: FavoritePage,
+    pathMatch: 'full',
+    resolve: { favoriteBillboards: FavoriteResolver }
   }
 ];
 
@@ -14,4 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FavoritePageRoutingModule {}
+export class FavoritePageRoutingModule {
+}

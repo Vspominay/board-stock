@@ -42,4 +42,9 @@ export class BoardsService {
     return this.http.put<{ status: string, data: { document: IBillboardStatus } }>(`${this.api}billboards-status/${id}`, { isFavorite })
                .pipe(pluck('data'), pluck('document'));
   }
+
+  public getFavoriteBillboards(): Observable<IBillboardStatus[]> {
+    return this.http.get<{ status: string, data: { documents: IBillboardStatus[] } }>(`${this.api}billboards-status/favorite`)
+               .pipe(pluck('data'), pluck('documents'));
+  }
 }

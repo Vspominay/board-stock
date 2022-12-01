@@ -5,7 +5,8 @@ import { IBillboardStatus } from '../../../interfaces/billboard-status.interface
 import { BillboardsActions } from './boards.actions-types';
 
 export interface BoardsState extends EntityState<IBillboardStatus> {
-  isFetched: boolean
+  isFetched: boolean,
+  isFetchedFavorite: boolean
 }
 
 export const adapter = createEntityAdapter<IBillboardStatus>(
@@ -29,6 +30,12 @@ export const billboardsReducer = createReducer(
     return {
       ...state,
       isFetched: true
+    }
+  }),
+  on(BillboardsActions.FetchedFavoriteBillboards, (state) => {
+    return {
+      ...state,
+      isFetchedFavorite: true
     }
   })
 );

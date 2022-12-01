@@ -22,7 +22,17 @@ export const selectGallery = (id: string) => createSelector(
   }
 );
 
+export const selectFavoriteBillboards = createSelector(
+  selectAllBillboards,
+  (billboardStatuses) => billboardStatuses.filter(billboard => billboard.isFavorite)
+);
+
 export const isFetched = createSelector(
   selectAllBillboards,
   billboardsState => billboardsState['isFetched']
 );
+
+export const isFetchedFavorite = createSelector(
+  selectAllBillboards,
+  billboardState => billboardState['isFetchedFavorite']
+)

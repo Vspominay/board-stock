@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class BillboardOwnerComponent {
 
-  @Input() id!: number;
+  @Input() id!: string;
   @Input() avatar!: string;
   @Input() name!: string;
 }

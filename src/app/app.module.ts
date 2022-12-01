@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthEffects } from './entities/auth/state/auth.effects';
+import { BoardsEffects } from './entities/boards/state/boards.effects';
 import { LayoutsModule } from './modules/layouts/layouts.module';
 import { reducers } from './reducers';
 import { SharedModule } from './shared/shared.module';
@@ -31,7 +32,7 @@ import { InterceptorModule } from './interceptors/interceptor.module';
     LayoutsModule,
     InterceptorModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, BoardsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
