@@ -8,11 +8,11 @@
     <ion-row class="flex h-full justify-center">
       <ion-col size="11">
         <app-profile-preview
-          [image]="user.img"
+          [image]="(user$ | async).photo"
           class="mx-auto block w-fit mb-3.5"
         ></app-profile-preview>
 
-        <form (ngSubmit)="onSubmit()" [formGroup]="editProfileForm" class="edit-form">
+        <form [formGroup]="editProfileForm" class="edit-form">
           <ion-row>
             <ion-col size="12">
               <app-input
@@ -67,6 +67,7 @@
         <ion-col size="10" offset="1">
           <ion-button [disabled]="editProfileForm.invalid"
                       [type]="'submit'"
+                      (click)="onSubmit()"
                       expand="block"
                       class="text-white capitalize tracking-wider text-base">
             {{'buttons.save' | translate}}

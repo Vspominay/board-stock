@@ -1,6 +1,6 @@
 export interface IBaseUser {
-  id: number,
-  img: string,
+  id: string,
+  photo: string,
   name: string
 }
 

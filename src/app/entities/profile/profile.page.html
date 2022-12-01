@@ -1,38 +1,37 @@
 <app-header [title]="'profile.title' | translate" [additionalIcon]="'assets/icons/setting-v2.svg'"></app-header>
 
-<ion-content>
+<ion-content *ngIf="(viewModel$ | async) as viewModel">
   <ion-grid>
     <ion-row class="flex justify-center">
       <ion-col size="11">
-
         <app-profile-preview
-          [fullName]="user.name + ' ' + user.surname"
-          [image]="user.img"
+          [fullName]="viewModel.user.name + ' ' + viewModel.user.surname"
+          [image]="viewModel.user.photo"
           [badge]="{
             isIcon: true,
             content: 'assets/icons/edit.svg'
           }"
           class="mx-auto block w-fit mb-3.5"
-          [subText]="user.email"
+          [subText]="viewModel.user.email"
           (onClickBadge)="openEditProfile()"
         ></app-profile-preview>
 
         <ion-row class="mb-4">
           <ion-col size="4">
             <app-statistics-field
-              [title]="user.activeBillboards + ''"
+              [title]="viewModel.active.length + ''"
               [subTitle]="'profile.activeBillboards' | translate"
             ></app-statistics-field>
           </ion-col>
           <ion-col size="4">
             <app-statistics-field
-              [title]="user.rentOutBillboards + ''"
+              [title]="viewModel.rentedOut.length + ''"
               [subTitle]="'profile.rentedOut' | translate"
             ></app-statistics-field>
           </ion-col>
           <ion-col size="4">
             <app-statistics-field
-              [title]="user.archivedBillboards + ''"
+              [title]="viewModel.archived.length + ''"
               [subTitle]="'profile.archived' | translate"
             ></app-statistics-field>
           </ion-col>
@@ -48,7 +47,7 @@
         <ion-item [detail]="false" class="mb-5 segment-title" lines="none">
           <ion-label class="overflow-visible mr-0" slot="start">
             <h2 class="found-title inline-block">
-              {{segmentsValue.count + ' '}} {{segmentsValue.title | translate | lowercase}}
+              {{viewModel[segmentsValue.value].length + ' '}} {{segmentsValue.title | translate | lowercase}}
             </h2>
           </ion-label>
           <app-segment-switch [value]="layoutSegments[0].value"
@@ -59,16 +58,15 @@
 
         <ion-list>
           <ion-row>
-            <ion-col [size]="listView === 'horizontal' ? 12 : 6" *ngFor="let billboard of billboards; let i = index">
+            <ion-col [size]="listView === 'horizontal' ? 12 : 6"
+                     *ngFor="let billboardStatus of viewModel[segmentsValue.value]; let i = index">
               <app-board-card
-                [rate]="billboard.rate"
-                [location]="billboard.location"
-                [isFavorite]="i === 2 || i === 0"
-                [img]="billboard.img"
-                [price]="billboard.price"
-                [title]="billboard.title"
-                [type]="billboard.type"
-                [id]="i"
+                [rate]="billboardStatus.billboard.rate"
+                [location]="billboardStatus.billboard.address.location"
+                [img]="billboardStatus.billboard.mainImage"
+                [price]="billboardStatus.billboard.price"
+                [title]="billboardStatus.billboard.title"
+                [id]="billboardStatus.billboard.id"
                 [view]="listView"
               ></app-board-card>
             </ion-col>

@@ -12,7 +12,7 @@
           'rounded-full': badge.isIcon,
           'cursor-pointer': badge.isIcon
         }"
-        class="flex items-center justify-center profile-badge absolute -bottom-0.5 -right-0.5">
+        class="flex items-center justify-center profile-badge absolute -bottom-0.5 right-0">
         <ng-container *ngIf="badge.isIcon; else badgeTextEl">
           <ion-icon [src]="badge.content"></ion-icon>
         </ng-container>
