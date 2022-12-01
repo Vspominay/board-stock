@@ -8,23 +8,23 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { first, tap } from 'rxjs/operators';
 
-import { IBillboard } from '../../../interfaces/billboard.interface';
+import { IBillboardStatus } from '../../../interfaces/billboard-status.interface';
 import { FetchAllBillboards } from '../state/boards.actions';
-import { selectAllBillboards } from '../state/boards.selectors';
+import { isFetched } from '../state/boards.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BillboardsResolver implements Resolve<IBillboard[]> {
+export class BillboardsResolver implements Resolve<IBillboardStatus[]> {
 
   constructor(private _store: Store) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IBillboard[]> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IBillboardStatus[]> {
     return this._store
                .pipe(
-                 select(selectAllBillboards),
-                 tap((billboards) => {
-                   if (billboards.length) return;
+                 select(isFetched),
+                 tap((isFetched) => {
+                   if (isFetched) return;
 
                    this._store.dispatch(FetchAllBillboards());
                  }), first());

@@ -12,12 +12,17 @@ export const selectAllBillboards = createSelector(
 
 export const selectBillboard = (id: string) => createSelector(
   selectAllBillboards,
-  (billboards) => billboards.find(billboard => billboard.id === id)
+  (billboards) => billboards.length && billboards.find(billboard => billboard.id === id)
 );
 
 export const selectGallery = (id: string) => createSelector(
   selectBillboard(id),
-  billboard => {
-    if (billboard) return [billboard.mainImage, ...billboard.images];
+  billboardStatus => {
+    if (billboardStatus) return [billboardStatus.billboard.mainImage, ...billboardStatus.billboard.images];
   }
+);
+
+export const isFetched = createSelector(
+  selectAllBillboards,
+  billboardsState => billboardsState['isFetched']
 );

@@ -2,10 +2,12 @@
   class="fixed top-0 z-10 left-0 right-0"
   defaultHref="/boards"
   [isTransparent]="true"
-  secondAdditionalIcon="assets/icons/heart.svg"
+  (onAdditionalClick)="likeToggle$.next(!!hiddenEl.value)"
+  [additionalIcon]="hiddenEl.value === 'true' ? 'assets/icons/heart-fill.svg' : 'assets/icons/heart.svg'"
 ></app-header>
+<input type="checkbox" hidden #hiddenEl [value]="(billboard$ | async).isFavorite"/>
 
-<ion-content class="" *ngIf="(billboard$ | async ) as billboard" [fullscreen]="true">
+<ion-content class="" *ngIf="(billboard$ | async ).billboard as billboard" [fullscreen]="true">
   <div class="mb-4 img-block relative rounded-largeRadius overflow-hidden">
     <ion-img [src]="billboard.mainImage"></ion-img>
     <div class="flex absolute left-4 right-4 bottom-4">
@@ -78,7 +80,7 @@
       class="mb-4"
       [isIcon]="true"
       avatar="/assets/icons/location.svg"
-      [label]="billboard.address.location"
+      [label]="billboard.address.coordinates[0] + ' ' + billboard.address.coordinates[1]"
     ></app-info-item>
 
     <app-map

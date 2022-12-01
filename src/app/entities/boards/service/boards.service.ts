@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
+import { IBillboardStatus } from '../../../interfaces/billboard-status.interface';
 import { IBillboard } from '../../../interfaces/billboard.interface';
 import { ICreateBillboard } from '../pages/create-billboard/state/create-billboard.reducers';
 
@@ -16,8 +17,8 @@ export class BoardsService {
 
   constructor(private http: HttpClient) { }
 
-  public getBillboards(): Observable<IBillboard[]> {
-    return this.http.get<{ status: string, result: number, data: { documents: IBillboard[] } }>(`${this.api}billboards`)
+  public getBillboards(): Observable<IBillboardStatus[]> {
+    return this.http.get<{ status: string, result: number, data: { documents: IBillboardStatus[] } }>(`${this.api}billboards-status`)
                .pipe(
                  pluck('data'),
                  pluck('documents')
@@ -29,11 +30,16 @@ export class BoardsService {
                .pipe(pluck('data'));
   }
 
-  public getBillboardInformation(id: string): Observable<IBillboard> {
-    return this.http.get<{ status: string, data: { document: IBillboard } }>(`${this.api}billboards/${id}`)
+  public getBillboardInformation(id: string): Observable<IBillboardStatus> {
+    return this.http.get<{ status: string, data: { document: IBillboardStatus } }>(`${this.api}billboards-status/${id}`)
                .pipe(
                  pluck('data'),
                  pluck('document'),
                );
+  }
+
+  public toggleFavoriteBillboard(id: string, isFavorite: boolean): Observable<IBillboardStatus> {
+    return this.http.put<{ status: string, data: { document: IBillboardStatus } }>(`${this.api}billboards-status/${id}`, { isFavorite })
+               .pipe(pluck('data'), pluck('document'));
   }
 }

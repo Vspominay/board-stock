@@ -8,13 +8,14 @@
       class="img-block relative">
       <ion-img [src]="img" [alt]="title"></ion-img>
       <ion-item
-        [class.favorite]="isFavorite"
+        [class.favorite]="likeToggle$ | async"
         lines="none"
         [detail]="false"
+        (click)="changeFavoriteValue(!likeToggle$.getValue(), $event)"
         [ngClass]="view === 'vertical' ? 'right-2' : 'left-2'"
         class="like cursor-pointer absolute w-fit top-2 right-2 rounded-full"
       >
-        <ion-icon [src]="isFavorite ? 'assets/icons/heart-fill.svg' : 'assets/icons/heart.svg'"></ion-icon>
+        <ion-icon [src]="(likeToggle$ | async) ? 'assets/icons/heart-fill.svg' : 'assets/icons/heart.svg'"></ion-icon>
       </ion-item>
 
       <ion-item lines="none"

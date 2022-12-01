@@ -25,17 +25,19 @@
       <ion-list>
         <ion-row>
           <ion-col [size]="listView === 'horizontal' ? 12 : 6"
-                   *ngFor="let billboard of billboards$ | async; let i = index">
+                   *ngFor="let billboardStatus of billboards$ | async; let i = index">
             <app-board-card
+              *ngIf="(billboardStatus.billboard) as billboard"
               [rate]="billboard.rate"
               [location]="billboard.address.location"
-              [isFavorite]="i === 2 || i === 0"
+              [isFavorite]="billboardStatus.isFavorite"
               [img]="billboard.mainImage"
               [price]="billboard.price"
               [title]="billboard.title"
               [type]="billboard.type && billboard.type[0]"
-              [id]="billboard.id"
+              [id]="billboardStatus.id"
               [view]="listView"
+              (onToggleFavorite)="toggleFavorite(billboardStatus.id, $event)"
             ></app-board-card>
           </ion-col>
         </ion-row>

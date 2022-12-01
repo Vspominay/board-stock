@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, skip, switchMap, takeUntil, tap } from 'rxjs/operators';
 
-import { IBillboard } from '../../../../interfaces/billboard.interface';
+import { IBillboardStatus } from '../../../../interfaces/billboard-status.interface';
 import { AppState } from '../../../../reducers';
+import { ToggleFavoriteBillboard } from '../../state/boards.actions';
 import { selectBillboard } from '../../state/boards.selectors';
 
 @Component({
@@ -12,18 +14,40 @@ import { selectBillboard } from '../../state/boards.selectors';
   templateUrl: './billboard-details.page.html',
   styleUrls: ['./billboard-details.page.scss'],
 })
-export class BillboardDetailsPage implements OnInit {
+export class BillboardDetailsPage {
 
-  public billboard$!: Observable<IBillboard>;
+  public billboard$: Observable<IBillboardStatus> =
+    this._route.paramMap
+        .pipe(
+          switchMap(paramMap => this._store.select(selectBillboard(paramMap.get('id')))),
+          tap(billboard => {
+            console.log(billboard.isFavorite)
+            console.log(this.likeToggle$.getValue())
+            this.likeToggle$.next(billboard.isFavorite)
+          })
+        )
+
+  public likeToggle$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private _destroy$: Subject<void> = new Subject<void>();
 
   constructor(
     private _store: Store<AppState>,
     private _route: ActivatedRoute) { }
 
-  public ngOnInit() {
-    this.billboard$ = this._store.pipe(
-      select(selectBillboard(this._route.snapshot.paramMap.get('id')))
-    )
+  public ionViewWillEnter(): void {
+    this.likeToggle$.pipe(
+      takeUntil(this._destroy$),
+      skip(3),
+      distinctUntilChanged(),
+      debounceTime(400),
+    ).subscribe((value) => {
+      this._store.dispatch(ToggleFavoriteBillboard({ id: this._route.snapshot.paramMap.get('id'), isFavorite: value }));
+    });
+  }
+
+  public ngOnDestroy() {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
 }
