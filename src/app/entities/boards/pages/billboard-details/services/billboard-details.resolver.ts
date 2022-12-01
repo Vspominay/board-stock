@@ -4,12 +4,13 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, first, tap } from 'rxjs/operators';
 
 import { AppState } from '../../../../../reducers';
 import { GetBillboardInformation } from '../../../state/boards.actions';
+import { selectBillboard } from '../../../state/boards.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,9 @@ export class BillboardDetailsResolver implements Resolve<any> {
     return this._store
                .pipe(
                  filter(() => !!route.paramMap.get('id')),
-                 tap(() => {
+                 select(selectBillboard(route.paramMap.get('id'))),
+                 tap((billboard) => {
+                   if (billboard) return;
                    this._store.dispatch(GetBillboardInformation({ id: route.paramMap.get('id') }))
                  }),
                  first()

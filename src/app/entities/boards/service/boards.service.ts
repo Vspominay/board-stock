@@ -17,10 +17,10 @@ export class BoardsService {
   constructor(private http: HttpClient) { }
 
   public getBillboards(): Observable<IBillboard[]> {
-    return this.http.get<{ status: string, result: number, data: IBillboard[] }>(`${this.api}billboards`)
+    return this.http.get<{ status: string, result: number, data: { documents: IBillboard[] } }>(`${this.api}billboards`)
                .pipe(
                  pluck('data'),
-                 pluck('billboards')
+                 pluck('documents')
                );
   }
 
@@ -28,12 +28,12 @@ export class BoardsService {
     return this.http.post<{ status: string, data: IBillboard }>(`${this.api}billboards`, { ...createBillboardParams })
                .pipe(pluck('data'));
   }
-  
+
   public getBillboardInformation(id: string): Observable<IBillboard> {
-    return this.http.get<{ status: string, data: { billboard: IBillboard } }>(`${this.api}billboards/${id}`)
+    return this.http.get<{ status: string, data: { document: IBillboard } }>(`${this.api}billboards/${id}`)
                .pipe(
                  pluck('data'),
-                 pluck('billboard'),
+                 pluck('document'),
                );
   }
 }

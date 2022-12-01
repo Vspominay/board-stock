@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { BoardsPage } from './boards.page';
 import { BillboardDetailsResolver } from './pages/billboard-details/services/billboard-details.resolver';
+import { BillboardsResolver } from './service/billboards.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: BoardsPage
+    component: BoardsPage,
+    resolve: { billboards: BillboardsResolver }
   },
   {
     path: 'create',
