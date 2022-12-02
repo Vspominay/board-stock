@@ -32,7 +32,7 @@
                 <ng-container *ngIf="listView === 'vertical'; else slidingTemplate">
                   <ng-container
                     [ngTemplateOutlet]="cardTemplate"
-                    [ngTemplateOutletContext]="{isFavorite: billboard.isFavorite ,billboard:billboard.billboard, index: i}">
+                    [ngTemplateOutletContext]="{statusId: billboard.id, isFavorite: billboard.isFavorite ,billboard:billboard.billboard, index: i}">
                   </ng-container>
                 </ng-container>
 
@@ -45,7 +45,7 @@
                     >
                       <ng-container
                         [ngTemplateOutlet]="cardTemplate"
-                        [ngTemplateOutletContext]="{isFavorite: billboard.isFavorite ,billboard: billboard.billboard, index: i}">
+                        [ngTemplateOutletContext]="{statusId: billboard.id, isFavorite: billboard.isFavorite ,billboard: billboard.billboard, index: i}">
                       </ng-container>
                     </ion-item>
 
@@ -80,7 +80,7 @@
 </ion-content>
 
 
-<ng-template #cardTemplate let-isFavorite='isFavorite' let-billboard='billboard' let-i='index'>
+<ng-template #cardTemplate let-statusId='statusId' let-isFavorite='isFavorite' let-billboard='billboard' let-i='index'>
   <app-board-card
     [rate]="billboard.rate"
     [location]="billboard.address.location"
@@ -89,7 +89,7 @@
     [price]="billboard.price"
     [title]="billboard.title"
     [type]="billboard.type"
-    [id]="billboard.id"
+    [id]="statusId"
     [view]="listView"
   ></app-board-card>
 </ng-template>

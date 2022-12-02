@@ -16,6 +16,7 @@ export const BILLBOARDS: IBillboard[] = [
     },
     price: 220,
     title: 'Wings Tower',
+    status: 'available',
     type: [EBillboardType.Mobile]
   },
   {
@@ -30,6 +31,7 @@ export const BILLBOARDS: IBillboard[] = [
     },
     price: 271,
     title: 'Mill Sper House',
+    status: 'available',
     type: [EBillboardType.Interactive]
   }
 ]

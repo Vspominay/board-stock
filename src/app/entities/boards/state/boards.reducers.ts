@@ -6,7 +6,8 @@ import { BillboardsActions } from './boards.actions-types';
 
 export interface BoardsState extends EntityState<IBillboardStatus> {
   isFetched: boolean,
-  isFetchedFavorite: boolean
+  isFetchedFavorite: boolean,
+  searchString: string
 }
 
 export const adapter = createEntityAdapter<IBillboardStatus>(

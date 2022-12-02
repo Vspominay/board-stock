@@ -112,6 +112,10 @@ $app-theme: mat.define-light-theme((
   .select-modal-container {
     --border-radius: 40px 40px 0 0;
   }
+
+  ion-datetime {
+    border-radius: 16px;
+  }
 }
 
 ion-button {

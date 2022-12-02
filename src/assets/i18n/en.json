@@ -16,7 +16,8 @@
     "viewAll": "view all",
     "save": "Save",
     "next": "Next",
-    "finish": "Finish"
+    "finish": "Finish",
+    "purchase": "Purchase"
   },
   "suffixes": {
     "month": "month",
@@ -97,7 +98,11 @@
   "billboardInformation": {
     "location": "Location",
     "views": "Total views",
-    "averageViews": "Average view per month"
+    "averageViews": "Average view per month",
+    "contactPhone": "Contact phone",
+    "contactEmail": "Contact email",
+    "rentalStart": "Rental start date",
+    "rentalFinish": "Rental finish date"
   },
   "onboard": {
     "findPlace": {
@@ -112,5 +117,13 @@
       "title": "Find <span class='decorated-name'>perfect choice</span> for your future ideas ",
       "subtitle": "Save and follow creative ideas to rent the best"
     }
+  },
+  "transactionReview": {
+    "title": "Transaction review",
+    "period": "Period",
+    "noteForOwner": "Note for Owner",
+    "checkIn": "Check In",
+    "checkOut": "Check Out",
+    "notePlaceholder": "Write your note here"
   }
 }

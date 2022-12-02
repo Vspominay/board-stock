@@ -52,4 +52,10 @@ export class BoardsEffects {
               )
   )
 
+  searchBillboards$ = createEffect(
+    () => this._actions$
+              .pipe(
+                ofType(BillboardsActions.SearchBillboards),
+              )
+  )
 }

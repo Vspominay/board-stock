@@ -8,6 +8,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NgxStripeModule } from 'ngx-stripe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { InterceptorModule } from './interceptors/interceptor.module';
     BrowserAnimationsModule,
     LayoutsModule,
     InterceptorModule,
+    NgxStripeModule.forRoot(environment.public_stripe),
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects, BoardsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })

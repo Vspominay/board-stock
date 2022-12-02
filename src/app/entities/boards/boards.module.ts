@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { LayoutsModule } from '../../modules/layouts/layouts.module';
@@ -15,7 +15,8 @@ import { BoardsPage } from './boards.page';
     IonicModule,
     BoardsPageRoutingModule,
     LayoutsModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [BoardsPage]
 })

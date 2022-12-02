@@ -1,0 +1,104 @@
+<app-header
+  [title]="'transactionReview.title' | translate"
+  defaultHref="/boards"
+>
+</app-header>
+
+<ion-content>
+
+  <ng-container *ngIf="(billboardStatus$ | async) as billboardStatus">
+    <ion-grid>
+      <ion-row class="flex justify-center">
+        <ion-col size="11">
+          <div class="mb-6">
+            <app-board-card
+              *ngIf="billboardStatus.billboard as billboard"
+              [title]="billboard.title"
+              [rate]="billboard.rate"
+              [img]="billboard.mainImage"
+              [isFavorite]="billboardStatus.isFavorite"
+              [location]="billboard.address.location"
+              [id]="billboardStatus.id"
+              [price]="billboard.price"
+              [type]="billboard.type[0]"
+              [view]="'horizontal'"
+            >
+            </app-board-card>
+          </div>
+
+          <div class="mb-8">
+            <ion-title class="mb-3">{{'transactionReview.period' | translate}}</ion-title>
+
+            <ion-row>
+              <ion-col>
+                <ion-item
+                  [detail]="false"
+                  lines="none"
+                >
+                  <ion-label>{{'transactionReview.checkIn' | translate}}</ion-label>
+                  <ion-datetime-button datetime="startDate"></ion-datetime-button>
+                </ion-item>
+                <ion-item
+                  [detail]="false"
+                  lines="none"
+                >
+                  <ion-label>{{'transactionReview.checkOut' | translate}}</ion-label>
+                  <ion-datetime-button datetime="endDate"></ion-datetime-button>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <div class="mb-8">
+            <ion-title class="mb-5">{{'transactionReview.noteForOwner' | translate}}</ion-title>
+
+            <ion-row>
+              <ion-col>
+                <app-input
+                  class="mb-4"
+                  icon="assets/icons/email.svg">
+                  <ion-input inputmode="text"
+                             [type]="'text'"
+                             [placeholder]="'transactionReview.notePlaceholder' | translate"></ion-input>
+                </app-input>
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <!--          <ngx-stripe-card-->
+          <!--            class="mb-4 block"-->
+          <!--            [options]="cardOptions"-->
+          <!--          ></ngx-stripe-card>-->
+
+          <ng-container *ngIf="elementsOptions?.clientSecret as clientSecret">
+            <ngx-stripe-payment class="block mb-6" [clientSecret]="clientSecret">
+            </ngx-stripe-payment>
+          </ng-container>
+
+          <ion-row>
+            <ion-col size="10" offset="1">
+              <ion-button
+                [type]="'submit'"
+                expand="block"
+                class="text-white capitalize tracking-wider text-base">
+                {{'buttons.next' | translate}}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+</ion-content>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime [showDefaultButtons]="true" mode="md" presentation="date" id="startDate"></ion-datetime>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime [showDefaultButtons]="true" mode="md" presentation="date" id="endDate"></ion-datetime>
+  </ng-template>
+</ion-modal>

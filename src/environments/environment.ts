@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:3000/api/v1/'
+  api: 'http://localhost:3000/api/v1/',
+  public_stripe: 'pk_test_51LhpnAJIxcZw9nVvepoosomx0Y6Sd7How1vxR4XGe76vaYCMBOfASRtcovRMhutqFaUmjNWLtceSctyvwxcR0c61002bxwC96I'
 };
 
 /*

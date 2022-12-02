@@ -7,7 +7,7 @@
 ></app-header>
 <input type="checkbox" hidden #hiddenEl [value]="(billboard$ | async).isFavorite"/>
 
-<ion-content class="" *ngIf="(billboard$ | async ).billboard as billboard" [fullscreen]="true">
+<ion-content class="pb-5" *ngIf="(billboard$ | async ).billboard as billboard" [fullscreen]="true">
   <div class="mb-4 img-block relative rounded-largeRadius overflow-hidden">
     <ion-img [src]="billboard.mainImage"></ion-img>
     <div class="flex absolute left-4 right-4 bottom-4">
@@ -48,7 +48,6 @@
     </div>
   </div>
 
-
   <div *ngIf="billboard.views && billboard.averageMonthViews" class="flex mb-6">
     <div class="view-stat-block w-1/2 flex flex-col items-center justify-center">
       <ion-icon src="assets/icons/eye-v2.svg"></ion-icon>
@@ -74,7 +73,7 @@
     </div>
   </ion-item>
 
-  <div class="">
+  <div class="mb-8">
     <ion-title class="mb-5">{{'billboardInformation.location' | translate}}</ion-title>
     <app-info-item
       class="mb-4"
@@ -93,4 +92,40 @@
     ></app-map>
   </div>
 
+  <ion-row *ngIf="billboard.contactPhone || billboard.contactEmail" class="flex mb-6">
+    <ion-col class="feedback-stat-block flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/phone.svg"></ion-icon>
+      <ion-label><a href="tel:{{billboard.contactPhone}}">{{billboard.contactPhone}}</a></ion-label>
+      <ion-text>{{'billboardInformation.contactPhone' | translate}}</ion-text>
+    </ion-col>
+    <ion-col class="feedback-stat-block flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/email.svg"></ion-icon>
+      <ion-label><a href="mailto:billboard.contactEmail">{{billboard.contactEmail}}</a></ion-label>
+      <ion-text>{{'billboardInformation.contactEmail' | translate}}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="billboard.status === 'rented'" class="flex mb-6">
+    <ion-col class="feedback-stat-block flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/calendar-outline.svg"></ion-icon>
+      <ion-label>{{billboard.startedRentDate | date}}</ion-label>
+      <ion-text>{{'billboardInformation.rentalStart' | translate}}</ion-text>
+    </ion-col>
+    <ion-col class="feedback-stat-block flex flex-col items-center justify-center">
+      <ion-icon src="assets/icons/calendar-outline.svg"></ion-icon>
+      <ion-label>{{billboard.finishedRentDate | date}}</ion-label>
+      <ion-text>{{'billboardInformation.rentalFinish' | translate}}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <div class="mb-16"></div>
+
+  <ion-button
+    [routerLink]="['/transaction-review', (billboard$ | async ).id]"
+    *ngIf="billboard.status === 'available'"
+    [type]="'submit'"
+    expand="block"
+    class="purchase-btn fixed right-5 bottom-9  bottom-0 text-white capitalize tracking-wider text-base">
+    {{'buttons.purchase' | translate}}
+  </ion-button>
 </ion-content>

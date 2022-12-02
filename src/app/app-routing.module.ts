@@ -39,7 +39,12 @@ const routes: Routes = [
   },
   {
     path: 'onboarding',
-    loadChildren: () => import('./entities/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+    loadChildren: () => import('./entities/onboarding/onboarding.module').then(m => m.OnboardingPageModule)
+  },
+  {
+    path: 'transaction-review',
+    loadChildren: () => import('./entities/transaction-review/transaction-review.module').then(m => m.TransactionReviewPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 

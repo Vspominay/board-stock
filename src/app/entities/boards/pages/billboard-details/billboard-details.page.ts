@@ -21,8 +21,6 @@ export class BillboardDetailsPage {
         .pipe(
           switchMap(paramMap => this._store.select(selectBillboard(paramMap.get('id')))),
           tap(billboard => {
-            console.log(billboard.isFavorite)
-            console.log(this.likeToggle$.getValue())
             this.likeToggle$.next(billboard.isFavorite)
           })
         )

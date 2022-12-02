@@ -42,3 +42,8 @@ export const FetchFavoriteBillboards = createAction(
 export const FetchedFavoriteBillboards = createAction(
   '[Boards] Fetched favorite billboards'
 );
+
+export const SearchBillboards = createAction(
+  '[Boards] Search billboard',
+  props<{ searchString: string }>()
+);
