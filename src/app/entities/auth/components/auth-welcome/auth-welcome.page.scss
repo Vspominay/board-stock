@@ -1,0 +1,39 @@
+:host {
+  width: 100%;
+
+  ::ng-deep {
+    b {
+      font-weight: theme('fontWeight.bold');
+    }
+  }
+
+  .gallery-row {
+    ion-col {
+      height: 174px;
+    }
+
+    .img-wrapper {
+      height: 100%;
+      overflow: hidden;
+      max-width: 250px;
+      margin: 0 auto;
+
+      ion-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+    }
+  }
+
+  ion-icon {
+    color: inherit;
+  }
+
+  .separator-line {
+    display: block;
+    height: 1.3px;
+    background: theme('colors.softGray');
+  }
+}

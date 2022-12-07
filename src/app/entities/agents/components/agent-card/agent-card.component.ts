@@ -7,12 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class AgentCardComponent {
 
-  @Input() id!: number;
+  @Input() id!: string;
   @Input() name!: string;
   @Input() img!: string;
   @Input() rate!: number;
   @Input() topRate!: number;
-  @Input() totalBillboards!: number;
+  @Input() totalBillboards?: number;
 
   constructor() { }
 

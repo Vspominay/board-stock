@@ -1,0 +1,16 @@
+<div *ngIf="isAuth$ | async" class="wrapper px-5 py-4 back bg-white flex flex-col w-24 min-h-screen">
+  <div class="logo-container mb-10">
+    <a routerLink="/">
+      <!--      <img src="../../../../assets/images/logo.png" width="64" height="31" alt="logo">-->
+    </a>
+  </div>
+
+  <div class="flex flex-col items-center m-auto">
+    <a routerLinkActive="active"
+       [routerLink]="menuItem.route"
+       *ngFor="let menuItem of menuItems"
+       class="menu-item rounded-xl flex items-center justify-center">
+      <ion-icon size="large" [src]="menuItem.icon"></ion-icon>
+    </a>
+  </div>
+</div>

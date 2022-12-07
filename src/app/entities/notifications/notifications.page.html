@@ -5,9 +5,10 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row class="flex justify-center">
-      <ion-col *ngFor="let notification of notifications$ | async" size="11">
+    <ion-row class="lg:max-w-5xl lg:mx-auto flex justify-center">
+      <ion-col class="justify-center flex" *ngFor="let notification of notifications$ | async" size="11">
         <ion-item-sliding
+          class="w-fit"
         >
           <ion-item
             [detail]="false"

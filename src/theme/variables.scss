@@ -118,6 +118,10 @@ $app-theme: mat.define-light-theme((
   }
 }
 
+.scroll-y {
+  scrollbar-width: none !important;
+}
+
 ion-button {
   --border-radius: theme('borderRadius.default');
   --padding-bottom: theme('padding.7');

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ROUTES } from './constants/routes.constant';
 
+import { ROUTES } from './constants/routes.constant';
 import { CreateBillboardPage } from './create-billboard.page';
 
 const routes: Routes = [

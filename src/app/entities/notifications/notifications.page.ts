@@ -24,7 +24,7 @@ export class NotificationsPage {
 
   public async deleteNotification(id: string) {
     const alert = await this._alertController.create({
-      header: 'Alert!',
+      header: 'Are you sure you want to delete the notification?',
       buttons: [
         {
           text: 'Cancel',
@@ -34,7 +34,6 @@ export class NotificationsPage {
           text: 'OK',
           role: 'confirm',
           handler: () => {
-            console.log('confirm')
             this._store.dispatch(DeleteNotification({ id }));
           },
         },

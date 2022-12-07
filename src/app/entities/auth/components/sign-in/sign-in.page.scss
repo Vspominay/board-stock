@@ -1,5 +1,11 @@
 :host {
+  width: 100%;
+
   app-input {
     display: block;
+  }
+
+  ion-content {
+    height: calc(100vh - 98px);
   }
 }

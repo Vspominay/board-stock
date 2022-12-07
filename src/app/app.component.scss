@@ -1,0 +1,9 @@
+:host {
+  @media (min-width: theme('screens.lg')) {
+    app-tabs.control-width::ng-deep ion-tabs {
+      right: 0;
+      left: auto;
+      max-width: calc(100vw - 90px);
+    }
+  }
+}

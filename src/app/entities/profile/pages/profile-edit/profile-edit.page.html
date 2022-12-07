@@ -4,7 +4,7 @@
 ></app-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid class="lg:max-w-screen-lg">
     <ion-row class="flex h-full justify-center">
       <ion-col size="11">
         <app-profile-preview
@@ -62,7 +62,7 @@
 
 <ion-footer mode="ios" class="ion-no-border bg-none">
   <ion-toolbar>
-    <ion-grid>
+    <ion-grid class="max-w-md m-auto">
       <ion-row>
         <ion-col size="10" offset="1">
           <ion-button [disabled]="editProfileForm.invalid"

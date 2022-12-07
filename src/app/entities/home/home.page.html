@@ -35,21 +35,23 @@
   <div class="decoration-shape"></div>
 
   <ion-grid>
-    <ion-row class="mb-2.5 flex ion-justify-content-center">
-      <ion-col size="11">
-        <ion-text class="tracking-wider">
-          <h1 [innerHTML]="'homePage.welcomeText' | translate : {name: (viewModel$ | async).user.name}"></h1>
-        </ion-text>
-      </ion-col>
-    </ion-row>
+    <div class="lg:max-w-screen-sm lg:mx-auto">
+      <ion-row class="mb-2.5 flex ion-justify-content-center">
+        <ion-col size="11">
+          <ion-text class="tracking-wider">
+            <h1 [innerHTML]="'homePage.welcomeText' | translate : {name: (viewModel$ | async).user.name}"></h1>
+          </ion-text>
+        </ion-col>
+      </ion-row>
 
-    <ion-row class="flex ion-justify-content-center mb-5">
-      <ion-col size="11">
-        <app-voice-search-input [placeholder]="'homePage.searchPlaceholder' | translate"></app-voice-search-input>
-      </ion-col>
-    </ion-row>
+      <ion-row class="flex ion-justify-content-center mb-5">
+        <ion-col size="11">
+          <app-voice-search-input [placeholder]="'homePage.searchPlaceholder' | translate"></app-voice-search-input>
+        </ion-col>
+      </ion-row>
+    </div>
 
-    <ion-row class="horizontal-scroll mb-5">
+    <ion-row class="lg:max-w-screen-md lg:mx-auto horizontal-scroll mb-5">
       <ion-col *ngFor="let filter of filters; let i = index">
         <app-checkbox [title]="filter" [value]="i === 0"></app-checkbox>
       </ion-col>
@@ -61,8 +63,8 @@
         [exploreLink]="'/featured-billboards'"
         [title]="'homePage.featuredBillboards' | translate"
         [exploreText]="'buttons.viewAll' | translate">
-        <ion-row class="horizontal-scroll">
-          <ion-col *ngFor="let billboardStatus of featuredBillboards; let i = index">
+        <ion-row class="horizontal-scroll-md mx-6">
+          <ion-col size-xl="3" *ngFor="let billboardStatus of featuredBillboards; let i = index">
             <app-board-card
               [id]="billboardStatus['_id']"
               [title]="billboardStatus.billboard.title"

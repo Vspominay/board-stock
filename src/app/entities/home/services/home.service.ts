@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
+
 import { environment } from '../../../../environments/environment';
 import { IHomePage } from '../state/home.reducers';
 
@@ -21,6 +22,7 @@ export class HomeService {
                    ...homeData,
                    agents: homeData.agents.map(agent => ({
                      ...agent,
+                     rate: Math.trunc(Math.random() * 5),
                      photo: agent.photo || 'https://i.pinimg.com/564x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg'
                    })),
                    user: {

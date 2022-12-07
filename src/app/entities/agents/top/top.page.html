@@ -1,7 +1,7 @@
 <app-header defaultHref="/home"></app-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid class="lg:max-w-screen-lg">
     <ion-row class="flex ion-justify-content-center">
       <ion-col size="11">
         <ion-text class="tracking-wider">
@@ -11,17 +11,18 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="6" *ngFor="let agent of agents">
-        <app-agent-card
-          [id]="agent.id"
-          [img]="agent.img"
-          [rate]="agent.rate"
-          [name]="agent.name"
-          [topRate]="agent.topRate"
-          [totalBillboards]="agent.totalBillboards"
-        ></app-agent-card>
-      </ion-col>
-    </ion-row>
+    <ng-container *ngIf="(agents$ | async) as agents">
+      <ion-row *ngIf="agents.length">
+        <ion-col size="6" *ngFor="let agent of agents; let i = index">
+          <app-agent-card
+            [id]="agent.id"
+            [img]="agent.photo"
+            [rate]="agent.rate"
+            [name]="agent.name"
+            [topRate]="i + 1"
+          ></app-agent-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
   </ion-grid>
 </ion-content>

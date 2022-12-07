@@ -1,0 +1,21 @@
+:host {
+  z-index: 102;
+
+  .menu-item {
+    color: theme('colors.secondary');
+    transition: .2s;
+    width: 45px;
+    min-width: 45px;
+    height: 45px;
+
+    &:hover, &.active {
+      background-color: theme('colors.tertiary');
+      box-shadow: 0 8px 14px rgba(37, 43, 29, 0.12);
+      color: theme('colors.white');
+    }
+  }
+
+  .menu-item + .menu-item {
+    margin-top: 36px;
+  }
+}

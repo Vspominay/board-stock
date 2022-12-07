@@ -1,7 +1,13 @@
 :host {
+  width: 100%;
+
   ::ng-deep {
     b {
       font-weight: theme('fontWeight.bold');
     }
+  }
+
+  ion-content {
+    height: calc(100vh - 98px);
   }
 }

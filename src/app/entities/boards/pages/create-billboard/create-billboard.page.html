@@ -7,10 +7,13 @@
   <ion-grid>
     <ion-row class="justify-center flex">
       <ion-col size="11">
-        <ion-text class="mb-8 block">
+        <ion-text class="mb-8 block lg:text-center">
           <h1 [innerHTML]="'createBillboard.greetings' | translate : {name: 'Josh'}"></h1>
         </ion-text>
-        <router-outlet></router-outlet>
+
+        <div class="lg:max-w-3xl lg:mx-auto">
+          <router-outlet></router-outlet>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

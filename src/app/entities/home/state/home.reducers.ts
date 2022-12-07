@@ -11,7 +11,8 @@ export interface IHomePage {
   agents: {
     id: string,
     photo: string,
-    name: string
+    name: string,
+    rate: number
   }[],
   featuredBillboards: IBillboardStatus[]
 }

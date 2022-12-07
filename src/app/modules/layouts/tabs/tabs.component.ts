@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@a
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { EXCEPTION_ROUTES } from './constants/exceptions-routes.constant';
 
+import { EXCEPTION_ROUTES } from './constants/exceptions-routes.constant';
 import { ITab } from './interfaces/tab.interface';
 
 @Component({
@@ -44,8 +44,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   }
 
   private _defineShowSettings(url: string): void {
-    console.log(EXCEPTION_ROUTES.find(route => new RegExp(route).test(url)))
-    this.isShowTabs = !EXCEPTION_ROUTES.find(route => new RegExp(route).test(url));
+    this.isShowTabs = window.innerWidth < 1024 && !EXCEPTION_ROUTES.find(route => new RegExp(route).test(url));
   }
 
   public ngOnDestroy() {

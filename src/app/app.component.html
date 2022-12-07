@@ -1,7 +1,11 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <div class="flex">
+    <app-left-menu class="hidden lg:block"></app-left-menu>
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 
   <app-tabs
+    [class.control-width]="isAuth$ | async"
     [tabs]="tabs"
   ></app-tabs>
 </ion-app>

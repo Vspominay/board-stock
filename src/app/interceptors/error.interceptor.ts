@@ -1,13 +1,11 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
 import { Logout } from '../entities/auth/state/auth.actions';
-import { token } from '../entities/auth/state/auth.selectors';
 import { AppState } from '../reducers';
 
 @Injectable({

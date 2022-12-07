@@ -1,7 +1,7 @@
 <app-header [title]="'profile.title' | translate" [additionalIcon]="'assets/icons/setting-v2.svg'"></app-header>
 
 <ion-content *ngIf="(viewModel$ | async) as viewModel">
-  <ion-grid>
+  <ion-grid class="lg:max-w-screen-lg">
     <ion-row class="flex justify-center">
       <ion-col size="11">
         <app-profile-preview
@@ -58,7 +58,7 @@
 
         <ion-list>
           <ion-row>
-            <ion-col [size]="listView === 'horizontal' ? 12 : 6"
+            <ion-col [sizeLg]="listView === 'horizontal' ? 6 : 4" [size]="listView === 'horizontal' ? 12 : 6"
                      *ngFor="let billboardStatus of viewModel[segmentsValue.value]; let i = index">
               <app-board-card
                 [rate]="billboardStatus.billboard.rate"

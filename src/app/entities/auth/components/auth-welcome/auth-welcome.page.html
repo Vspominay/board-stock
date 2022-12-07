@@ -1,0 +1,60 @@
+<ion-content>
+  <ion-grid class="lg:px-10 h-full flex items-center">
+    <div class="">
+      <ion-row class="gallery-row mb-10">
+        <ion-col size="6" *ngFor="let image of previewImages">
+          <div class="img-wrapper rounded-xl">
+            <ion-img [src]="image"></ion-img>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="mb-8">
+        <ion-col>
+          <ion-text class="tracking-wider lg:text-center">
+            <h1 [innerHTML]="'welcomePage.readyExplore' | translate"></h1>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="mb-8">
+        <ion-col size="10" offset="1">
+          <ion-button expand="block" (click)="routeToSignIn()" class="text-white capitalize tracking-wider text-base">
+            <ion-icon slot="start" src="assets/icons/email.svg"></ion-icon>
+            {{'welcomePage.continueEmail' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="items-center px-3 justify-center py-1.5">
+        <ion-col>
+          <span class="separator-line"></span>
+        </ion-col>
+        <ion-col size="2" class="text-center">
+          <ion-text class="uppercase text-barely">{{'welcomePage.or' | translate}}</ion-text>
+        </ion-col>
+        <ion-col>
+          <span class="separator-line"></span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-margin-bottom">
+        <ion-col>
+          <app-auth-button icon="assets/icons/google.svg"></app-auth-button>
+        </ion-col>
+        <ion-col>
+          <app-auth-button icon="assets/icons/facebook.svg"></app-auth-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text class="tracking-wider text-xs text-secondary">
+            <span>{{('welcomePage.dontHaveAccount' | translate) + ' ' }}</span>
+            <a [routerLink]="['/sign-up']" class="font-bold">{{'welcomePage.register' | translate}}</a>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

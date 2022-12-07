@@ -33,7 +33,7 @@ export class ProfileEffects {
                   photo,
                   email,
                   phone
-                }) => this._profileService.updateProfile(name, photo, email, phone)),
+                }) => this._profileService.updateProfile(name, email, photo, phone)),
                 map(profile => ProfileUpdated(profile)),
                 tap(() => {
                   this._navController.navigateForward('/profile');

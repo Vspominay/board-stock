@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { IAgent } from '../../../interfaces/agent.interfaces';
-import { AGENTS } from '../data/agents.data';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { AppState } from '../../../reducers';
+import { selectAgents } from '../../home/state/home.selectors';
 
 @Component({
   selector: 'app-top',
   templateUrl: './top.page.html',
   styleUrls: ['./top.page.scss'],
 })
-export class TopPage implements OnInit {
+export class TopPage {
+  public agents$: Observable<{
+    id: string,
+    photo: string,
+    name: string,
+    rate: number
+  }[]> = this._store.select(selectAgents);
 
-  //TODO: delete it after api integration
-  public agents: IAgent[] = [...AGENTS];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor(private _store: Store<AppState>) { }
 }

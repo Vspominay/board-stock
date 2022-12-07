@@ -25,13 +25,12 @@ export class AuthGuard implements CanActivate {
 
         const authUserCachedData: { email: string, name: string, token: string } = JSON.parse(localStorage.getItem('user'));
 
-        if (authUserCachedData.token) {
+        if (authUserCachedData && authUserCachedData.token) {
           this.store.dispatch(FinishLogin(authUserCachedData));
           return true;
         }
 
-        return false;
+        return this.router.createUrlTree(['/']);
       }));
   }
-
 }

@@ -45,7 +45,7 @@ const routes: Routes = [
     path: 'transaction-review',
     loadChildren: () => import('./entities/transaction-review/transaction-review.module').then(m => m.TransactionReviewPageModule),
     canActivate: [AuthGuard]
-  },
+  }
 ];
 
 @NgModule({
