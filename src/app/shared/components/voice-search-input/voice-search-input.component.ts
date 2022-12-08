@@ -24,7 +24,7 @@ export class VoiceSearchInputComponent implements OnInit, ControlValueAccessor {
   private _value: string = '';
 
   public set value(value: string) {
-    if (value && typeof value === 'string') {
+    if (typeof value === 'string') {
       this._value = value;
       this.onChange(value);
     }

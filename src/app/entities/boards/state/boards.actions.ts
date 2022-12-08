@@ -47,3 +47,17 @@ export const SearchBillboards = createAction(
   '[Boards] Search billboard',
   props<{ searchString: string }>()
 );
+
+export const SetSearchValue = createAction(
+  '[Boards] Set search value',
+  props<{ searchString: string }>()
+);
+
+export const SearchBillboardsCompleted = createAction(
+  '[Boards] Search billboards completed',
+  props<{ billboards: IBillboardStatus[] }>()
+);
+
+export const ResetSearchResults = createAction(
+  '[Boards] Reset search results'
+);

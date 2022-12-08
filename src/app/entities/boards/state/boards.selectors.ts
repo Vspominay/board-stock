@@ -10,6 +10,27 @@ export const selectAllBillboards = createSelector(
   fromBillboards.selectAll
 );
 
+export const selectFoundBillboards = createSelector(
+  selectBillboardsState,
+  state => state.searchResults && state.searchResults.length ? selectSearchResultsBillboards : selectAllBillboards
+);
+
+export const selectFilteredBillboards = createSelector(
+  selectBillboardsState,
+  selectFoundBillboards,
+  selectFoundBillboards => selectFoundBillboards.searchResults && selectFoundBillboards.searchResults.length ? selectFoundBillboards.searchResults : Object.values(selectFoundBillboards.entities)
+);
+
+export const selectSearchString = createSelector(
+  selectBillboardsState,
+  state => state.searchString
+);
+
+export const selectSearchResultsBillboards = createSelector(
+  selectBillboardsState,
+  state => state.searchResults
+);
+
 export const selectBillboard = (id: string) => createSelector(
   selectAllBillboards,
   (billboards) => billboards.length && billboards.find(billboard => billboard.id === id)

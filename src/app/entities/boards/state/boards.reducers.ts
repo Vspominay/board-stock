@@ -8,6 +8,7 @@ export interface BoardsState extends EntityState<IBillboardStatus> {
   isFetched: boolean,
   isFetchedFavorite: boolean,
   searchString: string
+  searchResults: IBillboardStatus[]
 }
 
 export const adapter = createEntityAdapter<IBillboardStatus>(
@@ -37,6 +38,26 @@ export const billboardsReducer = createReducer(
     return {
       ...state,
       isFetchedFavorite: true
+    }
+  }),
+  on(BillboardsActions.SearchBillboardsCompleted, (state, action) => {
+    return {
+      ...state,
+      searchResults: action.billboards
+    }
+  }),
+  on(BillboardsActions.ResetSearchResults, (state) => {
+    return {
+      ...state,
+      searchResults: [],
+      searchString: ''
+    }
+  }),
+  on(BillboardsActions.SetSearchValue, (state, action) => {
+    console.log(action)
+    return {
+      ...state,
+      searchString: action.searchString
     }
   })
 );

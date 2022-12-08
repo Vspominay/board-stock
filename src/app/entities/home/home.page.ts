@@ -1,13 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { FormControl } from '@angular/forms';
+import { ModalController, NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
-import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { combineLatest, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import { IBillboard } from '../../interfaces/billboard.interface';
 import { AppState } from '../../reducers';
+import { SetSearchValue } from '../boards/state/boards.actions';
 import { AVAILABLE_LOCATIONS } from './data/available-locations.data';
-import { BILLBOARD_OWNERS } from './data/billboard-owers.data';
 import { ModalSelectLocationComponent } from './components/modal-select-location/modal-select-location.component';
 import { BILLBOARDS } from './data/billboards.data';
 import { FILTERS } from './data/filters.data';
@@ -30,16 +31,24 @@ export class HomePage implements OnInit {
   //TODO delete it after api integration
   public currentLocation!: { label: string, value: string };
   public userName: string = 'John';
-  public billboardOwners = [...BILLBOARD_OWNERS];
   public billboards = [...BILLBOARDS];
   public featuredBillboards!: IBillboard[];
   public filters: string[] = [...FILTERS];
+  public searchInput: FormControl = new FormControl('');
 
   constructor(
     private _modalCtrl: ModalController,
     private _changeDetectorRef: ChangeDetectorRef,
-    private _store: Store<AppState>
+    private _store: Store<AppState>,
+    private _navController: NavController
   ) { }
+
+  private _destroy$: Subject<void> = new Subject<void>();
+
+  public ngOnDestroy() {
+    this._destroy$.next();
+    this._destroy$.complete();
+  }
 
   public ngOnInit() {
     //TODO will be deleted after api integration
@@ -49,6 +58,16 @@ export class HomePage implements OnInit {
       label: AVAILABLE_LOCATIONS.labels[0],
       value: AVAILABLE_LOCATIONS.values[0]
     };
+
+    this.searchInput.valueChanges
+        .pipe(
+          takeUntil(this._destroy$),
+          debounceTime(400),
+          distinctUntilChanged(),
+          tap((value) => {
+            this._store.dispatch(SetSearchValue({ searchString: value }));
+            this._navController.navigateForward('/boards');
+          })).subscribe();
   }
 
   public selectLocation() {

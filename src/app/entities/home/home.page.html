@@ -46,7 +46,8 @@
 
       <ion-row class="flex ion-justify-content-center mb-5">
         <ion-col size="11">
-          <app-voice-search-input [placeholder]="'homePage.searchPlaceholder' | translate"></app-voice-search-input>
+          <app-voice-search-input [formControl]="searchInput"
+                                  [placeholder]="'homePage.searchPlaceholder' | translate"></app-voice-search-input>
         </ion-col>
       </ion-row>
     </div>
