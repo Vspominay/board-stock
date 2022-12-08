@@ -4,6 +4,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { combineLatest, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
+import { TranslateService } from "@ngx-translate/core";
 
 import { IBillboard } from '../../interfaces/billboard.interface';
 import { AppState } from '../../reducers';
@@ -40,7 +41,8 @@ export class HomePage implements OnInit {
     private _modalCtrl: ModalController,
     private _changeDetectorRef: ChangeDetectorRef,
     private _store: Store<AppState>,
-    private _navController: NavController
+    private _navController: NavController,
+    private _translateService: TranslateService
   ) { }
 
   private _destroy$: Subject<void> = new Subject<void>();
@@ -89,6 +91,7 @@ export class HomePage implements OnInit {
         .then(res => {
           if (res.role === 'confirm') {
             this.currentLocation = { ...res.data };
+            this._translateService.use(this.currentLocation.value);
             this._changeDetectorRef.detectChanges();
           }
         });

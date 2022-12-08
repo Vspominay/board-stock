@@ -1,0 +1,129 @@
+{
+  "placeholders": {
+    "fullName": "Ім'я",
+    "email": "Електронна пошта",
+    "password": "Пароль",
+    "phone": "Номер телефону",
+    "billboardTitle": "Тип білборду",
+    "description": "Опис"
+  },
+  "appTitles": {
+    "contactInformation": "Контактна інформація",
+    "billboardStock": "Billboard Stock"
+  },
+  "buttons": {
+    "explore": "детальніше",
+    "viewAll": "більше",
+    "save": "Зберегти",
+    "next": "Далі",
+    "finish": "Завершити",
+    "purchase": "Орендувати"
+  },
+  "suffixes": {
+    "month": "місяць",
+    "year": "рік",
+    "sold": "продано",
+    "billboards": "білборд(и)",
+    "perMonth": "за місяць"
+  },
+  "errors": {
+    "pattern": "Некоректний формат",
+    "required": "Обов'язкове полу",
+    "minlength": "Мінімальна довжина {{length}} символів"
+  },
+  "welcomePage": {
+    "readyExplore": "Готові до <b>просування?<b/>",
+    "continueEmail": "Продовжити через e-mail",
+    "or": "або",
+    "dontHaveAccount": "Вперше тут?",
+    "register": "Реєстрація"
+  },
+  "signUp": {
+    "createAccount": "Створити новий <span class='decorated-name'>акаунт<span />",
+    "fillInformation": "Заповніть обов'язкові поля нижче"
+  },
+  "signIn": {
+    "signIn": "Увійти",
+    "title": "Увійти до <span class='decorated-name'>акаунту</span>"
+  },
+  "homePage": {
+    "selectLocation": "Зміна локації",
+    "chooseLocation": "Обрати локацію",
+    "searchPlaceholder": "Пошук білбордів за назвою, адресою і тд.",
+    "welcomeText": "Привіт, <span class='decorated-name'>{{name}}</span>! Дававй почнемо просуватися",
+    "topBannerAgents": "Популярні агенти",
+    "nearbyBillboards": "Дослідити білборду поруч",
+    "featuredBillboards": "Популярні варіанти"
+  },
+  "searchBillboards": {
+    "title": "Результати пошуку",
+    "searchPlaceholder": "Пошук білбордів за назвою, адресою і тд.",
+    "foundBillboards": "Знайдено <span class='decorated-name'>{{count}}</span> білбордів"
+  },
+  "agents": {
+    "title": "Популярні агенти",
+    "subTitle": "Знайди найкраще місце для просування вашої реклами"
+  },
+  "profile": {
+    "title": "Профіль",
+    "activeBillboards": "Активні",
+    "archived": "Архівовані",
+    "rentedOut": "Сдані в аренду",
+    "editTitle": "Редагувати профіль"
+  },
+  "favorite": {
+    "title": "Обрані",
+    "pageIsEmpty": "Ваш список обраних білбордів <span class='decorated-name'> порожній </span> ",
+    "clickAbove": "Натисніть на кнопку вижще щоб почати досліджувати та додавати нові обрані білборди!"
+  },
+  "notifications": {
+    "title": "Повідомлення"
+  },
+  "createBillboard": {
+    "title": "Додати оголошення",
+    "greetings": "Привіт <span class='decorated-name'>{{name}}</span>, Заповни детальну інформацію про білборд",
+    "category": "Категорії білбордів",
+    "whereIsLocation": "Уточни <span class='decorated-name'> місцезнаходження </span>",
+    "photo": "Додай <span class='decorated-name'>photos</span> до вашиг оголошень",
+    "almostFinish": "<span class='decorated-name'> Майже завершили </span>, заповни поля нижче",
+    "selectLocation": "Обери локацію на мапі",
+    "canDragMessage": "Ти можеш переміщувати маркер, або обрати іншу локацію натиснувши на мапу",
+    "rentPrice": "Ціна оренди",
+    "setRentPrice": "Встановити {{type}} ціну оренди",
+    "monthly": "Помісячно",
+    "yearly": "Щорічно",
+    "phoneNumber": "Контактний номер телефону",
+    "email": "Контактна електронна пошта"
+  },
+  "billboardInformation": {
+    "location": "Локація",
+    "views": "Всього переглядів",
+    "averageViews": "Середня кіль-ть переглядів за місяцт",
+    "contactPhone": "Контактний номер телефону",
+    "contactEmail": "Контактна електронна пошта",
+    "rentalStart": "Дата початку аренди",
+    "rentalFinish": "Дата кінця аренди"
+  },
+  "onboard": {
+    "findPlace": {
+      "title": "Знайди найкраще місце для розміщення вашої <span class='decorated-name'>реклами</span>",
+      "subtitle": "Мільйони популярних локацій для вашиї ідей та дій!"
+    },
+    "fastSell": {
+      "title": "Швидка оренда білборду, всього в <span class='decorated-name'>один кліл </span>",
+      "subtitle": "Активні користувачі, готові придбати ваш білборд"
+    },
+    "perfectPlace": {
+      "title": "Знайди <span class='decorated-name'>ідейальний варіант</span> для вашої ідеї",
+      "subtitle": "Зберігай та слідкуй за ідеями щоб орендувати найкраще!"
+    }
+  },
+  "transactionReview": {
+    "title": "Перегляд транзакції",
+    "period": "Період",
+    "noteForOwner": "Повідомлення до власника",
+    "checkIn": "Дата початку оренди",
+    "checkOut": "Дата кінця оренди",
+    "notePlaceholder": "Залиш повідомлення тут"
+  }
+}

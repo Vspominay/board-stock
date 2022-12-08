@@ -8,6 +8,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgxStripeModule } from 'ngx-stripe';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,7 @@ import { AuthEffects } from './entities/auth/state/auth.effects';
 import { BoardsEffects } from './entities/boards/state/boards.effects';
 import { LayoutsModule } from './modules/layouts/layouts.module';
 import { reducers } from './reducers';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule, translationConfig } from './shared/shared.module';
 import { environment } from '../environments/environment';
 import { InterceptorModule } from './interceptors/interceptor.module';
 
@@ -32,6 +33,7 @@ import { InterceptorModule } from './interceptors/interceptor.module';
     BrowserAnimationsModule,
     LayoutsModule,
     InterceptorModule,
+    TranslateModule.forRoot(translationConfig),
     NgxStripeModule.forRoot(environment.public_stripe),
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects, BoardsEffects]),

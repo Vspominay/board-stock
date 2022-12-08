@@ -53,7 +53,6 @@ export const translationConfig = {
   ],
   imports: [
     CommonModule,
-    TranslateModule.forRoot(translationConfig),
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
